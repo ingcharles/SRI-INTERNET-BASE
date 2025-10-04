@@ -45,12 +45,11 @@ onUnmounted(() => {
   <div class="app-container">
     <EncabezadoApp :es-pantalla-pequena="esPantallaPequena" @alternar-menu="manejarToggleMenu" />
 
-    <MenuLateral v-if="layoutStore.menuLateralVisible || layoutStore.menuMovilVisible"
-      :solo-iconos="menuColapsado && !esPantallaPequena" :class="{ visible: layoutStore.menuMovilVisible }" />
+    <MenuLateral :solo-iconos="menuColapsado && !esPantallaPequena"
+      :class="{ visible: layoutStore.menuMovilVisible }" />
 
     <ContenidoPrincipal :class="{ 'menu-colapsado': menuColapsado }" :ruta-actual="['Inicio']">
       <InicioVista />
-      <EjemploGrid />
     </ContenidoPrincipal>
 
     <PiePagina :class="{ 'menu-colapsado': menuColapsado }" />

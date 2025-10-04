@@ -220,6 +220,7 @@ body a {
   background: transparent;
   border: none;
   border-radius: 0;
+  margin-bottom: 0;
 }
 
 .menu-lateral .p-panelmenu .p-panelmenu-header-link {
@@ -227,12 +228,18 @@ body a {
   border: none;
   background: transparent;
   color: var(--color-gris-fuerte);
-  font-size: 14px;
+  font-size: 13px;
+  font-weight: 600;
   transition: background-color 0.2s;
+  text-transform: uppercase;
 }
 
 .menu-lateral .p-panelmenu .p-panelmenu-header-link:hover {
   background-color: var(--color-gris-tenue);
+}
+
+.menu-lateral .p-panelmenu .p-panelmenu-header-link:focus {
+  box-shadow: none;
 }
 
 .menu-lateral .p-panelmenu .p-panelmenu-content {
@@ -241,15 +248,74 @@ body a {
   padding: 0;
 }
 
+/* Nivel 1 - Items principales */
+.menu-lateral .p-panelmenu .p-menuitem {
+  margin-bottom: 0.25rem;
+}
+
 .menu-lateral .p-panelmenu .p-menuitem-link {
-  padding: 0.5rem 1rem 0.5rem 2.5rem;
+  padding: 0.6rem 1rem 0.6rem 2.5rem;
   color: var(--color-gris-medio);
   font-size: 13px;
   transition: background-color 0.2s;
+  border: none;
 }
 
 .menu-lateral .p-panelmenu .p-menuitem-link:hover {
   background-color: var(--color-gris-tenue);
+}
+
+.menu-lateral .p-panelmenu .p-menuitem-link:focus {
+  box-shadow: none;
+}
+
+/* Submenu list spacing */
+.menu-lateral .p-panelmenu .p-submenu-list {
+  padding: 0.25rem 0;
+}
+
+/* Nivel 2 - Submenús */
+.menu-lateral .p-panelmenu .p-submenu-list .p-menuitem {
+  margin-bottom: 0.15rem;
+}
+
+.menu-lateral .p-panelmenu .p-submenu-list .p-menuitem-link {
+  padding: 0.5rem 1rem 0.5rem 3.5rem;
+  font-size: 12px;
+  color: var(--color-gris-medio);
+}
+
+/* Nivel 3 - Sub-submenús */
+.menu-lateral .p-panelmenu .p-submenu-list .p-submenu-list .p-menuitem {
+  margin-bottom: 0.15rem;
+}
+
+.menu-lateral .p-panelmenu .p-submenu-list .p-submenu-list .p-menuitem-link {
+  padding: 0.5rem 1rem 0.5rem 4.5rem;
+  font-size: 12px;
+}
+
+/* Iconos del menú */
+.menu-lateral .p-panelmenu .p-menuitem-icon,
+.menu-lateral .p-panelmenu .p-panelmenu-icon {
+  color: var(--color-gris-medio);
+  font-size: 1.1rem;
+}
+
+/* Lista de iconos cuando está colapsado */
+.lista-menu {
+  padding: var(--espacio-3) var(--espacio-1);
+}
+
+.lista-menu .p-button {
+  width: 40px;
+  height: 40px;
+  color: var(--color-gris-fuerte) !important;
+}
+
+.lista-menu .p-button:hover {
+  background-color: var(--color-gris-tenue) !important;
+  color: var(--color-azul-principal) !important;
 }
 
 /* ========== CONTENIDO PRINCIPAL ========== */
