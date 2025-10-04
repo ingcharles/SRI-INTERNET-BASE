@@ -28,7 +28,7 @@ function manejarClickMenu() {
     <div class="contenedor-fluido">
       <div class="fila alinear-centro">
         <!-- Sección Izquierda: Menú hamburguesa + Logo -->
-        <div class="columna-12 columna-md-3 columna-lg-2 encabezado-izquierda">
+        <div class="columna-6 columna-md-3 columna-lg-2 encabezado-izquierda">
           <div class="mostrar-flex alinear-centro">
             <Button icon="pi pi-bars" class="p-button-text p-button-rounded boton-menu" @click="manejarClickMenu"
               aria-label="Menú" />
@@ -40,7 +40,7 @@ function manejarClickMenu() {
         </div>
 
         <!-- Sección Centro: Información del usuario -->
-        <div class="columna-12 columna-md-6 columna-lg-8 encabezado-centro ocultar-xs ocultar-sm">
+        <div class="columna-12 columna-md-6 columna-lg-8 encabezado-centro ocultar-xs">
           <div class="info-usuario mostrar-flex flex-columna alinear-centro justificar-centro">
             <span class="info-label">{{ informacionUsuario.identificacion }}</span>
             <span class="info-label">{{ informacionUsuario.nombre }}</span>
@@ -48,7 +48,7 @@ function manejarClickMenu() {
         </div>
 
         <!-- Sección Derecha: Iconos de acción -->
-        <div class="columna-12 columna-md-3 columna-lg-2 encabezado-derecha">
+        <div class="columna-6 columna-md-3 columna-lg-2 encabezado-derecha">
           <div class="mostrar-flex alinear-centro justificar-fin">
             <template v-if="!esPantallaPequena">
               <Button icon="pi pi-user" class="p-button-text p-button-rounded" aria-label="Perfil" />
