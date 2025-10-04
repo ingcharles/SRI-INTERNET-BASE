@@ -41,11 +41,12 @@ describe('InicioVista', () => {
     it('Debería tener botones de navegación del carrusel', () => {
         const wrapper = mount(InicioVista);
 
-        const botonPrev = wrapper.find('.carrusel-prev');
-        const botonNext = wrapper.find('.carrusel-next');
+        const botones = wrapper.findAll('.carrusel-btn');
+        expect(botones.length).toBe(2);
 
-        expect(botonPrev.exists()).toBe(true);
-        expect(botonNext.exists()).toBe(true);
+        // Verificar que los botones tienen los iconos correctos
+        expect(wrapper.html()).toContain('pi-chevron-left');
+        expect(wrapper.html()).toContain('pi-chevron-right');
     });
 
     it('Debería tener tabs activos', () => {

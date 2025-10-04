@@ -26,12 +26,24 @@ const itemInicio: MenuItem = {
 
 <template>
     <main class="contenido-principal">
-        <div v-if="rutaActual && rutaActual.length > 0" class="seccion-breadcrumb">
-            <Breadcrumb :home="itemInicio" :model="itemsMiga" />
-        </div>
+        <div class="contenedor-fluido">
+            <!-- Breadcrumb -->
+            <div v-if="rutaActual && rutaActual.length > 0" class="fila">
+                <div class="columna-12">
+                    <div class="seccion-breadcrumb">
+                        <Breadcrumb :home="itemInicio" :model="itemsMiga" />
+                    </div>
+                </div>
+            </div>
 
-        <div class="area-contenido">
-            <slot />
+            <!-- Área de contenido -->
+            <div class="fila">
+                <div class="columna-12">
+                    <div class="area-contenido">
+                        <slot />
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
 </template>

@@ -53,18 +53,28 @@ function limpiarBusqueda() {
 
 <template>
   <aside class="menu-lateral" :class="{ 'solo-iconos': soloIconos }">
+    <!-- Buscador -->
     <div v-if="!soloIconos" class="seccion-buscar">
-      <InputText v-model="textoBusqueda" placeholder="Buscar servicios" class="input-buscador" />
-      <Button v-if="textoBusqueda" icon="pi pi-times" class="p-button-text btn-blanco" @click="limpiarBusqueda"
-        aria-label="Limpiar búsqueda" />
-      <Button v-else icon="pi pi-search" class="p-button-text btn-blanco" aria-label="Buscar" />
+      <div class="fila alinear-centro">
+        <div class="columna-10">
+          <InputText v-model="textoBusqueda" placeholder="Buscar servicios" class="input-buscador" />
+        </div>
+        <div class="columna-2">
+          <Button v-if="textoBusqueda" icon="pi pi-times" class="p-button-text btn-buscar" @click="limpiarBusqueda"
+            aria-label="Limpiar búsqueda" />
+          <Button v-else icon="pi pi-search" class="p-button-text btn-buscar" aria-label="Buscar" />
+        </div>
+      </div>
     </div>
 
+    <!-- Navegación -->
     <nav class="menu-navegacion">
       <PanelMenu v-if="!soloIconos" :model="itemsMenuPrime" />
       <div v-else class="lista-menu">
-        <Button v-for="item in itemsMenuPrime" :key="item.label" :icon="item.icon"
-          class="p-button-rounded p-button-secondary p-button-outlined" :aria-label="item.label" />
+        <div class="mostrar-flex flex-columna alinear-centro">
+          <Button v-for="item in itemsMenuPrime" :key="item.label" :icon="item.icon"
+            class="p-button-rounded p-button-secondary p-button-outlined" :aria-label="item.label" />
+        </div>
       </div>
     </nav>
   </aside>

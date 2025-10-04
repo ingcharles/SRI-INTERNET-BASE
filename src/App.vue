@@ -6,6 +6,7 @@ import MenuLateral from '@/componentes/layout/MenuLateral.vue';
 import ContenidoPrincipal from '@/componentes/layout/ContenidoPrincipal.vue';
 import PiePagina from '@/componentes/layout/PiePagina.vue';
 import InicioVista from '@/vistas/InicioVista.vue';
+import EjemploGrid from './componentes/ejemplos/EjemploGrid.vue';
 
 const layoutStore = useLayoutStore();
 const anchoPantalla = ref(window.innerWidth);
@@ -49,6 +50,7 @@ onUnmounted(() => {
 
     <ContenidoPrincipal :class="{ 'menu-colapsado': menuColapsado }" :ruta-actual="['Inicio']">
       <InicioVista />
+      <EjemploGrid />
     </ContenidoPrincipal>
 
     <PiePagina :class="{ 'menu-colapsado': menuColapsado }" />

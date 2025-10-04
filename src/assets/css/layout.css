@@ -1,17 +1,35 @@
 /**
- * Estilos para el layout principal del sistema
- * Versión con CSS Custom Properties (Variables CSS Nativas)
+ * Estilos para el layout principal del sistema SRI
+ * Usa el sistema de grid-sistema.css en español
  */
 
-/* Encabezado */
+/* ========== html, body ========== */
+
+* {
+  padding: 0;
+  margin: 0;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-azul-fuerte) var(--color-blanco);
+}
+
+body {
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  font-size: var(--fuente-size-campo);
+  background-color: var(--color-blanco);
+  font-weight: 400;
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+}
+
+body a {
+  color: var(--color-azul-principal);
+}
+
+/* ========== ENCABEZADO ========== */
 .encabezado-app {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   background-color: var(--color-azul-principal);
   color: var(--color-blanco);
   height: 60px;
-  padding: 0 1rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: fixed;
   top: 0;
@@ -20,85 +38,120 @@
   z-index: 1000;
 }
 
-.encabezado-app .encabezado-izquierda {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+.encabezado-app .contenedor-fluido {
+  height: 100%;
+  padding: 0 var(--espacio-2);
 }
 
-.encabezado-app .encabezado-izquierda .boton-menu {
-  color: var(--color-blanco);
+.encabezado-app .fila {
+  height: 100%;
 }
 
-.encabezado-app .encabezado-izquierda .boton-menu:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+/* Sección izquierda del encabezado */
+.encabezado-izquierda {
+  height: 100%;
 }
 
-.encabezado-app .encabezado-izquierda .logo-contenedor {
-  display: flex;
-  flex-direction: column;
+.encabezado-izquierda .mostrar-flex {
+  height: 100%;
+  gap: var(--espacio-2);
+}
+
+.boton-menu {
+  color: var(--color-blanco) !important;
+  background: transparent !important;
+  border: none !important;
+}
+
+.boton-menu:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.logo-contenedor {
   line-height: 1.2;
 }
 
-.encabezado-app .encabezado-izquierda .logo-contenedor .logo-texto {
-  font-size: 24px;
+.logo-texto {
+  font-size: 28px;
   font-weight: bold;
   color: var(--color-blanco);
+  display: block;
 }
 
-.encabezado-app .encabezado-izquierda .logo-contenedor .logo-subtexto {
-  font-size: 12px;
+.logo-subtexto {
+  font-size: 11px;
   font-style: italic;
   color: var(--color-blanco);
+  display: block;
 }
 
-.encabezado-app .encabezado-centro {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  padding: 0 1rem;
+/* Sección centro del encabezado */
+.encabezado-centro {
+  height: 100%;
 }
 
-.encabezado-app .encabezado-centro .info-usuario {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+.info-usuario {
+  height: 100%;
 }
 
-.encabezado-app .encabezado-centro .info-usuario .info-label {
-  font-size: 12px;
+.info-label {
+  font-size: 11px;
   color: var(--color-blanco);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 400px;
+  display: block;
+  text-align: center;
 }
 
-.encabezado-app .encabezado-derecha {
-  display: flex;
-  gap: 0.5rem;
+/* Sección derecha del encabezado */
+.encabezado-derecha {
+  height: 100%;
 }
 
-.encabezado-app .encabezado-derecha button {
-  color: var(--color-blanco);
+.encabezado-derecha .mostrar-flex {
+  height: 100%;
+  gap: var(--espacio-1);
 }
 
-.encabezado-app .encabezado-derecha button:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+.encabezado-derecha button {
+  color: var(--color-blanco) !important;
+  background: transparent !important;
+  border: none !important;
 }
 
-/* Menu Lateral */
+.encabezado-derecha button:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.badge-notificacion {
+  position: relative;
+}
+
+.badge-notificacion::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 8px;
+  height: 8px;
+  background-color: #ff4444;
+  border-radius: 50%;
+  border: 2px solid var(--color-azul-principal);
+}
+
+/* ========== MENU LATERAL ========== */
 .menu-lateral {
   background-color: var(--color-blanco);
   height: calc(100vh - 60px);
   position: fixed;
   top: 60px;
   left: 0;
-  width: 250px;
+  width: 240px;
   box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
   overflow-y: auto;
-  transition: width 0.3s ease;
+  overflow-x: hidden;
+  transition: width 0.3s ease, transform 0.3s ease;
   z-index: 999;
 }
 
@@ -106,85 +159,137 @@
   width: 60px;
 }
 
-.menu-lateral.solo-iconos .seccion-buscar {
+.menu-lateral.solo-iconos .seccion-buscar,
+.menu-lateral.solo-iconos .p-panelmenu .p-menuitem-text {
   display: none;
 }
 
-.menu-lateral .seccion-buscar {
-  display: flex;
-  align-items: center;
-  padding: 1rem;
+/* Buscador del menú */
+.seccion-buscar {
+  padding: var(--espacio-2);
   border-bottom: 1px solid var(--color-gris-claro);
-  gap: 0.5rem;
 }
 
-.menu-lateral .seccion-buscar .input-buscador {
-  flex: 1;
-  min-width: 0;
+.seccion-buscar .fila {
+  margin: 0;
 }
 
-.menu-lateral .seccion-buscar .btn-blanco {
-  background-color: var(--color-blanco);
-  border: none;
-  color: var(--color-gris-fuerte);
-}
-
-.menu-lateral .seccion-buscar .btn-blanco:hover {
-  background-color: var(--color-gris-claro);
-}
-
-.menu-lateral .menu-navegacion {
-  padding: 0.5rem 0;
-}
-
-.menu-lateral .lista-menu {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
+.input-buscador {
+  width: 100%;
   padding: 0.5rem;
+  border: 1px solid var(--color-gris-claro);
+  border-radius: 4px;
+  font-size: 13px;
 }
 
-.menu-lateral .lista-menu button {
-  width: 40px;
-  height: 40px;
+.input-buscador:focus {
+  outline: none;
+  border-color: var(--color-azul-principal);
 }
 
-/* Contenido Principal */
+.btn-buscar {
+  background: transparent !important;
+  border: none !important;
+  color: var(--color-gris-fuerte) !important;
+  padding: 0.5rem !important;
+}
+
+.btn-buscar:hover {
+  background-color: var(--color-gris-tenue) !important;
+}
+
+/* Navegación del menú */
+.menu-navegacion {
+  padding: var(--espacio-1) 0;
+}
+
+.lista-menu {
+  padding: var(--espacio-2);
+}
+
+.lista-menu .mostrar-flex {
+  gap: var(--espacio-2);
+}
+
+/* Estilos para PanelMenu de PrimeVue */
+.menu-lateral .p-panelmenu {
+  border: none;
+}
+
+.menu-lateral .p-panelmenu .p-panelmenu-header {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+}
+
+.menu-lateral .p-panelmenu .p-panelmenu-header-link {
+  padding: 0.75rem 1rem;
+  border: none;
+  background: transparent;
+  color: var(--color-gris-fuerte);
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.menu-lateral .p-panelmenu .p-panelmenu-header-link:hover {
+  background-color: var(--color-gris-tenue);
+}
+
+.menu-lateral .p-panelmenu .p-panelmenu-content {
+  border: none;
+  background: transparent;
+  padding: 0;
+}
+
+.menu-lateral .p-panelmenu .p-menuitem-link {
+  padding: 0.5rem 1rem 0.5rem 2.5rem;
+  color: var(--color-gris-medio);
+  font-size: 13px;
+  transition: background-color 0.2s;
+}
+
+.menu-lateral .p-panelmenu .p-menuitem-link:hover {
+  background-color: var(--color-gris-tenue);
+}
+
+/* ========== CONTENIDO PRINCIPAL ========== */
 .contenido-principal {
   margin-top: 60px;
-  margin-left: 250px;
-  min-height: calc(100vh - 60px - 60px);
-  padding: 1rem;
+  margin-left: 240px;
+  min-height: calc(100vh - 120px);
   background-color: var(--color-gris-tenue);
   transition: margin-left 0.3s ease;
+  padding: var(--espacio-3);
 }
 
 .contenido-principal.menu-colapsado {
   margin-left: 60px;
 }
 
-.contenido-principal .seccion-breadcrumb {
-  margin-bottom: 1rem;
-  padding: 0.5rem;
+/* Breadcrumb */
+.seccion-breadcrumb {
   background-color: var(--color-blanco);
   border-radius: 4px;
+  padding: var(--espacio-2);
+  margin-bottom: var(--espacio-3);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
-.contenido-principal .area-contenido {
+/* Área de contenido */
+.area-contenido {
   background-color: var(--color-blanco);
-  padding: 1.5rem;
+  padding: var(--espacio-4);
   border-radius: 4px;
   min-height: 400px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
-/* Pie de Página */
+/* ========== PIE DE PÁGINA ========== */
 .pie-pagina {
   background-color: var(--color-azul-principal);
   color: var(--color-blanco);
-  padding: 1rem;
-  margin-top: auto;
-  margin-left: 250px;
+  padding: var(--espacio-3) 0;
+  margin-left: 240px;
   transition: margin-left 0.3s ease;
 }
 
@@ -192,47 +297,47 @@
   margin-left: 60px;
 }
 
-.pie-pagina .pie-contenido {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-  max-width: 1400px;
-  margin: 0 auto;
+.pie-pagina .contenedor-fluido {
+  padding: 0 var(--espacio-3);
 }
 
-.pie-pagina .pie-seccion {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.pie-pagina .pie-enlace {
+.pie-enlace {
   color: var(--color-blanco);
   text-decoration: none;
   font-size: 12px;
+  transition: opacity 0.2s;
 }
 
-.pie-pagina .pie-enlace:hover {
+.pie-enlace:hover {
+  opacity: 0.8;
   text-decoration: underline;
 }
 
-.pie-pagina .separador {
+.separador {
   color: var(--color-blanco);
   font-size: 12px;
+  margin: 0 var(--espacio-1);
 }
 
-.pie-pagina .pie-texto {
+.pie-texto {
   font-size: 12px;
   color: var(--color-blanco);
+  margin: 0;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .encabezado-app .encabezado-centro .info-usuario .info-label {
+/* ========== RESPONSIVE ========== */
+
+/* Tablets */
+@media (max-width: 992px) {
+  .info-label {
     font-size: 10px;
-    max-width: 200px;
+  }
+}
+
+/* Móviles */
+@media (max-width: 768px) {
+  .encabezado-centro {
+    display: none;
   }
 
   .menu-lateral {
@@ -243,35 +348,37 @@
     transform: translateX(0);
   }
 
-  .contenido-principal {
-    margin-left: 0;
-  }
-
+  .contenido-principal,
   .contenido-principal.menu-colapsado {
     margin-left: 0;
+    padding: var(--espacio-2);
   }
 
-  .pie-pagina {
-    margin-left: 0;
-  }
-
+  .pie-pagina,
   .pie-pagina.menu-colapsado {
     margin-left: 0;
   }
-
-  .pie-pagina .pie-contenido {
-    flex-direction: column;
-    text-align: center;
-  }
 }
 
+/* Móviles pequeños */
 @media (max-width: 576px) {
-  .encabezado-app .encabezado-centro {
-    display: none;
+  .logo-texto {
+    font-size: 22px;
   }
 
-  .pie-pagina .pie-seccion {
-    flex-direction: column;
-    gap: 0.25rem;
+  .logo-subtexto {
+    font-size: 10px;
+  }
+
+  .encabezado-app .contenedor-fluido {
+    padding: 0 var(--espacio-1);
+  }
+
+  .contenido-principal {
+    padding: var(--espacio-1);
+  }
+
+  .area-contenido {
+    padding: var(--espacio-2);
   }
 }

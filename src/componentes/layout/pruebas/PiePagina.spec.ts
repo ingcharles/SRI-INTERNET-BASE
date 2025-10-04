@@ -7,7 +7,8 @@ describe('PiePagina', () => {
         const wrapper = mount(PiePagina);
 
         expect(wrapper.find('.pie-pagina').exists()).toBe(true);
-        expect(wrapper.find('.pie-contenido').exists()).toBe(true);
+        expect(wrapper.find('.contenedor-fluido').exists()).toBe(true);
+        expect(wrapper.find('.fila').exists()).toBe(true);
     });
 
     it('Debería mostrar los enlaces de términos y política', () => {

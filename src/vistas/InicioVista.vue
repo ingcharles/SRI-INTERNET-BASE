@@ -83,44 +83,74 @@ const serviciosAdicionales = ref([
 
 <template>
   <div class="inicio-vista">
+    <!-- Sección de Servicios Destacados (Carrusel Circular) -->
     <div class="seccion-servicios-destacados">
       <div class="carrusel-servicios">
-        <button class="carrusel-btn carrusel-prev" aria-label="Anterior">
-          <i class="pi pi-chevron-left"></i>
-        </button>
-
-        <div class="servicios-grid">
-          <div v-for="servicio in serviciosDestacados" :key="servicio.id" class="servicio-card"
-            :style="{ borderColor: servicio.color }">
-            <div class="servicio-icono" :style="{ backgroundColor: servicio.color }">
-              <i :class="servicio.icono"></i>
+        <div class="contenedor-fluido">
+          <div class="fila alinear-centro">
+            <!-- Botón Anterior -->
+            <div class="columna-auto">
+              <button class="carrusel-btn" aria-label="Anterior">
+                <i class="pi pi-chevron-left"></i>
+              </button>
             </div>
-            <h3 class="servicio-titulo">{{ servicio.titulo }}</h3>
-            <p class="servicio-descripcion">{{ servicio.descripcion }}</p>
+
+            <!-- Grid de Servicios -->
+            <div class="columna">
+              <div class="servicios-grid">
+                <div class="fila justificar-centro">
+                  <div v-for="servicio in serviciosDestacados" :key="servicio.id" class="columna-auto">
+                    <div class="servicio-card" :style="{ borderColor: servicio.color }">
+                      <div class="servicio-icono" :style="{ backgroundColor: servicio.color }">
+                        <i :class="servicio.icono"></i>
+                      </div>
+                      <h3 class="servicio-titulo">{{ servicio.titulo }}</h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Botón Siguiente -->
+            <div class="columna-auto">
+              <button class="carrusel-btn" aria-label="Siguiente">
+                <i class="pi pi-chevron-right"></i>
+              </button>
+            </div>
           </div>
         </div>
-
-        <button class="carrusel-btn carrusel-next" aria-label="Siguiente">
-          <i class="pi pi-chevron-right"></i>
-        </button>
       </div>
     </div>
 
+    <!-- Sección de Tabs -->
     <div class="seccion-tabs">
       <div class="tabs-header">
-        <button class="tab-btn active">Servicios más utilizados</button>
-        <button class="tab-btn">Más servicios</button>
+        <div class="fila">
+          <div class="columna-auto">
+            <button class="tab-btn active">Servicios más utilizados</button>
+          </div>
+          <div class="columna-auto">
+            <button class="tab-btn">Más servicios</button>
+          </div>
+        </div>
       </div>
 
       <div class="tabs-content">
         <div class="servicios-lista">
-          <div v-for="servicio in serviciosAdicionales" :key="servicio.id" class="servicio-item">
-            <div class="servicio-item-icono">
-              <i :class="servicio.icono"></i>
-            </div>
-            <div class="servicio-item-info">
-              <h4>{{ servicio.titulo }}</h4>
-              <p>{{ servicio.descripcion }}</p>
+          <div class="fila">
+            <div v-for="servicio in serviciosAdicionales" :key="servicio.id"
+              class="columna-12 columna-md-6 columna-lg-4">
+              <div class="servicio-item">
+                <div class="mostrar-flex">
+                  <div class="servicio-item-icono">
+                    <i :class="servicio.icono"></i>
+                  </div>
+                  <div class="servicio-item-info">
+                    <h4>{{ servicio.titulo }}</h4>
+                    <p>{{ servicio.descripcion }}</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

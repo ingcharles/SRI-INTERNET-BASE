@@ -130,6 +130,7 @@ Todas las variables de diseño están en `src/assets/css/_sri-vue-variables.scss
 - [DOCUMENTACION.md](./DOCUMENTACION.md) - Documentación técnica completa
 - [GUIA-VARIABLES-CSS.md](./GUIA-VARIABLES-CSS.md) - Guía de variables SCSS vs CSS nativo
 - [COMO-CAMBIAR-A-CSS-NATIVO.md](./COMO-CAMBIAR-A-CSS-NATIVO.md) - Cómo cambiar entre versiones
+- [GUIA-GRID-SISTEMA.md](./GUIA-GRID-SISTEMA.md) - Sistema de Grid Responsivo en Español
 
 ## 🎨 Dos Versiones de Estilos Disponibles
 
@@ -148,6 +149,42 @@ Este proyecto incluye **dos implementaciones de estilos**:
 - **Archivos**: `layout.css`, `inicio.css`, `variables.css`
 
 **Para cambiar entre versiones**, consulta [COMO-CAMBIAR-A-CSS-NATIVO.md](./COMO-CAMBIAR-A-CSS-NATIVO.md)
+
+## 📐 Sistema de Grid Responsivo en Español
+
+El proyecto incluye un **sistema de grid completo** similar a Bootstrap pero con nombres en español:
+
+- ✅ **12 columnas** con sistema flexible
+- ✅ **5 breakpoints** responsive (xs, sm, md, lg, xl, xxl)
+- ✅ **CSS puro generado** - No requiere preprocesador
+- ✅ **Nombres en español** - `.contenedor`, `.fila`, `.columna-6`
+- ✅ **Variables CSS** - Fácil personalización
+- ✅ **Utilidades completas** - Alineación, orden, espaciado, etc.
+
+### Ejemplo Rápido
+
+```html
+<div class="contenedor">
+  <div class="fila">
+    <div class="columna-12 columna-md-6 columna-lg-4">
+      Responsive: 12 cols (móvil) → 6 cols (tablet) → 4 cols (desktop)
+    </div>
+  </div>
+</div>
+```
+
+### Personalización con Variables
+
+```css
+:root {
+  --grid-gutter: 20px;        /* Cambiar espaciado */
+  --contenedor-lg: 1000px;    /* Cambiar ancho máximo */
+}
+```
+
+**Documentación**:
+- [GUIA-GRID-SISTEMA.md](./GUIA-GRID-SISTEMA.md) - Guía completa
+- [PERSONALIZACION-GRID.md](./PERSONALIZACION-GRID.md) - Personalización con variables
 
 ## 🤝 Contribución
 

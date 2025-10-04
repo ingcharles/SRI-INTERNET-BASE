@@ -1,0 +1,87 @@
+/**
+ * Variables CSS para el Sistema de Rejilla (Grid)
+ * Personaliza estos valores según las necesidades del proyecto
+ * Todas las variables en español
+ */
+
+:root {
+  /* ========== ESPACIADO DEL SISTEMA ========== */
+  --espaciado-rejilla: 15px;
+  --espaciado-rejilla-doble: 30px;
+
+  /* ========== ANCHOS MÁXIMOS DE CONTENEDORES ========== */
+  --contenedor-pequeno: 540px;
+  --contenedor-mediano: 720px;
+  --contenedor-grande: 960px;
+  --contenedor-extra-grande: 1140px;
+  --contenedor-extra-extra-grande: 1320px;
+
+  /* ========== PUNTOS DE QUIEBRE (BREAKPOINTS) ========== */
+  --punto-quiebre-xs: 0px;
+  --punto-quiebre-pequeno: 576px;
+  --punto-quiebre-mediano: 768px;
+  --punto-quiebre-grande: 992px;
+  --punto-quiebre-extra-grande: 1200px;
+  --punto-quiebre-extra-extra-grande: 1400px;
+
+  /* ========== COLUMNAS ========== */
+  --total-columnas: 12;
+
+  /* Porcentajes de columnas (calculados para 12 columnas) */
+  --ancho-columna-1: 8.333333%;
+  --ancho-columna-2: 16.666667%;
+  --ancho-columna-3: 25%;
+  --ancho-columna-4: 33.333333%;
+  --ancho-columna-5: 41.666667%;
+  --ancho-columna-6: 50%;
+  --ancho-columna-7: 58.333333%;
+  --ancho-columna-8: 66.666667%;
+  --ancho-columna-9: 75%;
+  --ancho-columna-10: 83.333333%;
+  --ancho-columna-11: 91.666667%;
+  --ancho-columna-12: 100%;
+
+  /* ========== ESPACIADO ENTRE ELEMENTOS ========== */
+  --espacio-0: 0;
+  --espacio-1: 0.25rem;
+  --espacio-2: 0.5rem;
+  --espacio-3: 1rem;
+  --espacio-4: 1.5rem;
+  --espacio-5: 3rem;
+
+  /* ========== ÍNDICE Z ========== */
+  --indice-z-contenedor: 1;
+  --indice-z-fila: 2;
+  --indice-z-columna: 3;
+}
+
+/* ========== TEMAS PERSONALIZADOS (OPCIONAL) ========== */
+/* Puedes crear temas personalizados sobrescribiendo estas variables */
+
+/* Ejemplo: Tema Compacto */
+.tema-compacto {
+  --espaciado-rejilla: 10px;
+  --espaciado-rejilla-doble: 20px;
+  --contenedor-pequeno: 500px;
+  --contenedor-mediano: 680px;
+  --contenedor-grande: 900px;
+  --contenedor-extra-grande: 1080px;
+  --contenedor-extra-extra-grande: 1260px;
+}
+
+/* Ejemplo: Tema Amplio */
+.tema-amplio {
+  --espaciado-rejilla: 20px;
+  --espaciado-rejilla-doble: 40px;
+  --contenedor-pequeno: 580px;
+  --contenedor-mediano: 760px;
+  --contenedor-grande: 1020px;
+  --contenedor-extra-grande: 1200px;
+  --contenedor-extra-extra-grande: 1400px;
+}
+
+/* Ejemplo: Sin Espaciado */
+.tema-sin-espaciado {
+  --espaciado-rejilla: 0px;
+  --espaciado-rejilla-doble: 0px;
+}

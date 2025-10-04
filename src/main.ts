@@ -16,9 +16,18 @@ import 'primeicons/primeicons.css';
 // Importar variables CSS nativas
 import '@/assets/css/variables.css';
 
+// Importar variables del sistema de grid
+import '@/assets/css/variables-grid.css';
+
+// Importar sistema de grid responsivo en español
+import '@/assets/css/grid-sistema.css';
+
 // Importar estilos personalizados con CSS nativo
 import '@/assets/css/layout.css';
 import '@/assets/css/inicio.css';
+
+// Importar estilos globales de PrimeVue personalizados
+// import '@/assets/css/_sri-vue-plantilla.scss';
 
 const app = createApp(App);
 
