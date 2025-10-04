@@ -536,8 +536,9 @@ body a {
 
   .contenido-principal {
     margin-left: 60px;
-    /* Espacio para iconos */
+    /* Espacio para iconos por defecto */
     padding: var(--espacio-2);
+    transition: margin-left 0.3s ease;
   }
 
   .contenido-principal.menu-colapsado {
@@ -546,11 +547,21 @@ body a {
 
   .pie-pagina {
     margin-left: 60px;
-    /* Espacio para iconos */
+    /* Espacio para iconos por defecto */
+    transition: margin-left 0.3s ease;
   }
 
   .pie-pagina.menu-colapsado {
     margin-left: 60px;
+  }
+
+  /* Cuando el menú móvil está expandido */
+  .app-container.menu-movil-expandido .contenido-principal {
+    margin-left: 240px;
+  }
+
+  .app-container.menu-movil-expandido .pie-pagina {
+    margin-left: 240px;
   }
 }
 

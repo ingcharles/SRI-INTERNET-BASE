@@ -51,7 +51,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="app-container">
+  <div class="app-container" :class="{ 'menu-movil-expandido': esPantallaPequena && layoutStore.menuMovilVisible }">
     <EncabezadoApp :es-pantalla-pequena="esPantallaPequena" @alternar-menu="manejarToggleMenu" />
 
     <MenuLateral :solo-iconos="mostrarSoloIconos" :class="{
