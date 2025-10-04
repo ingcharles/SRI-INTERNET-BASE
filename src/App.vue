@@ -6,13 +6,22 @@ import MenuLateral from '@/componentes/layout/MenuLateral.vue';
 import ContenidoPrincipal from '@/componentes/layout/ContenidoPrincipal.vue';
 import PiePagina from '@/componentes/layout/PiePagina.vue';
 import InicioVista from '@/vistas/InicioVista.vue';
-import EjemploGrid from './componentes/ejemplos/EjemploGrid.vue';
+
 
 const layoutStore = useLayoutStore();
 const anchoPantalla = ref(window.innerWidth);
 
 const esPantallaPequena = computed(() => anchoPantalla.value < 768);
 const menuColapsado = computed(() => !layoutStore.menuLateralVisible);
+
+// En móviles: siempre mostrar solo iconos cuando no está expandido el menú móvil
+// En desktop: mostrar solo iconos cuando el menú lateral está colapsado
+const mostrarSoloIconos = computed(() => {
+  if (esPantallaPequena.value) {
+    return !layoutStore.menuMovilVisible;
+  }
+  return menuColapsado.value;
+});
 
 /**
  * Maneja el cambio de tamaño de la ventana
@@ -45,8 +54,9 @@ onUnmounted(() => {
   <div class="app-container">
     <EncabezadoApp :es-pantalla-pequena="esPantallaPequena" @alternar-menu="manejarToggleMenu" />
 
-    <MenuLateral :solo-iconos="menuColapsado && !esPantallaPequena"
-      :class="{ visible: layoutStore.menuMovilVisible }" />
+    <MenuLateral :solo-iconos="mostrarSoloIconos" :class="{
+      'menu-movil-visible': esPantallaPequena && layoutStore.menuMovilVisible
+    }" />
 
     <ContenidoPrincipal :class="{ 'menu-colapsado': menuColapsado }" :ruta-actual="['Inicio']">
       <InicioVista />
