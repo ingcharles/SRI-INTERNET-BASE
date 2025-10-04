@@ -5,7 +5,6 @@ import EncabezadoApp from '@/componentes/layout/EncabezadoApp.vue';
 import MenuLateral from '@/componentes/layout/MenuLateral.vue';
 import ContenidoPrincipal from '@/componentes/layout/ContenidoPrincipal.vue';
 import PiePagina from '@/componentes/layout/PiePagina.vue';
-import InicioVista from '@/vistas/InicioVista.vue';
 
 
 const layoutStore = useLayoutStore();
@@ -59,7 +58,7 @@ onUnmounted(() => {
     }" />
 
     <ContenidoPrincipal :class="{ 'menu-colapsado': menuColapsado }" :ruta-actual="['Inicio']">
-      <InicioVista />
+      <router-view />
     </ContenidoPrincipal>
 
     <PiePagina :class="{ 'menu-colapsado': menuColapsado }" />
