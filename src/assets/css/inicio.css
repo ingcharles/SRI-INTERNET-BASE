@@ -1,0 +1,221 @@
+/**
+ * Estilos para la vista de inicio
+ * Versión con CSS Custom Properties (Variables CSS Nativas)
+ */
+
+.inicio-vista .seccion-servicios-destacados {
+  margin-bottom: 2rem;
+}
+
+.inicio-vista .seccion-servicios-destacados .carrusel-servicios {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem 0;
+}
+
+.inicio-vista .seccion-servicios-destacados .carrusel-servicios .carrusel-btn {
+  background-color: transparent;
+  border: none;
+  font-size: 32px;
+  color: var(--color-gris-fuerte);
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.inicio-vista .seccion-servicios-destacados .carrusel-servicios .carrusel-btn:hover {
+  color: var(--color-azul-principal);
+}
+
+.inicio-vista .seccion-servicios-destacados .carrusel-servicios .carrusel-btn.carrusel-prev {
+  margin-right: 1rem;
+}
+
+.inicio-vista .seccion-servicios-destacados .carrusel-servicios .carrusel-btn.carrusel-next {
+  margin-left: 1rem;
+}
+
+.inicio-vista .seccion-servicios-destacados .carrusel-servicios .servicios-grid {
+  display: flex;
+  gap: 1.5rem;
+  flex: 1;
+  overflow-x: auto;
+  padding: 1rem 0;
+}
+
+.inicio-vista .seccion-servicios-destacados .carrusel-servicios .servicios-grid .servicio-card {
+  min-width: 180px;
+  max-width: 200px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1.5rem;
+  border: 3px solid;
+  border-radius: 50%;
+  aspect-ratio: 1;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.inicio-vista .seccion-servicios-destacados .carrusel-servicios .servicios-grid .servicio-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.inicio-vista .seccion-servicios-destacados .carrusel-servicios .servicios-grid .servicio-card .servicio-icono {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.inicio-vista .seccion-servicios-destacados .carrusel-servicios .servicios-grid .servicio-card .servicio-icono i {
+  font-size: 32px;
+  color: var(--color-blanco);
+}
+
+.inicio-vista .seccion-servicios-destacados .carrusel-servicios .servicios-grid .servicio-card .servicio-titulo {
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--color-gris-fuerte);
+  margin: 0.5rem 0;
+}
+
+.inicio-vista .seccion-servicios-destacados .carrusel-servicios .servicios-grid .servicio-card .servicio-descripcion {
+  font-size: 11px;
+  color: var(--color-gris-medio);
+  margin: 0;
+  display: none;
+}
+
+/* Sección de Tabs */
+.inicio-vista .seccion-tabs .tabs-header {
+  display: flex;
+  border-bottom: 2px solid var(--color-gris-claro);
+  margin-bottom: 1.5rem;
+}
+
+.inicio-vista .seccion-tabs .tabs-header .tab-btn {
+  padding: 0.75rem 1.5rem;
+  background-color: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  color: var(--color-gris-fuerte);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.inicio-vista .seccion-tabs .tabs-header .tab-btn:hover {
+  background-color: var(--color-gris-tenue);
+}
+
+.inicio-vista .seccion-tabs .tabs-header .tab-btn.active {
+  color: var(--color-azul-principal);
+  border-bottom-color: var(--color-amarillo-claro);
+  background-color: var(--color-amarillo-claro);
+}
+
+.inicio-vista .seccion-tabs .tabs-content .servicios-lista {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.inicio-vista .seccion-tabs .tabs-content .servicios-lista .servicio-item {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: var(--color-gris-tenue);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.inicio-vista .seccion-tabs .tabs-content .servicios-lista .servicio-item:hover {
+  background-color: var(--color-turqueza-claro);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.inicio-vista .seccion-tabs .tabs-content .servicios-lista .servicio-item .servicio-item-icono {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-blanco);
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.inicio-vista .seccion-tabs .tabs-content .servicios-lista .servicio-item .servicio-item-icono i {
+  font-size: 24px;
+  color: var(--color-azul-principal);
+}
+
+.inicio-vista .seccion-tabs .tabs-content .servicios-lista .servicio-item .servicio-item-info {
+  flex: 1;
+}
+
+.inicio-vista .seccion-tabs .tabs-content .servicios-lista .servicio-item .servicio-item-info h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-gris-fuerte);
+  margin: 0 0 0.25rem 0;
+}
+
+.inicio-vista .seccion-tabs .tabs-content .servicios-lista .servicio-item .servicio-item-info p {
+  font-size: 12px;
+  color: var(--color-gris-medio);
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .inicio-vista .seccion-servicios-destacados .carrusel-servicios .servicios-grid .servicio-card {
+    min-width: 150px;
+    max-width: 150px;
+  }
+
+  .inicio-vista .seccion-tabs .tabs-content .servicios-lista {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .inicio-vista .seccion-servicios-destacados .carrusel-servicios .carrusel-btn {
+    font-size: 24px;
+  }
+
+  .inicio-vista .seccion-servicios-destacados .carrusel-servicios .servicios-grid .servicio-card {
+    min-width: 120px;
+    max-width: 120px;
+    padding: 1rem;
+  }
+
+  .inicio-vista .seccion-servicios-destacados .carrusel-servicios .servicios-grid .servicio-card .servicio-icono {
+    width: 40px;
+    height: 40px;
+  }
+
+  .inicio-vista .seccion-servicios-destacados .carrusel-servicios .servicios-grid .servicio-card .servicio-icono i {
+    font-size: 24px;
+  }
+
+  .inicio-vista .seccion-servicios-destacados .carrusel-servicios .servicios-grid .servicio-card .servicio-titulo {
+    font-size: 12px;
+  }
+
+  .inicio-vista .seccion-tabs .tabs-header .tab-btn {
+    padding: 0.5rem 1rem;
+    font-size: 12px;
+  }
+}

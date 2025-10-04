@@ -1,0 +1,252 @@
+@use 'sass:map';
+@import './sri-vue-variables';
+
+/**
+ * Estilos para la vista de inicio
+ */
+
+.inicio-vista {
+  .seccion-servicios-destacados {
+    margin-bottom: 2rem;
+
+    .carrusel-servicios {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 2rem 0;
+
+      .carrusel-btn {
+        background-color: transparent;
+        border: none;
+        font-size: 32px;
+        color: $color-gris-fuerte;
+        cursor: pointer;
+        padding: 0.5rem;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: $color-azul-principal;
+        }
+
+        &.carrusel-prev {
+          margin-right: 1rem;
+        }
+
+        &.carrusel-next {
+          margin-left: 1rem;
+        }
+      }
+
+      .servicios-grid {
+        display: flex;
+        gap: 1.5rem;
+        flex: 1;
+        overflow-x: auto;
+        padding: 1rem 0;
+
+        .servicio-card {
+          min-width: 180px;
+          max-width: 200px;
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          padding: 1.5rem;
+          border: 3px solid;
+          border-radius: 50%;
+          aspect-ratio: 1;
+          cursor: pointer;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+          &:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+          }
+
+          .servicio-icono {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.5rem;
+
+            i {
+              font-size: 32px;
+              color: $color-blanco;
+            }
+          }
+
+          .servicio-titulo {
+            font-size: 14px;
+            font-weight: bold;
+            color: $color-gris-fuerte;
+            margin: 0.5rem 0;
+          }
+
+          .servicio-descripcion {
+            font-size: 11px;
+            color: $color-gris-medio;
+            margin: 0;
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  .seccion-tabs {
+    .tabs-header {
+      display: flex;
+      border-bottom: 2px solid $color-gris-claro;
+      margin-bottom: 1.5rem;
+
+      .tab-btn {
+        padding: 0.75rem 1.5rem;
+        background-color: transparent;
+        border: none;
+        border-bottom: 3px solid transparent;
+        color: $color-gris-fuerte;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background-color: $color-gris-tenue;
+        }
+
+        &.active {
+          color: $color-azul-principal;
+          border-bottom-color: $color-amarillo-claro;
+          background-color: $color-amarillo-claro;
+        }
+      }
+    }
+
+    .tabs-content {
+      .servicios-lista {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.5rem;
+
+        .servicio-item {
+          display: flex;
+          gap: 1rem;
+          padding: 1rem;
+          background-color: $color-gris-tenue;
+          border-radius: 4px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+
+          &:hover {
+            background-color: $color-turqueza-claro;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+          }
+
+          .servicio-item-icono {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: $color-blanco;
+            border-radius: 4px;
+            flex-shrink: 0;
+
+            i {
+              font-size: 24px;
+              color: $color-azul-principal;
+            }
+          }
+
+          .servicio-item-info {
+            flex: 1;
+
+            h4 {
+              font-size: 14px;
+              font-weight: 600;
+              color: $color-gris-fuerte;
+              margin: 0 0 0.25rem 0;
+            }
+
+            p {
+              font-size: 12px;
+              color: $color-gris-medio;
+              margin: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .inicio-vista {
+    .seccion-servicios-destacados {
+      .carrusel-servicios {
+        .servicios-grid {
+          .servicio-card {
+            min-width: 150px;
+            max-width: 150px;
+          }
+        }
+      }
+    }
+
+    .seccion-tabs {
+      .tabs-content {
+        .servicios-lista {
+          grid-template-columns: 1fr;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .inicio-vista {
+    .seccion-servicios-destacados {
+      .carrusel-servicios {
+        .carrusel-btn {
+          font-size: 24px;
+        }
+
+        .servicios-grid {
+          .servicio-card {
+            min-width: 120px;
+            max-width: 120px;
+            padding: 1rem;
+
+            .servicio-icono {
+              width: 40px;
+              height: 40px;
+
+              i {
+                font-size: 24px;
+              }
+            }
+
+            .servicio-titulo {
+              font-size: 12px;
+            }
+          }
+        }
+      }
+    }
+
+    .seccion-tabs {
+      .tabs-header {
+        .tab-btn {
+          padding: 0.5rem 1rem;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
