@@ -17,7 +17,7 @@ export const useLayoutStore = defineStore('layout', () => {
     {
       id: 'claves',
       etiqueta: 'CLAVES',
-      icono: 'pi pi-key',
+      icono: 'sri-menu-icon-claves',
       visible: true,
       hijos: [
         {
@@ -62,91 +62,91 @@ export const useLayoutStore = defineStore('layout', () => {
     {
       id: 'ruc',
       etiqueta: 'RUC',
-      icono: 'pi pi-building',
+      icono: 'sri-menu-icon-ruc',
       ruta: '/ruc',
       visible: true
     },
     {
       id: 'facturacion-fisica',
       etiqueta: 'FACTURACIÓN FÍSICA',
-      icono: 'pi pi-file',
+      icono: 'sri-menu-icon-facturacion-fisica',
       ruta: '/facturacion-fisica',
       visible: true
     },
     {
       id: 'facturacion-electronica',
       etiqueta: 'FACTURACIÓN ELECTRÓNICA',
-      icono: 'pi pi-desktop',
+      icono: 'sri-menu-icon-facturacion-electronica',
       ruta: '/facturacion-electronica',
       visible: true
     },
     {
       id: 'declaraciones',
       etiqueta: 'DECLARACIONES',
-      icono: 'pi pi-file-edit',
+      icono: 'sri-menu-icon-declaraciones',
       ruta: '/declaraciones',
       visible: true
     },
     {
       id: 'anexos',
       etiqueta: 'ANEXOS',
-      icono: 'pi pi-paperclip',
+      icono: 'sri-menu-icon-anexos',
       ruta: '/anexos',
       visible: true
     },
     {
       id: 'pagos',
       etiqueta: 'PAGOS',
-      icono: 'pi pi-credit-card',
+      icono: 'sri-menu-icon-pagos',
       ruta: '/pagos',
       visible: true
     },
     {
       id: 'deudas',
       etiqueta: 'DEUDAS',
-      icono: 'pi pi-dollar',
+      icono: 'sri-menu-icon-deudas',
       ruta: '/deudas',
       visible: true
     },
     {
       id: 'devoluciones',
       etiqueta: 'DEVOLUCIONES (TAX REFUND)',
-      icono: 'pi pi-replay',
+      icono: 'sri-menu-icon-devoluciones',
       ruta: '/devoluciones',
       visible: true
     },
     {
       id: 'reintegro',
       etiqueta: 'REINTEGRO DE VALORES',
-      icono: 'pi pi-wallet',
+      icono: 'sri-menu-icon-notas-de-credito',
       ruta: '/reintegro',
       visible: true
     },
     {
       id: 'tramites',
       etiqueta: 'TRÁMITES Y NOTIFICACIONES',
-      icono: 'pi pi-bell',
+      icono: 'sri-menu-icon-tramites-notificaciones',
       ruta: '/tramites',
       visible: true
     },
     {
       id: 'certificados',
       etiqueta: 'CERTIFICADOS',
-      icono: 'pi pi-verified',
+      icono: 'sri-menu-icon-certificados',
       ruta: '/certificados',
       visible: true
     },
     {
       id: 'vehiculos',
       etiqueta: 'VEHÍCULOS',
-      icono: 'pi pi-car',
+      icono: 'sri-menu-icon-vehiculos',
       ruta: '/vehiculos',
       visible: true
     },
     {
       id: 'otros',
       etiqueta: 'OTROS SERVICIOS',
-      icono: 'pi pi-ellipsis-h',
+      icono: 'sri-menu-icon-otros-servicios',
       ruta: '/otros',
       visible: true
     }

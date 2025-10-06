@@ -59,6 +59,7 @@
   --fuente-size-paginador: 14px;
   --fuente-size-tabla: 14px;
   --fuente-size-24: 24px;
+  --fuente-size-25: 25px;
   --fuente-size-32: 32px;
 
   /* Tamaños de iconos */
@@ -136,12 +137,16 @@
   --fuente-pag-error-color: var(--color-coral-fuerte);
 
   /* Breakpoints (para usar con JavaScript) */
-  --breakpoint-xs: 0px;
+  /* --breakpoint-xs: 0px;
   --breakpoint-sm: 576px;
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --breakpoint-xxl: 1400px;
+  --breakpoint-xxl: 1400px; */
+
+  /* Ancho */
+  --ancho-100: 100%;
+  --alto-100: 100%;
 }
 
 /* Ejemplo de uso:

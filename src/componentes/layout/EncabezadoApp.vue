@@ -107,43 +107,53 @@ const informacionUsuario = computed(() => layoutStore.informacionUsuario);
 const itemsMenu = ref<ItemMenu[]>([
   {
     label: 'Perfil',
-    icon: 'pi pi-user',
+    icon: 'sri-icon-perfil',
     route: '/perfil'
   },
   {
     label: 'Notificaciones',
-    icon: 'pi pi-bell',
+    icon: 'sri-icon-correos',
     command: () => console.log('Notificaciones clicked')
   },
   {
     label: 'Inicio',
-    icon: 'pi pi-home',
+    icon: 'sri-icon-home',
     route: '/'
   },
   {
-    label: 'Sesión',
+    label: 'Iniciar sesión',
     icon: 'pi pi-sign-in',
-    items: [
-      {
-        label: 'Iniciar sesión',
-        icon: 'pi pi-sign-in',
-        route: '/login'
-      },
-      {
-        label: 'Cerrar sesión',
-        icon: 'pi pi-sign-out',
-        command: () => console.log('Cerrar sesión clicked')
-      }
-    ]
+    route: '/login'
   },
   {
+    label: 'Cerrar sesión',
+    icon: 'sri-icon-cerrar-sesion',
+    command: () => console.log('Cerrar sesión clicked')
+  },
+  // {
+  //   label: 'Sesión',
+  //   icon: 'pi pi-sign-in',
+  //   items: [
+  //     {
+  //       label: 'Iniciar sesión',
+  //       icon: 'pi pi-sign-in',
+  //       route: '/login'
+  //     },
+  //     {
+  //       label: 'Cerrar sesión',
+  //       icon: 'pi pi-sign-out',
+  //       command: () => console.log('Cerrar sesión clicked')
+  //     }
+  //   ]
+  // },
+  {
     label: 'Accesibilidad',
-    icon: 'pi pi-eye',
+    icon: 'sri-icon-accesibilidad',
     command: () => console.log('Accesibilidad clicked')
   },
   {
     label: 'Ayuda',
-    icon: 'pi pi-question-circle',
+    icon: 'sri-icon-ayuda',
     url: 'https://sri.gob.ec/ayuda',
     target: '_blank'
   }
@@ -162,19 +172,20 @@ function manejarClickMenu() {
     <div class="contenedor-fluido">
       <div class="fila alinear-centro">
         <!-- Sección Izquierda: Menú hamburguesa + Logo -->
-        <div class="columna-6 columna-md-3 columna-lg-2 encabezado-izquierda">
+        <div class="columna-6 columna-md-3 columna-lg-3 encabezado-izquierda">
           <div class="mostrar-flex alinear-centro">
-            <Button icon="pi pi-bars" class="p-button-text p-button-rounded boton-menu" @click="manejarClickMenu"
-              aria-label="Menú" />
+            <Button icon="sri-menu-icon-menu-hamburguesa " class="tamano-icono-hamburguesa" @click="manejarClickMenu"
+              aria-label="Abrir o cerrar menu desplegado" />
             <div class="logo-contenedor">
-              <span class="logo-texto">SRI</span>
-              <span class="logo-subtexto">en línea</span>
+              <img alt="Logo SRI" class="logo-aplicacion" src="/src/assets/iconos/sri-en-linea.svg">
+              <!-- <span class="logo-texto">SRI</span>
+              <span class="logo-subtexto">en línea</span> -->
             </div>
           </div>
         </div>
 
         <!-- Sección Centro: Información del usuario -->
-        <div class="columna-12 columna-md-6 columna-lg-8 encabezado-centro ocultar-xs">
+        <div class="columna-12 columna-md-6 columna-lg-5 encabezado-centro ocultar-xs">
           <div class="info-usuario mostrar-flex flex-columna alinear-centro justificar-centro">
             <span class="info-label">{{ informacionUsuario.identificacion }}</span>
             <span class="info-label">{{ informacionUsuario.nombre }}</span>
@@ -182,13 +193,9 @@ function manejarClickMenu() {
         </div>
 
         <!-- Sección Derecha: Iconos de acción -->
-        <div class="columna-6 columna-md-3 columna-lg-2 encabezado-derecha">
+        <div class="columna-6 columna-md-3 columna-lg-4 encabezado-derecha">
           <!-- Desktop: MenuBar solo con iconos -->
           <div v-if="!props.esPantallaPequena" class="menu-desktop-container">
-            <a _ngcontent-c2="" aria-label="Ir a inicio" hidedelay="300" ptooltip="Inicio" showdelay="300"
-              tooltipevent="hover" tooltipposition="left" href="/sri-en-linea/inicio/NAT"><em _ngcontent-c2=""
-                class="sri-icon-home"></em><span _ngcontent-c2="" class="topbar-item-name">Inicio</span></a>
-            <span class="sri-icon-home"></span>
             <Menubar :model="itemsMenu" class="menu-desktop">
               <template #item="{ item, props: itemProps, hasSubmenu }">
                 <router-link v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>

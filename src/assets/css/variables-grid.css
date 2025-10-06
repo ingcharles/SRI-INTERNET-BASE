@@ -17,12 +17,12 @@
   --contenedor-extra-extra-grande: 1320px;
 
   /* ========== PUNTOS DE QUIEBRE (BREAKPOINTS) ========== */
-  --punto-quiebre-xs: 0px;
+  /* --punto-quiebre-xs: 0px;
   --punto-quiebre-pequeno: 576px;
   --punto-quiebre-mediano: 768px;
   --punto-quiebre-grande: 992px;
   --punto-quiebre-extra-grande: 1200px;
-  --punto-quiebre-extra-extra-grande: 1400px;
+  --punto-quiebre-extra-extra-grande: 1400px; */
 
   /* ========== COLUMNAS ========== */
   --total-columnas: 12;
@@ -59,7 +59,7 @@
 /* Puedes crear temas personalizados sobrescribiendo estas variables */
 
 /* Ejemplo: Tema Compacto */
-.tema-compacto {
+/* .tema-compacto {
   --espaciado-rejilla: 10px;
   --espaciado-rejilla-doble: 20px;
   --contenedor-pequeno: 500px;
@@ -67,10 +67,10 @@
   --contenedor-grande: 900px;
   --contenedor-extra-grande: 1080px;
   --contenedor-extra-extra-grande: 1260px;
-}
+} */
 
 /* Ejemplo: Tema Amplio */
-.tema-amplio {
+/* .tema-amplio {
   --espaciado-rejilla: 20px;
   --espaciado-rejilla-doble: 40px;
   --contenedor-pequeno: 580px;
@@ -78,10 +78,10 @@
   --contenedor-grande: 1020px;
   --contenedor-extra-grande: 1200px;
   --contenedor-extra-extra-grande: 1400px;
-}
+} */
 
 /* Ejemplo: Sin Espaciado */
-.tema-sin-espaciado {
+/* .tema-sin-espaciado {
   --espaciado-rejilla: 0px;
   --espaciado-rejilla-doble: 0px;
-}
+} */

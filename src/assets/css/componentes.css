@@ -1,0 +1,60 @@
+/**
+ * Estilos para los componentes del sistema SRI
+ * Usa el sistema de componentes.css en español
+ */
+
+/* Input  - Textarea*/
+
+input,
+.p-inputtext {
+  height: 25px;
+  border: solid 0.5px var(--color-gris-neutro);
+  padding: 0 2px;
+  border-radius: 0;
+  color: var(--color-gris-fuerte);
+  width: 10rem;
+}
+
+textarea {
+  border: solid 0.5px var(--color-gris-neutro);
+  padding: 0 2px;
+  border-radius: 0;
+  color: var(--color-gris-fuerte);
+  min-height: 75px !important;
+  min-width: 300px !important;
+  resize: none !important;
+}
+
+input:focus-visible,
+.p-inputtext:focus-visible {
+  outline: 0 none;
+}
+
+input:active,
+input:focus,
+.p-inputtext:active,
+.p-inputtext:focus,
+.p-inputtext:enabled:focus,
+.p-inputtext:hover,
+textarea:active,
+textarea:focus {
+  outline: 0 none;
+  text-decoration: none;
+  border: none;
+  border-color: transparent;
+  border-bottom: solid 2px var(--color-azul-principal);
+  box-shadow: 0;
+}
+
+input::placeholder,
+textarea::placeholder,
+.p-inputtext::placeholder,
+.p-inputtext:enabled:hover {
+  font-style: italic;
+  margin-block: auto;
+  border-color: var(--color-azul-fuerte);
+}
+
+input.p-inputtext.p-component .p-disabled:hover {
+  border-bottom: none;
+}

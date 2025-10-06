@@ -70,7 +70,7 @@ function limpiarBusqueda() {
     <div v-if="!soloIconos" class="seccion-buscar">
       <div class="fila alinear-centro">
         <div class="columna-10">
-          <InputText v-model="textoBusqueda" placeholder="Buscar servicios" class="input-buscador" />
+          <InputText type="search" v-model="textoBusqueda" placeholder="Buscar servicios" />
         </div>
         <div class="columna-2">
           <Button v-if="textoBusqueda" icon="pi pi-times" class="p-button-text btn-buscar" @click="limpiarBusqueda"
@@ -81,17 +81,17 @@ function limpiarBusqueda() {
     </div>
 
     <!-- Navegación -->
-    <nav class="menu-navegacion">
-      <!-- Menú completo con texto -->
-      <PanelMenu v-if="!soloIconos" :model="itemsMenuPrime" />
+    <!-- <nav class="menu-navegacion"> -->
+    <!-- Menú completo con texto -->
+    <PanelMenu v-if="!soloIconos" :model="itemsMenuPrime" />
 
-      <!-- Solo iconos cuando está colapsado -->
-      <div v-else class="lista-menu">
-        <div class="mostrar-flex flex-columna alinear-centro espacio-2">
-          <Button v-for="item in itemsIconos" :key="item.id" :icon="item.icono" class="p-button-rounded p-button-text"
-            :aria-label="item.etiqueta" :title="item.etiqueta" />
-        </div>
+    <!-- Solo iconos cuando está colapsado -->
+    <div v-else class="lista-menu">
+      <div class="mostrar-flex flex-columna alinear-centro espacio-2">
+        <Button v-for="item in itemsIconos" :key="item.id" :icon="item.icono" class="p-button-rounded p-button-text"
+          :aria-label="item.etiqueta" :title="item.etiqueta" />
       </div>
-    </nav>
+    </div>
+    <!-- </nav> -->
   </aside>
 </template>

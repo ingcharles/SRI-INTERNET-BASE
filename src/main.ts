@@ -23,13 +23,15 @@ import '@/assets/css/variables-grid.css'
 // Importar sistema de grid responsivo en español
 import '@/assets/css/grid-sistema.css'
 
+
 // Importar estilos personalizados con CSS nativo
 import '@/assets/css/layout.css'
 import '@/assets/css/inicio.css'
+import '@/assets/css/componentes.css'
 
 //
 import '@/assets/iconos/sri-icon/sri-icono-fuentes.min.css'
-import '@/assets/iconos/sri-menu-icon/sri-menu-icon-fuentes.css'
+import '@/assets/iconos/sri-menu-icon/sri-menu-icon-fuentes.min.css'
 // Importar estilos globales de PrimeVue personalizados
 // import '@/assets/css/_sri-vue-plantilla.scss';
 
