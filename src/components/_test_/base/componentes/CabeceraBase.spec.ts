@@ -14,7 +14,8 @@ describe('CabeceraBase', () => {
         const wrapper = mount(CabeceraBase, {
             global: {
                 plugins: [PrimeVue],
-                components: { Button }
+                components: { Button },
+                stubs: ['router-link']
             }
         });
 
@@ -26,7 +27,8 @@ describe('CabeceraBase', () => {
         const wrapper = mount(CabeceraBase, {
             global: {
                 plugins: [PrimeVue],
-                components: { Button }
+                components: { Button },
+                stubs: ['router-link']
             }
         });
 
@@ -40,11 +42,12 @@ describe('CabeceraBase', () => {
         const wrapper = mount(CabeceraBase, {
             global: {
                 plugins: [PrimeVue],
-                components: { Button }
+                components: { Button },
+                stubs: ['router-link']
             }
         });
 
-        const botonMenu = wrapper.find('.boton-menu');
+        const botonMenu = wrapper.find('button[aria-label="Abrir o cerrar menu desplegado"]');
         await botonMenu.trigger('click');
 
         expect(wrapper.emitted('alternar-menu')).toBeTruthy();
@@ -57,7 +60,8 @@ describe('CabeceraBase', () => {
             },
             global: {
                 plugins: [PrimeVue],
-                components: { Button }
+                components: { Button },
+                stubs: ['router-link']
             }
         });
 
@@ -66,17 +70,28 @@ describe('CabeceraBase', () => {
     });
 
     it('Debería mostrar menú de tres puntos en pantalla pequeña', () => {
+        // Mock matchMedia for TieredMenu
+        Object.defineProperty(window, 'matchMedia', {
+            writable: true,
+            value: () => ({
+                matches: false,
+                addListener: () => {},
+                removeListener: () => {}
+            })
+        });
+
         const wrapper = mount(CabeceraBase, {
             props: {
                 esPantallaPequena: true
             },
             global: {
                 plugins: [PrimeVue],
-                components: { Button }
+                components: { Button },
+                stubs: ['router-link']
             }
         });
 
-        const botonOpciones = wrapper.find('[aria-label="Más opciones"]');
+        const botonOpciones = wrapper.find('button[icon="pi pi-ellipsis-v"]');
         expect(botonOpciones.exists()).toBe(true);
     });
 });

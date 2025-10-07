@@ -16,7 +16,8 @@ describe('MenuNavegacionBase', () => {
         const wrapper = mount(MenuNavegacionBase, {
             global: {
                 plugins: [PrimeVue],
-                components: { InputText, Button, PanelMenu }
+                components: { InputText, Button, PanelMenu },
+                stubs: ['router-link']
             }
         });
 
@@ -30,7 +31,8 @@ describe('MenuNavegacionBase', () => {
             },
             global: {
                 plugins: [PrimeVue],
-                components: { InputText, Button, PanelMenu }
+                components: { InputText, Button, PanelMenu },
+                stubs: ['router-link']
             }
         });
 
@@ -45,7 +47,8 @@ describe('MenuNavegacionBase', () => {
             },
             global: {
                 plugins: [PrimeVue],
-                components: { InputText, Button, PanelMenu }
+                components: { InputText, Button, PanelMenu },
+                stubs: ['router-link']
             }
         });
 
@@ -56,7 +59,8 @@ describe('MenuNavegacionBase', () => {
         const wrapper = mount(MenuNavegacionBase, {
             global: {
                 plugins: [PrimeVue],
-                components: { InputText, Button, PanelMenu }
+                components: { InputText, Button, PanelMenu },
+                stubs: ['router-link']
             }
         });
 
@@ -71,7 +75,8 @@ describe('MenuNavegacionBase', () => {
         const wrapper = mount(MenuNavegacionBase, {
             global: {
                 plugins: [PrimeVue],
-                components: { InputText, Button, PanelMenu }
+                components: { InputText, Button, PanelMenu },
+                stubs: ['router-link']
             }
         });
 
@@ -92,7 +97,8 @@ describe('MenuNavegacionBase', () => {
             },
             global: {
                 plugins: [PrimeVue],
-                components: { InputText, Button, PanelMenu }
+                components: { InputText, Button, PanelMenu },
+                stubs: ['router-link']
             }
         });
 
