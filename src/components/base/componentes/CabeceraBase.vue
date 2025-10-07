@@ -26,7 +26,9 @@ const plegable = (event: Event) => {
 };
 
 const propiedades = defineProps<{
-  esPantallaPequena?: boolean;
+  esPantallaExtraPequenia?: boolean;
+  esPantallaPequenia?: boolean;
+  esPantallaMediana?: boolean;
 }>();
 
 const emitir = defineEmits<(e: 'alternar-menu') => void>();
@@ -44,17 +46,20 @@ const itemsMenu = ref<ItemMenu[]>([
   {
     label: 'Perfil',
     icon: 'sri-icon-perfil',
-    route: '/perfil'
+    url: 'https://srienlinea.sri.gob.ec/sri-en-linea/contribuyente/perfil',
+    // target: '_blank'
   },
   {
     label: 'Alertas y avisos',
     icon: 'sri-icon-correos',
-    command: () => console.log('Alertas y avisos clicked')
+    url: 'https://srienlinea.sri.gob.ec/sri-en-linea/SriBuzon/Contribuyente/notificaciones',
+    // target: '_blank'
+    // command: () => console.log('Alertas y avisos clicked')
   },
   {
     label: 'Inicio',
     icon: 'sri-icon-home',
-    route: '/'
+    url: 'https://srienlinea.sri.gob.ec/sri-en-linea/inicio/NAT'
   },
   {
     label: 'Iniciar sesión',
@@ -69,7 +74,8 @@ const itemsMenu = ref<ItemMenu[]>([
   {
     label: 'Accesibilidad',
     icon: 'sri-icon-accesibilidad',
-    command: () => console.log('Accesibilidad clicked')
+    url: 'https://srienlinea.sri.gob.ec/sri-en-linea/accesibilidad',
+    // target: '_blank'
   },
   // {
   //   label: 'Ayuda',
@@ -87,30 +93,27 @@ const itemsMenu = ref<ItemMenu[]>([
     <div class="contenedor-fluido">
       <div class="fila alinear-centro">
         <!-- Sección Izquierda: Menú hamburguesa + Logo -->
-        <div class="columna-6 columna-md-2 columna-lg-3 encabezado-izquierda">
+        <div class="columna-6 columna-md-3 columna-lg-3 encabezado-izquierda">
           <div class="mostrar-flex alinear-centro">
             <Button icon="sri-menu-icon-menu-hamburguesa " class="tamano-icono-hamburguesa" @click="manejarClickMenu"
               aria-label="Abrir o cerrar menu desplegado" />
-
-            <div v-if="!propiedades.esPantallaPequena" class="logo-contenedor">
+            <div v-if="!propiedades.esPantallaExtraPequenia" class="logo-contenedor">
               <img alt="Logo SRI" class="logo-aplicacion" src="/src/assets/iconos/sri-en-linea.svg">
             </div>
-
           </div>
         </div>
 
-        <!-- Sección Centro: Información del usuario -->
-        <div class="columna-12 columna-md-6 columna-lg-5 encabezado-centro ocultar-xs">
-          <div class="info-usuario mostrar-flex flex-columna alinear-centro justificar-centro">
-            <span class="info-label">{{ informacionUsuario.identificacion }}</span>
-            <span class="info-label">{{ informacionUsuario.nombre }}</span>
-          </div>
-        </div>
 
         <!-- Sección Derecha: Iconos de acción -->
-        <div class="columna-6 columna-md-4 columna-lg-4 encabezado-derecha">
-          <!-- Escritorio: MenuBar solo con iconos -->
-          <div v-if="!propiedades.esPantallaPequena" class="menu-escritorio-container">
+        <div class="columna-6 columna-md-9 columna-lg-9 encabezado-derecha">
+          <div v-if="!propiedades.esPantallaMediana" class="menu-escritorio-container">
+            <!-- Sección Centro: Información del usuario -->
+            <div class="informacion-contribuyente mostrar-flex flex-columna alinear-fin justificar-centro">
+              <span class="nombre-contribuyente">{{ informacionUsuario.identificacion }}</span>
+              <span class="id-contribuyente">{{ informacionUsuario.nombre }}</span>
+            </div>
+            <span class="separador-menu"></span>
+            <!-- Escritorio: MenuBar solo con iconos -->
             <Menubar :model="itemsMenu">
               <template #item="{ item, hasSubmenu }">
                 <router-link v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>
@@ -121,9 +124,10 @@ const itemsMenu = ref<ItemMenu[]>([
                     <span v-if="hasSubmenu" class="pi pi-fw pi-angle-down menu-icono" />
                   </a>
                 </router-link>
-                <a v-else v-ripple :href="item.url" @click="() => (item.command as (() => void))?.()"
-                  class="menu-item-escritorio" :class="{ 'badge-notificacion': item.label === 'Alertas y avisos' }"
-                  :aria-label="String(item.label)" v-tooltip.left="item.label">
+                <a v-else v-ripple :href="item.url" :target="item.target"
+                  @click="() => (item.command as (() => void))?.()" class="menu-item-escritorio"
+                  :class="{ 'badge-notificacion': item.label === 'Alertas y avisos' }" :aria-label="String(item.label)"
+                  v-tooltip.left="item.label">
                   <span :class="item.icon" />
                   <span v-if="hasSubmenu" class="pi pi-fw pi-angle-down menu-icono" />
                 </a>
@@ -133,12 +137,12 @@ const itemsMenu = ref<ItemMenu[]>([
 
           <!-- Móvil: MenuBar con iconos y etiquetas -->
           <div v-else class="contenedor-menu-movil">
-            <Button type="button" icon="pi pi-ellipsis-v" @click="plegable" aria-haspopup="true"
+            <Button type="button" icon="pi pi-ellipsis-v" class="tamanio-fuente" @click="plegable" aria-haspopup="true"
               aria-controls="btnCubrirMenu" />
             <TieredMenu ref="menu" id="btnCubrirMenu" :model="itemsMenu" popup>
-              <template #item="{ item, props: propiedadesItem, hasSubmenu }">
+              <template #item="{ item, hasSubmenu }">
                 <router-link v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>
-                  <a v-ripple :href="href" v-bind="propiedadesItem.action" @click="navigate" class="menu-item-movil"
+                  <a v-ripple :href="href" @click="navigate" class="menu-item-movil"
                     :class="{ 'badge-notificacion': item.label === 'Alertas y avisos' }"
                     :aria-label="String(item.label)">
                     <span :class="item.icon" />

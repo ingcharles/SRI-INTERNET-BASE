@@ -51,7 +51,7 @@ describe('CabeceraBase', () => {
 
   it('Debería mostrar la información del usuario', () => {
     const wrapper = crearContenedor();
-    const infoUsuario = wrapper.find('.info-usuario');
+    const infoUsuario = wrapper.find('.informacion-contribuyente');
 
     expect(infoUsuario.exists()).toBe(true);
     expect(infoUsuario.text()).toContain('1722039953001');
@@ -67,13 +67,13 @@ describe('CabeceraBase', () => {
   });
 
   it('Debería mostrar botones completos en pantalla grande', () => {
-    const wrapper = crearContenedor({ esPantallaPequena: false });
+    const wrapper = crearContenedor({ esPantallaPequenia: false });
 
     expect(wrapper.find('.menu-escritorio-container').exists()).toBe(true);
   });
 
   it('Debería mostrar menú de tres puntos en pantalla pequeña', () => {
-    const wrapper = crearContenedor({ esPantallaPequena: true });
+    const wrapper = crearContenedor({ esPantallaPequenia: true });
 
     expect(wrapper.find('.contenedor-menu-movil button').exists()).toBe(true);
   });

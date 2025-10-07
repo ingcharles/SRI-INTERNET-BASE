@@ -169,9 +169,9 @@
           </div>
           <div class="columna-6">
             <div class="mostrar-flex flex-columna espacio-2" style="background: #f0f0f0; padding: 1rem;">
-              <div class="caja-pequena">Item 1</div>
-              <div class="caja-pequena">Item 2</div>
-              <div class="caja-pequena">Item 3</div>
+              <div class="caja-pequenia">Item 1</div>
+              <div class="caja-pequenia">Item 2</div>
+              <div class="caja-pequenia">Item 3</div>
             </div>
           </div>
         </div>
@@ -213,7 +213,7 @@
   justify-content: center;
 }
 
-.caja-pequena {
+.caja-pequenia {
   background-color: var(--color-turqueza-claro);
   border: 1px solid var(--color-turqueza-fuerte);
   padding: 0.5rem;

@@ -6,7 +6,9 @@ import MenuNavegacionBase from '@/components/base/componentes/MenuNavegacionBase
 import ContenidoPrincipalBase from '@/components/base/componentes/ContenidoPrincipalBase.vue';
 
 // Constantes
-const ANCHO_PANTALLA_PEQUENA = 768;
+const ANCHO_PANTALLA_EXTRA_PEQUENIA = 576;
+const ANCHO_PANTALLA_PEQUENIA = 768;
+const ANCHO_PANTALLA_MEDIANA = 992;
 
 // Store
 const almacenPrincipalBase = usarAlmacenPrincipalBase();
@@ -15,7 +17,9 @@ const almacenPrincipalBase = usarAlmacenPrincipalBase();
 const anchoPantalla = ref(window.innerWidth);
 
 // Computeds
-const esPantallaPequena = computed(() => anchoPantalla.value < ANCHO_PANTALLA_PEQUENA);
+const esPantallaExtraPequenia = computed(() => anchoPantalla.value < ANCHO_PANTALLA_EXTRA_PEQUENIA);
+const esPantallaPequenia = computed(() => anchoPantalla.value < ANCHO_PANTALLA_PEQUENIA);
+const esPantallaMediana = computed(() => anchoPantalla.value < ANCHO_PANTALLA_MEDIANA);
 const menuColapsado = computed(() => !almacenPrincipalBase.menuLateralVisible);
 
 /**
@@ -24,23 +28,16 @@ const menuColapsado = computed(() => !almacenPrincipalBase.menuLateralVisible);
  * En desktop: iconos cuando el menú lateral está colapsado
  */
 const mostrarSoloIconos = computed(() =>
-  esPantallaPequena.value
+  esPantallaPequenia.value
     ? !almacenPrincipalBase.menuMovilVisible
     : menuColapsado.value
 );
 
 /**
- * Clases dinámicas para el contenedor principal
- */
-const clasesContenedor = computed(() => ({
-  'menu-movil-expandido': esPantallaPequena.value && almacenPrincipalBase.menuMovilVisible
-}));
-
-/**
  * Clases dinámicas para el menú de navegación
  */
 const clasesMenuNavegacion = computed(() => ({
-  'menu-movil-visible': esPantallaPequena.value && almacenPrincipalBase.menuMovilVisible
+  'menu-movil-visible': esPantallaPequenia.value && almacenPrincipalBase.menuMovilVisible
 }));
 
 /**
@@ -61,7 +58,7 @@ const manejarRedimension = () => {
  * Alterna la visibilidad del menú según el tamaño de pantalla
  */
 const manejarToggleMenu = () => {
-  if (esPantallaPequena.value) {
+  if (esPantallaPequenia.value) {
     almacenPrincipalBase.alternarMenuMovil();
   } else {
     almacenPrincipalBase.alternarMenuLateral();
@@ -79,8 +76,9 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="contenedor-principal" :class="clasesContenedor">
-    <CabeceraBase :es-pantalla-pequena="esPantallaPequena" @alternar-menu="manejarToggleMenu" />
+  <div class="contenedor-principal">
+    <CabeceraBase :es-pantalla-extra-pequenia="esPantallaExtraPequenia" :es-pantalla-pequenia="esPantallaPequenia"
+      :es-pantalla-mediana="esPantallaMediana" @alternar-menu="manejarToggleMenu" />
 
     <MenuNavegacionBase :solo-iconos="mostrarSoloIconos" :class="clasesMenuNavegacion" />
 

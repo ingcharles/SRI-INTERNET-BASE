@@ -90,12 +90,13 @@ body {
   height: var(--alto-100);
 }
 
-.info-usuario {
-  height: var(--alto-100);
+.informacion-contribuyente {
+  gap: initial !important;
 }
 
-.info-label {
-  font-size: 11px;
+.nombre-contribuyente,
+.id-contribuyente {
+  font-size: 14px;
   color: var(--color-blanco);
   white-space: nowrap;
   overflow: hidden;
@@ -134,14 +135,13 @@ body {
 
 .menu-item-escritorio {
   color: var(--color-blanco) !important;
-  border: none !important;
-  border-radius: 50% !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
   min-width: 45px !important;
   height: 45px !important;
-  cursor: pointer !important;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .menu-item-escritorio:hover {
@@ -159,6 +159,11 @@ body {
 
 .p-menubar-item-content:hover span[class*='sri'] {
   color: var(--color-amarillo-claro);
+}
+.separador-menu {
+  border-left: 1.5px solid #fff;
+  height: 29px;
+  margin: 0 10px 0 10px;
 }
 
 /* ========== MENUBAR MÓVIL ========== */
@@ -216,26 +221,9 @@ body {
   margin-top: 2px !important;
 }
 
-/* ========== SUBMENÚS ========== */
-.menu-movil .p-submenu-list .menu-item-movil {
-  padding: 0.75rem 1rem !important;
-  border-radius: 4px !important;
-  flex-direction: row !important;
-  justify-content: flex-start !important;
-  min-width: auto !important;
-  height: auto !important;
+.contenedor-menu-movil .p-button-icon {
+  font-size: var(--tamanio-fuente-32);
 }
-
-.menu-movil .p-submenu-list .menu-item-movil span[class*='pi']:not(.menu-icono) {
-  margin: 0 0.5rem 0 0 !important;
-  font-size: 14px !important;
-}
-
-.menu-movil .p-submenu-list .menu-item-movil .menu-etiqueta {
-  font-size: 12px !important;
-  margin-bottom: 0 !important;
-}
-
 /* ========== BADGE DE NOTIFICACIONES ========== */
 .badge-notificacion {
   position: relative;
@@ -260,30 +248,6 @@ body {
 .menu-movil .p-menuitem-icon {
   color: var(--color-blanco) !important;
   font-size: 1.1rem !important;
-}
-
-/* Dropdown del MenuBar */
-.menu-movil .p-submenu-list {
-  background: var(--color-blanco) !important;
-  border: 1px solid var(--color-gris-claro) !important;
-  border-radius: 4px !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
-  min-width: 180px !important;
-}
-
-.menu-movil .p-submenu-list .p-menuitem-link {
-  color: var(--color-gris-fuerte) !important;
-  padding: 0.75rem 1rem !important;
-  border-radius: 0 !important;
-}
-
-.menu-movil .p-submenu-list .p-menuitem-link:hover {
-  background-color: var(--color-gris-tenue) !important;
-}
-
-.menu-movil .p-submenu-list .p-menuitem-icon {
-  color: var(--color-gris-medio) !important;
-  margin-right: 0.5rem !important;
 }
 
 /* ========== MENU LATERAL ========== */
@@ -418,32 +382,6 @@ body {
   box-shadow: none;
 }
 
-/* Submenu list spacing */
-.menu-lateral .p-panelmenu .p-submenu-list {
-  padding: 0.25rem 0;
-}
-
-/* Nivel 2 - Submenús */
-.menu-lateral .p-panelmenu .p-submenu-list .p-menuitem {
-  margin-bottom: 0.15rem;
-}
-
-.menu-lateral .p-panelmenu .p-submenu-list .p-menuitem-link {
-  padding: 0.5rem 1rem 0.5rem 3.5rem;
-  font-size: 12px;
-  color: var(--color-gris-medio);
-}
-
-/* Nivel 3 - Sub-submenús */
-.menu-lateral .p-panelmenu .p-submenu-list .p-submenu-list .p-menuitem {
-  margin-bottom: 0.15rem;
-}
-
-.menu-lateral .p-panelmenu .p-submenu-list .p-submenu-list .p-menuitem-link {
-  padding: 0.5rem 1rem 0.5rem 4.5rem;
-  font-size: 12px;
-}
-
 /* Iconos del menú */
 .menu-lateral .p-panelmenu .p-menuitem-icon,
 .menu-lateral .p-panelmenu .p-panelmenu-icon {
@@ -511,17 +449,6 @@ body {
   box-shadow: none;
 }
 
-/* Submenús anidados */
-.menu-lateral .menu-panel .p-submenu-list .p-menuitem-link {
-  padding-left: 5rem;
-  font-size: 12px;
-}
-
-.menu-lateral .menu-panel .p-submenu-list .p-submenu-list .p-menuitem-link {
-  padding-left: 6.5rem;
-  font-size: 12px;
-}
-
 /* Ocultar iconos en items de submenú */
 .menu-lateral .menu-panel .p-panelmenu-content .p-menuitem-icon {
   display: none;
@@ -586,12 +513,14 @@ body {
 .tamanio-fuente-11 {
   font-size: var(--tamanio-fuente-11) !important;
 }
+
 /* ========== RESPONSIVE ========== */
 
 /* Tablets */
 @media (max-width: 992px) {
-  .info-label {
-    font-size: 10px;
+  .nombre-contribuyente,
+  .id-contribuyente {
+    font-size: 12px;
   }
 }
 
@@ -621,11 +550,6 @@ body {
 
   .contenido-principal.menu-colapsado {
     margin-left: 60px;
-  }
-
-  /* Cuando el menú móvil está expandido */
-  .contenedor-pincipal.menu-movil-expandido .contenido-principal {
-    margin-left: 240px;
   }
 }
 

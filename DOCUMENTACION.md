@@ -169,7 +169,7 @@ Encabezado fijo con información del usuario y opciones de navegación.
 
 **Props:**
 
-- `esPantallaPequena?: boolean` - Indica si es pantalla pequeña
+- `esPantallaPequenia?: boolean` - Indica si es pantalla pequeña
 
 **Eventos:**
 
