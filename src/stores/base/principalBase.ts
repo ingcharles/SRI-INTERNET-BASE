@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
 import { ref, computed } from 'vue';
-import type { ItemMenu, InformacionUsuario } from '@/interfaces/menu.interface';
+import type { ItemMenuAmburguesa, InformacionUsuario } from '@/interfaces/menu.interface';
 
 /**
  * Almacén para gestionar el estado del principal base
@@ -13,7 +13,7 @@ export const usarAlmacenPrincipalBase = defineStore('principalBase', () => {
     identificacion: '1722039953001'
   });
 
-  const itemsMenu = ref<ItemMenu[]>([
+  const itemsMenu = ref<ItemMenuAmburguesa[]>([
     {
       id: 'claves',
       etiqueta: 'CLAVES',

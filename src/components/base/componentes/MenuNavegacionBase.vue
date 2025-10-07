@@ -18,18 +18,17 @@ const textoBusqueda = ref('');
 /**
  * Convierte recursivamente los items del menú al formato de PrimeVue
  */
-
-function convertirAMenuPrime(items: ItemMenuAmburguesa[], level = 0): MenuItem[] {
+function convertirAMenuPrime(items: ItemMenuAmburguesa[], nivel = 0): MenuItem[] {
   return items.map(item => {
-    const menuItem: MenuItem & { nivel: number } = {
+    const menuItem: MenuItem & { level: number } = {
       label: item.etiqueta,
       icon: item.icono,
       to: item.ruta,
-      nivel: level
+      level: nivel
     };
 
     if (item.hijos && item.hijos.length > 0) {
-      menuItem.items = convertirAMenuPrime(item.hijos, level + 1);
+      menuItem.items = convertirAMenuPrime(item.hijos, nivel + 1);
     }
 
     return menuItem;
@@ -40,9 +39,9 @@ const itemsMenuPrime = computed<MenuItem[]>(() => {
   const items = almacenPrincipalBase.menuFiltrado;
 
   if (textoBusqueda.value) {
-    const busqueda = textoBusqueda.value.toLowerCase();
-    const itemsFiltrados = items.filter(item =>
-      item.etiqueta.toLowerCase().includes(busqueda)
+    const busqueda = textoBusqueda.value;
+    const itemsFiltrados = items.filter((item: MenuItem) =>
+      item.etiqueta.includes(busqueda)
     );
     return convertirAMenuPrime(itemsFiltrados);
   }
