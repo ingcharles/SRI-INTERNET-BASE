@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
-import { useLayoutStore } from '@/almacenes/layout';
+import { usarAlmacenPrincipalBase } from '@/almacenes/principalBase';
 import InputText from 'primevue/inputtext';
 import Button from 'primevue/button';
 import PanelMenu from 'primevue/panelmenu';
 import type { MenuItem } from 'primevue/menuitem';
 import type { ItemMenu } from '@/interfaces/menu.interface';
 
-const layoutStore = useLayoutStore();
+const almacenPrincipalBase = usarAlmacenPrincipalBase();
 
 defineProps<{
   soloIconos?: boolean;
@@ -18,17 +18,18 @@ const textoBusqueda = ref('');
 /**
  * Convierte recursivamente los items del menú al formato de PrimeVue
  */
-function convertirAMenuPrime(items: ItemMenu[]): MenuItem[] {
+
+function convertirAMenuPrime(items: ItemMenu[], level = 0): MenuItem[] {
   return items.map(item => {
-    const menuItem: MenuItem = {
+    const menuItem: MenuItem & { nivel: number } = {
       label: item.etiqueta,
       icon: item.icono,
-      to: item.ruta
+      to: item.ruta,
+      level
     };
 
-    // Si tiene hijos, convertirlos recursivamente
     if (item.hijos && item.hijos.length > 0) {
-      menuItem.items = convertirAMenuPrime(item.hijos);
+      menuItem.items = convertirAMenuPrime(item.hijos, level + 1);
     }
 
     return menuItem;
@@ -36,7 +37,7 @@ function convertirAMenuPrime(items: ItemMenu[]): MenuItem[] {
 }
 
 const itemsMenuPrime = computed<MenuItem[]>(() => {
-  const items = layoutStore.menuFiltrado;
+  const items = almacenPrincipalBase.menuFiltrado;
 
   if (textoBusqueda.value) {
     const busqueda = textoBusqueda.value.toLowerCase();
@@ -53,7 +54,7 @@ const itemsMenuPrime = computed<MenuItem[]>(() => {
  * Items para mostrar solo iconos cuando el menú está colapsado
  */
 const itemsIconos = computed(() => {
-  return layoutStore.menuFiltrado.filter(item => item.icono);
+  return almacenPrincipalBase.menuFiltrado.filter(item => item.icono);
 });
 
 /**
@@ -62,6 +63,7 @@ const itemsIconos = computed(() => {
 function limpiarBusqueda() {
   textoBusqueda.value = '';
 }
+
 </script>
 
 <template>
@@ -80,10 +82,34 @@ function limpiarBusqueda() {
       </div>
     </div>
 
-    <!-- Navegación -->
-    <!-- <nav class="menu-navegacion"> -->
     <!-- Menú completo con texto -->
-    <PanelMenu v-if="!soloIconos" :model="itemsMenuPrime" />
+    <PanelMenu v-if="!soloIconos" :model="itemsMenuPrime">
+
+      <template #item="{ item, active }">
+        <router-link v-if="item.to" v-slot="{ href, navigate }" :to="item.to" custom>
+          <a v-ripple class="p-panelmenu-header-link" :href="href" @click="navigate">
+            <span class="p-panelmenu-header-icon" :class="item.icon" />
+            <span class="p-panelmenu-header-label texto-subrayado tamanio-fuente-11">{{ item.label }}</span>
+          </a>
+        </router-link>
+        <a v-else v-ripple class="p-panelmenu-header-link" :href="item.to">
+          <span v-if="item.items" :class="[
+            'ui-panelmenu-icon fa fa-fw',
+            active ? 'fa-caret-down' : 'fa-caret-right',
+            item.level > 0 ? 'color-gris-medio' : ''
+          ]" />
+          <span class="p-panelmenu-header-icon" :class="item.icon" />
+          <span class="p-panelmenu-header-label" :class="[
+
+            item.level > 0 ? 'tamanio-fuente-11' : ''
+          ]">{{ item.label }}</span>
+        </a>
+
+      </template>
+
+    </PanelMenu>
+
+    <!-- <PanelMenu v-if="!soloIconos" :model="itemsMenuPrime" /> -->
 
     <!-- Solo iconos cuando está colapsado -->
     <div v-else class="lista-menu">

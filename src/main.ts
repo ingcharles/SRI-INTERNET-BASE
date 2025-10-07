@@ -5,40 +5,49 @@ import router from './router'
 import App from './App.vue'
 
 // Importar estilos de PrimeVue
-// import 'primevue/resources/themes/lara-light-blue/theme.css';
-// import 'primevue/resources/primevue.min.css';
 import 'primeicons/primeicons.css'
-// import 'primeflex/primeflex.css';
 
-// Importar estilos personalizados
-// import '@/assets/css/_sri-vue-variables.scss';
-// import '@/assets/css/_sri-vue-plantilla.scss';
-
-// Importar variables CSS nativas
-import '@/assets/css/variables.css'
-
-// Importar variables del sistema de grid
-import '@/assets/css/variables-grid.css'
+// Importar variables del sistema
+import '@/assets/css/_sri_vue_variables_responsivo_v2.css'
+import '@/assets/css/_sri_vue_variables_v2.css'
 
 // Importar sistema de grid responsivo en español
-import '@/assets/css/grid-sistema.css'
+import '@/assets/css/_sri_vue_responsivo_v2.css'
 
-
-// Importar estilos personalizados con CSS nativo
-import '@/assets/css/layout.css'
-import '@/assets/css/inicio.css'
-import '@/assets/css/componentes.css'
-
-//
+// Importar fuentes e iconos
 import '@/assets/iconos/sri-icon/sri-icono-fuentes.min.css'
 import '@/assets/iconos/sri-menu-icon/sri-menu-icon-fuentes.min.css'
-// Importar estilos globales de PrimeVue personalizados
-// import '@/assets/css/_sri-vue-plantilla.scss';
+import '@/assets/iconos/fontawesome/font-awesome.min.css'
+
+// Importar estilos personalizados con CSS nativo
+import '@/assets/css/_sri_vue_cabecera_v2.css'
+import '@/assets/css/_sri-vue-plantilla_v2.css'
+import '@/assets/css/inicio.css'
+
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { far } from '@fortawesome/free-regular-svg-icons'
+
+library.add(fas, far, fab)
 
 const app = createApp(App)
 
 app.use(createPinia())
 app.use(router)
-app.use(PrimeVue)
+app.use(PrimeVue, {
+  theme: {
+    // preset: Aura,
+    options: {
+      cssLayer: {
+        name: 'primevue',
+        // order: 'theme, base, primevue',
+      },
+    },
+  },
+})
+
+app.component('fa', FontAwesomeIcon)
 
 app.mount('#app')

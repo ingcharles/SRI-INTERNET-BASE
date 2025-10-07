@@ -21,12 +21,12 @@
   border: none;
   scrollbar-width: thin;
   scrollbar-color: var(--color-azul-fuerte) var(--color-blanco);
-  font-family: var(--fuente-principal) !important;
+  /* font-family: var(--fuente-principal) !important;  */
 }
 
 body {
   font-family: Roboto, Arial, Helvetica, sans-serif;
-  font-size: var(--fuente-size-campo);
+  font-size: var(--tamanio-fuente-campo);
   background-color: var(--color-blanco);
   font-weight: 400;
   -webkit-tap-highlight-color: transparent;
@@ -57,7 +57,8 @@ body {
 
 /* Sección izquierda del encabezado */
 .encabezado-izquierda {
-  height: var(--alto-100);
+  padding-left: 23px;
+  /* height: var(--alto-100); */
 }
 
 .encabezado-izquierda .mostrar-flex {
@@ -76,7 +77,7 @@ body {
 .logo-aplicacion {
   vertical-align: middle;
   display: inline-block;
-  margin-left: 18px;
+  margin-left: 25px;
   height: 25px;
 }
 
@@ -156,7 +157,7 @@ body {
   justify-content: center !important;
   min-width: 45px !important;
   height: 45px !important;
-  text-decoration: none !important;
+  /* text-decoration: none !important; */
   cursor: pointer !important;
 }
 
@@ -214,7 +215,7 @@ body {
   justify-content: center !important;
   min-width: 50px !important;
   height: 50px !important;
-  text-decoration: none !important;
+  /* text-decoration: none !important; */
   cursor: pointer !important;
 }
 
@@ -317,7 +318,7 @@ body {
   position: fixed;
   top: 60px;
   left: 0;
-  width: 240px;
+  width: 275px;
   box-shadow: none;
   overflow-y: auto;
   overflow-x: hidden;
@@ -343,10 +344,12 @@ body {
 .seccion-buscar {
   padding: var(--espacio-2);
   border-bottom: 1px solid var(--color-gris-claro);
+  height: 60px;
 }
 
 .seccion-buscar .fila {
   margin: 0;
+  padding: 5px;
 }
 
 /* .input-buscador {
@@ -377,35 +380,33 @@ body {
   min-height: 40px;
 }
 
+.menu-lateral .p-panelmenu .p-panelmenu-item-link .p-panelmenu-item-link-padre .fa {
+  color: #757575;
+}
+
 .menu-lateral .p-panelmenu .p-panelmenu-item-link:hover {
   background-color: var(--color-gris-claro);
-  text-decoration: underline;
 }
 
 .menu-lateral .p-panelmenu .p-panelmenu-item-label {
   margin-left: 1.125em;
   margin-right: 0;
   color: var(--color-gris-fuerte) !important;
-  font-size: var(--fuente-size-miga) !important;
+  font-size: var(--tamanio-fuente-miga) !important;
 }
 
 .menu-lateral .p-panelmenu .p-panelmenu-header-label {
-  font-size: var(--fuente-size-miga) !important;
-  margin-left: 1.125em;
+  margin-left: 20px;
+  font-weight: normal;
 }
-
+.menu-lateral .p-panelmenu .p-panelmenu-header-label:hover {
+  text-decoration: underline;
+}
 .p-panelmenu-header-icon {
-  font-size: var(--fuente-size-25) !important;
+  font-size: var(--tamanio-fuente-25) !important;
 }
-p-panelmenu-header-icon
-/* Navegación del menú */
-/* .menu-navegacion {
-  padding: var(--espacio-1) 0;
-} */
 
-.lista-menu {
-  padding: var(--espacio-2);
-}
+/* Navegación del menú */
 
 .lista-menu .mostrar-flex {
   gap: var(--espacio-2);
@@ -424,14 +425,14 @@ p-panelmenu-header-icon
 }
 
 .menu-lateral .p-panelmenu .p-panelmenu-header-link {
-  padding: 0.75rem 1rem;
+  padding: 0.625rem 1rem;
   border: none;
-  background: transparent;
+  /* background: transparent; */
   color: var(--color-gris-fuerte);
-  font-size: 13px;
+  font-size: 10px;
   font-weight: 600;
   transition: background-color 0.2s;
-  text-transform: uppercase;
+  min-height: 40px;
 }
 
 .menu-lateral .p-panelmenu .p-panelmenu-header-link:hover {
@@ -503,29 +504,37 @@ p-panelmenu-header-icon
 }
 
 /* Estilos para PanelMenu de PrimeVue */
-.menu-lateral .menu-panel {
+.menu-lateral .p-panelmenu {
   border: none;
   background: transparent;
   width: var(--ancho-100);
 }
 
 /* Panel del menú */
-.menu-lateral .menu-panel .p-panelmenu-panel {
+.menu-lateral .p-panelmenu .p-panelmenu-panel {
   margin-bottom: 3px;
+  border-style: none;
+}
+
+/* body .ui-panelmenu .ui-panelmenu-header.ui-state-active {
+  background-color: #e7eaee;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+} */
+
+/* Header del panel (categorías principales) */
+.menu-lateral .p-panelmenu .p-panelmenu-header {
+  background: var(--color-blanco);
+  border: 1px solid var(--color-gris-claro);
+  height: 42px;
+  margin: -2px;
+  border: 1px solid #e7eaee;
 }
 
 .menu-lateral .p-panelmenu .p-panelmenu-header.p-panelmenu-header-active {
   background-color: var(--color-gris-claro);
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-}
-
-/* Header del panel (categorías principales) */
-.menu-lateral .menu-panel .p-panelmenu-header {
-  background: var(--color-blanco);
-  border: 1px solid var(--color-gris-claro);
-  height: 42px;
-  margin: -2px;
 }
 
 /* Iconos en el header */
@@ -585,9 +594,11 @@ p-panelmenu-header-icon
 }
 
 /* Lista de iconos cuando está colapsado */
+/* .lista-menu {
+  padding: var(--espacio-2);
+} */
 .lista-menu {
   padding: 0.5rem 0;
-  background-color: var(--color-gris-tenue);
 }
 
 .lista-menu .mostrar-flex {
@@ -600,7 +611,7 @@ p-panelmenu-header-icon
   padding-bottom: 0;
   border: 0;
   font-size: 24.835px;
-  color: var(--color-gris-medio) !important;
+  color: var(--color-gris-fuerte);
 }
 
 /* ========== CONTENIDO PRINCIPAL ========== */
@@ -608,7 +619,7 @@ p-panelmenu-header-icon
   margin-top: 60px;
   margin-left: 240px;
   min-height: calc(100vh - 120px);
-  background-color: var(--color-gris-tenue);
+  /* background-color: var(--color-gris-tenue); */
   transition: margin-left 0.3s ease;
   padding: var(--espacio-3);
 }
@@ -676,6 +687,21 @@ p-panelmenu-header-icon
   margin: 0;
 }
 
+/* ========== COLORES ========== */
+.color-gris-fuerte {
+  color: var(--color-gris-fuerte) !important;
+}
+.color-gris-neutro {
+  color: var(--color-gris-neutro) !important;
+}
+.color-gris-medio {
+  color: var(--color-gris-medio) !important;
+}
+
+/* ========== FUENTES ========== */
+.tamanio-fuente-11 {
+  font-size: var(--tamanio-fuente-11) !important;
+}
 /* ========== RESPONSIVE ========== */
 
 /* Tablets */

@@ -5,7 +5,7 @@ import type { ItemMenu, InformacionUsuario } from '@/interfaces/menu.interface';
 /**
  * Almacén para gestionar el estado del layout
  */
-export const useLayoutStore = defineStore('layout', () => {
+export const usarAlmacenPrincipalBase = defineStore('layout', () => {
   const menuLateralVisible = ref(true);
   const menuMovilVisible = ref(false);
   const informacionUsuario = ref<InformacionUsuario>({

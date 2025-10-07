@@ -1,14 +1,14 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 import { setActivePinia, createPinia } from 'pinia';
-import { useLayoutStore } from '../layout';
+import { usarAlmacenPrincipalBase } from '../principalBase';
 
-describe('useLayoutStore', () => {
+describe('usarAlmacenPrincipalBase', () => {
     beforeEach(() => {
         setActivePinia(createPinia());
     });
 
     it('Debería inicializar con valores por defecto', () => {
-        const almacen = useLayoutStore();
+        const almacen = usarAlmacenPrincipalBase();
 
         expect(almacen.menuLateralVisible).toBe(true);
         expect(almacen.menuMovilVisible).toBe(false);
@@ -18,7 +18,7 @@ describe('useLayoutStore', () => {
     });
 
     it('Debería alternar la visibilidad del menú lateral', () => {
-        const almacen = useLayoutStore();
+        const almacen = usarAlmacenPrincipalBase();
         const estadoInicial = almacen.menuLateralVisible;
 
         almacen.alternarMenuLateral();
@@ -29,7 +29,7 @@ describe('useLayoutStore', () => {
     });
 
     it('Debería alternar la visibilidad del menú móvil', () => {
-        const almacen = useLayoutStore();
+        const almacen = usarAlmacenPrincipalBase();
 
         expect(almacen.menuMovilVisible).toBe(false);
         almacen.alternarMenuMovil();
@@ -39,7 +39,7 @@ describe('useLayoutStore', () => {
     });
 
     it('Debería cerrar el menú móvil', () => {
-        const almacen = useLayoutStore();
+        const almacen = usarAlmacenPrincipalBase();
 
         almacen.alternarMenuMovil();
         expect(almacen.menuMovilVisible).toBe(true);
@@ -48,7 +48,7 @@ describe('useLayoutStore', () => {
     });
 
     it('Debería actualizar la información del usuario', () => {
-        const almacen = useLayoutStore();
+        const almacen = usarAlmacenPrincipalBase();
         const nuevaInfo = {
             nombre: 'NUEVO USUARIO',
             identificacion: '9999999999999'
@@ -60,7 +60,7 @@ describe('useLayoutStore', () => {
     });
 
     it('Debería filtrar items del menú visibles', () => {
-        const almacen = useLayoutStore();
+        const almacen = usarAlmacenPrincipalBase();
         const totalItems = almacen.itemsMenu.length;
 
         expect(almacen.menuFiltrado.length).toBe(totalItems);

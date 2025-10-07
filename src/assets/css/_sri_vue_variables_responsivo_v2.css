@@ -1,0 +1,50 @@
+/*!
+	* Nombre: _sri_vue_variables_responsivo_v2.css
+	* Descripcion: Variables globales para las hojas de estilos para el Sistema de Rejilla (Grid).
+	* Dependencias: N/A
+	* Autor: Planificacion TI  - LRodriguez
+	* Copyright SRI-2023
+    */
+
+:root {
+  /* ========== ESPACIADO DEL SISTEMA ========== */
+  --espaciado-rejilla: 15px;
+  --espaciado-rejilla-doble: 30px;
+
+  /* ========== ANCHOS MÁXIMOS DE CONTENEDORES ========== */
+  --contenedor-pequeno: 540px;
+  --contenedor-mediano: 720px;
+  --contenedor-grande: 960px;
+  --contenedor-extra-grande: 1140px;
+  --contenedor-extra-extra-grande: 1320px;
+
+  /* ========== COLUMNAS ========== */
+  --total-columnas: 12;
+
+  /* Porcentajes de columnas (calculados para 12 columnas) */
+  --ancho-columna-1: 8.333333%;
+  --ancho-columna-2: 16.666667%;
+  --ancho-columna-3: 25%;
+  --ancho-columna-4: 33.333333%;
+  --ancho-columna-5: 41.666667%;
+  --ancho-columna-6: 50%;
+  --ancho-columna-7: 58.333333%;
+  --ancho-columna-8: 66.666667%;
+  --ancho-columna-9: 75%;
+  --ancho-columna-10: 83.333333%;
+  --ancho-columna-11: 91.666667%;
+  --ancho-columna-12: 100%;
+
+  /* ========== ESPACIADO ENTRE ELEMENTOS ========== */
+  --espacio-0: 0;
+  --espacio-1: 0.25rem;
+  --espacio-2: 0.5rem;
+  --espacio-3: 1rem;
+  --espacio-4: 1.5rem;
+  --espacio-5: 3rem;
+
+  /* ========== ÍNDICE Z ========== */
+  --indice-z-contenedor: 1;
+  --indice-z-fila: 2;
+  --indice-z-columna: 3;
+}

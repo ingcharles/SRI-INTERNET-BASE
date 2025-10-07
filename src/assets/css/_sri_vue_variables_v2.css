@@ -1,8 +1,10 @@
-/**
- * Variables CSS Nativas (Custom Properties)
- * Forma moderna de definir variables en CSS
- * Pueden ser modificadas dinámicamente con JavaScript
- */
+/*!
+	* Nombre: _sri_vue_variables_responsivo_v2.css
+	* Descripcion: Variables globales para las hojas de estilos para el Sistema Vue).
+	* Dependencias: N/A
+	* Autor: Planificacion TI  - LRodriguez
+	* Copyright SRI-2023
+    */
 
 :root {
   /* Colores principales */
@@ -44,31 +46,34 @@
 
   /* Tamaños de fuente */
   --fuente-principal: Roboto, Arial, Helvetica, sans-serif;
-  --titulo-size: 32px;
-  --subtitulo-size: 24px;
-  --h3-size: 20px;
-  --h4-size: 18px;
-  --h5-size: 14px;
+  --tamanio-titulo: 32px;
+  --tamanio-subtitulo: 24px;
+  --tamanio-fuente-h3: 20px;
+  --tamanio-fuente-h4: 18px;
+  --tamanio-fuente-h5: 14px;
 
-  --fuente-size-miga: 12px;
-  --fuente-size-instruccion: 16px;
-  --fuente-size-alerta: 14px;
-  --fuente-size-step: 18px;
-  --fuente-size-campo: 14px;
-  --fuente-size-placeholder: 14px;
-  --fuente-size-paginador: 14px;
-  --fuente-size-tabla: 14px;
-  --fuente-size-24: 24px;
-  --fuente-size-25: 25px;
-  --fuente-size-32: 32px;
+  --tamanio-fuente-10: 10px;
+  --tamanio-fuente-11: 11px;
+  --tamanio-fuente-13: 13px;
+  --tamanio-fuente-miga: 12px;
+  --tamanio-fuente-instruccion: 16px;
+  --tamanio-fuente-alerta: 14px;
+  --tamanio-fuente-step: 18px;
+  --tamanio-fuente-campo: 14px;
+  --tamanio-fuente-placeholder: 14px;
+  --tamanio-fuente-paginador: 14px;
+  --tamanio-fuente-tabla: 14px;
+  --tamanio-fuente-24: 24px;
+  --tamanio-fuente-25: 25px;
+  --tamanio-fuente-32: 32px;
 
   /* Tamaños de iconos */
-  --icono-size-informacion: 39px;
-  --icono-size-confirmacion-ventana: 137px;
-  --icono-size-modal: 60px;
-  --icono-size-alerta: 25px;
-  --icono-size-tabla: 20px;
-  --icono-size-formulario: 20px;
+  --tamanio-icono-informacion: 39px;
+  --tamanio-icono-confirmacion-ventana: 137px;
+  --tamanio-icono-modal: 60px;
+  --tamanio-icono-alerta: 25px;
+  --tamanio-icono-tabla: 20px;
+  --tamanio-icono-formulario: 20px;
 
   /* Botones */
   --btn-principal: var(--color-azul-principal);
@@ -118,50 +123,25 @@
 
   /* Modales */
   --modal-espaciado-y: 20px;
-  --modal-size-x: 400px;
-  --modal-size-x-small: 350px;
-  --modal-img-size-y: 90px;
+  --modal-tamanio-x: 400px;
+  --modal-tamanio-x-small: 350px;
+  --modal-img-tamanio-y: 90px;
   --modal-padding: 20px;
-  --modal-icono-size: var(--icono-size-modal);
+  --modal-icono-tamanio: var(--tamanio-icono-modal);
 
   /* Componentes de formularios */
-  --padding-campo: 2px;
-  --btn-size-icono: 25px;
-  --check-size: 20px;
-  --item-fuente-size: 12px;
+  --relleno-campo: 2px;
+  --btn-tamanio-icono: 25px;
+  --check-tamanio: 20px;
+  --item-fuente-tamnio: 12px;
 
   /* Páginas de error */
-  --icono-pag-error-size: 133px;
-  --titulo-pag-error-size: 40px;
-  --fuente-pag-error-size: 14px;
-  --fuente-pag-error-color: var(--color-coral-fuerte);
+  --tamanio-icono-pag-error: 133px;
+  --tamanio-titulo-pag-error: 40px;
+  --tamanio-fuente-pag-error: 14px;
+  --color-fuente-pag-error: var(--color-coral-fuerte);
 
-  /* Breakpoints (para usar con JavaScript) */
-  /* --breakpoint-xs: 0px;
-  --breakpoint-sm: 576px;
-  --breakpoint-md: 768px;
-  --breakpoint-lg: 992px;
-  --breakpoint-xl: 1200px;
-  --breakpoint-xxl: 1400px; */
-
-  /* Ancho */
+  /* Ancho / Alto */
   --ancho-100: 100%;
   --alto-100: 100%;
 }
-
-/* Ejemplo de uso:
-body {
-  background-color: var(--color-blanco);
-  color: var(--color-gris-fuerte);
-  font-family: var(--fuente-principal);
-}
-
-.boton-principal {
-  background-color: var(--btn-principal);
-  color: var(--btn-principal-fuente-color);
-}
-
-.boton-principal:hover {
-  background-color: var(--btn-principal-hover);
-}
-*/

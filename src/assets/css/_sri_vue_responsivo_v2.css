@@ -1,7 +1,7 @@
 /**
  * Sistema de Grid Responsivo en Español
  * Similar a Bootstrap pero con nombres en español
- * Sistema de 12 columnas con breakpoints responsive
+ * Sistema de 12 columnas con PUNTOS DE QUIEBRE (BREAKPOINT)s responsive
  * Usa variables CSS para fácil personalización
  */
 
@@ -19,35 +19,35 @@
   max-width: 100%;
 }
 
-/* Breakpoint SM (576px) */
+/* PUNTOS DE QUIEBRE (BREAKPOINT) SM (576px) */
 @media (min-width: 576px) {
   .contenedor {
     max-width: var(--contenedor-pequeno);
   }
 }
 
-/* Breakpoint MD (768px) */
+/* PUNTOS DE QUIEBRE (BREAKPOINT) MD (768px) */
 @media (min-width: 768px) {
   .contenedor {
     max-width: var(--contenedor-mediano);
   }
 }
 
-/* Breakpoint LG (992px) */
+/* PUNTOS DE QUIEBRE (BREAKPOINT) LG (992px) */
 @media (min-width: 992px) {
   .contenedor {
     max-width: var(--contenedor-grande);
   }
 }
 
-/* Breakpoint XL (1200px) */
+/* PUNTOS DE QUIEBRE (BREAKPOINT) XL (1200px) */
 @media (min-width: 1200px) {
   .contenedor {
     max-width: var(--contenedor-extra-grande);
   }
 }
 
-/* Breakpoint XXL (1400px) */
+/* PUNTOS DE QUIEBRE (BREAKPOINT) XXL (1400px) */
 @media (min-width: 1400px) {
   .contenedor {
     max-width: var(--contenedor-extra-extra-grande);
@@ -67,8 +67,8 @@
   margin-left: 0;
 }
 
-.fila.sin-espaciado>.columna,
-.fila.sin-espaciado>[class*="columna-"] {
+.fila.sin-espaciado > .columna,
+.fila.sin-espaciado > [class*='columna-'] {
   padding-right: 0;
   padding-left: 0;
 }
@@ -269,7 +269,7 @@
   order: 12;
 }
 
-/* ========== BREAKPOINT SM (576px) ========== */
+/* ========== PUNTOS DE QUIEBRE (BREAKPOINT) SM (576px) ========== */
 @media (min-width: 576px) {
   .columna-sm {
     flex-basis: 0;
@@ -448,7 +448,7 @@
   }
 }
 
-/* ========== BREAKPOINT MD (768px) ========== */
+/* ========== PUNTOS DE QUIEBRE (BREAKPOINT) MD (768px) ========== */
 @media (min-width: 768px) {
   .columna-md {
     flex-basis: 0;
@@ -463,63 +463,63 @@
   }
 
   .columna-md-1 {
-    flex: 0 0 8.333333%;
-    max-width: 8.333333%;
+    flex: 0 0 var(--ancho-columna-1);
+    max-width: var(--ancho-columna-1);
   }
 
   .columna-md-2 {
-    flex: 0 0 16.666667%;
-    max-width: 16.666667%;
+    flex: 0 0 var(--ancho-columna-2);
+    max-width: var(--ancho-columna-2);
   }
 
   .columna-md-3 {
-    flex: 0 0 25%;
-    max-width: 25%;
+    flex: 0 0 var(--ancho-columna-3);
+    max-width: var(--ancho-columna-3);
   }
 
   .columna-md-4 {
-    flex: 0 0 33.333333%;
-    max-width: 33.333333%;
+    flex: 0 0 var(--ancho-columna-4);
+    max-width: var(--ancho-columna-4);
   }
 
   .columna-md-5 {
-    flex: 0 0 41.666667%;
-    max-width: 41.666667%;
+    flex: 0 0 var(--ancho-columna-5);
+    max-width: var(--ancho-columna-5);
   }
 
   .columna-md-6 {
-    flex: 0 0 50%;
-    max-width: 50%;
+    flex: 0 0 var(--ancho-columna-6);
+    max-width: var(--ancho-columna-6);
   }
 
   .columna-md-7 {
-    flex: 0 0 58.333333%;
-    max-width: 58.333333%;
+    flex: 0 0 var(--ancho-columna-7);
+    max-width: var(--ancho-columna-7);
   }
 
   .columna-md-8 {
-    flex: 0 0 66.666667%;
-    max-width: 66.666667%;
+    flex: 0 0 var(--ancho-columna-8);
+    max-width: var(--ancho-columna-8);
   }
 
   .columna-md-9 {
-    flex: 0 0 75%;
-    max-width: 75%;
+    flex: 0 0 var(--ancho-columna-9);
+    max-width: var(--ancho-columna-9);
   }
 
   .columna-md-10 {
-    flex: 0 0 83.333333%;
-    max-width: 83.333333%;
+    flex: 0 0 var(--ancho-columna-10);
+    max-width: var(--ancho-columna-10);
   }
 
   .columna-md-11 {
-    flex: 0 0 91.666667%;
-    max-width: 91.666667%;
+    flex: 0 0 var(--ancho-columna-11);
+    max-width: var(--ancho-columna-11);
   }
 
   .columna-md-12 {
-    flex: 0 0 100%;
-    max-width: 100%;
+    flex: 0 0 var(--ancho-columna-12);
+    max-width: var(--ancho-columna-12);
   }
 
   .desplazar-md-0 {
@@ -527,47 +527,47 @@
   }
 
   .desplazar-md-1 {
-    margin-left: 8.333333%;
+    margin-left: var(--ancho-columna-1);
   }
 
   .desplazar-md-2 {
-    margin-left: 16.666667%;
+    margin-left: var(--ancho-columna-2);
   }
 
   .desplazar-md-3 {
-    margin-left: 25%;
+    margin-left: var(--ancho-columna-3);
   }
 
   .desplazar-md-4 {
-    margin-left: 33.333333%;
+    margin-left: var(--ancho-columna-4);
   }
 
   .desplazar-md-5 {
-    margin-left: 41.666667%;
+    margin-left: var(--ancho-columna-5);
   }
 
   .desplazar-md-6 {
-    margin-left: 50%;
+    margin-left: var(--ancho-columna-6);
   }
 
   .desplazar-md-7 {
-    margin-left: 58.333333%;
+    margin-left: var(--ancho-columna-7);
   }
 
   .desplazar-md-8 {
-    margin-left: 66.666667%;
+    margin-left: var(--ancho-columna-8);
   }
 
   .desplazar-md-9 {
-    margin-left: 75%;
+    margin-left: var(--ancho-columna-9);
   }
 
   .desplazar-md-10 {
-    margin-left: 83.333333%;
+    margin-left: var(--ancho-columna-10);
   }
 
   .desplazar-md-11 {
-    margin-left: 91.666667%;
+    margin-left: var(--ancho-columna-11);
   }
 
   .orden-md-primero {
@@ -627,7 +627,7 @@
   }
 }
 
-/* ========== BREAKPOINT LG (992px) ========== */
+/* ========== PUNTOS DE QUIEBRE (BREAKPOINT) LG (992px) ========== */
 @media (min-width: 992px) {
   .columna-lg {
     flex-basis: 0;
@@ -642,62 +642,62 @@
   }
 
   .columna-lg-1 {
-    flex: 0 0 8.333333%;
-    max-width: 8.333333%;
+    flex: 0 0 var(--ancho-columna-1);
+    max-width: var(--ancho-columna-1);
   }
 
   .columna-lg-2 {
-    flex: 0 0 16.666667%;
-    max-width: 16.666667%;
+    flex: 0 0 var(--ancho-columna-2);
+    max-width: var(--ancho-columna-2);
   }
 
   .columna-lg-3 {
-    flex: 0 0 25%;
-    max-width: 25%;
+    flex: 0 0 var(--ancho-columna-3);
+    max-width: var(--ancho-columna-3);
   }
 
   .columna-lg-4 {
-    flex: 0 0 33.333333%;
-    max-width: 33.333333%;
+    flex: 0 0 var(--ancho-columna-4);
+    max-width: var(--ancho-columna-4);
   }
 
   .columna-lg-5 {
-    flex: 0 0 41.666667%;
-    max-width: 41.666667%;
+    flex: 0 0 var(--ancho-columna-5);
+    max-width: var(--ancho-columna-5);
   }
 
   .columna-lg-6 {
-    flex: 0 0 50%;
-    max-width: 50%;
+    flex: 0 0 var(--ancho-columna-6);
+    max-width: var(--ancho-columna-6);
   }
 
   .columna-lg-7 {
-    flex: 0 0 58.333333%;
-    max-width: 58.333333%;
+    flex: 0 0 var(--ancho-columna-7);
+    max-width: var(--ancho-columna-7);
   }
 
   .columna-lg-8 {
-    flex: 0 0 66.666667%;
-    max-width: 66.666667%;
+    flex: 0 0 var(--ancho-columna-8);
+    max-width: var(--ancho-columna-8);
   }
 
   .columna-lg-9 {
-    flex: 0 0 75%;
-    max-width: 75%;
+    flex: 0 0 var(--ancho-columna-9);
+    max-width: var(--ancho-columna-9);
   }
 
   .columna-lg-10 {
-    flex: 0 0 83.333333%;
-    max-width: 83.333333%;
+    flex: 0 0 var(--ancho-columna-10);
+    max-width: var(--ancho-columna-10);
   }
 
   .columna-lg-11 {
-    flex: 0 0 91.666667%;
-    max-width: 91.666667%;
+    flex: 0 0 var(--ancho-columna-11);
+    max-width: var(--ancho-columna-11);
   }
 
   .columna-lg-12 {
-    flex: 0 0 100%;
+    flex: 0 0 var(--ancho-columna-12);
     max-width: 100%;
   }
 
@@ -706,47 +706,47 @@
   }
 
   .desplazar-lg-1 {
-    margin-left: 8.333333%;
+    margin-left: var(--ancho-columna-1);
   }
 
   .desplazar-lg-2 {
-    margin-left: 16.666667%;
+    margin-left: var(--ancho-columna-2);
   }
 
   .desplazar-lg-3 {
-    margin-left: 25%;
+    margin-left: var(--ancho-columna-3);
   }
 
   .desplazar-lg-4 {
-    margin-left: 33.333333%;
+    margin-left: var(--ancho-columna-4);
   }
 
   .desplazar-lg-5 {
-    margin-left: 41.666667%;
+    margin-left: var(--ancho-columna-5);
   }
 
   .desplazar-lg-6 {
-    margin-left: 50%;
+    margin-left: var(--ancho-columna-6);
   }
 
   .desplazar-lg-7 {
-    margin-left: 58.333333%;
+    margin-left: var(--ancho-columna-7);
   }
 
   .desplazar-lg-8 {
-    margin-left: 66.666667%;
+    margin-left: var(--ancho-columna-8);
   }
 
   .desplazar-lg-9 {
-    margin-left: 75%;
+    margin-left: var(--ancho-columna-9);
   }
 
   .desplazar-lg-10 {
-    margin-left: 83.333333%;
+    margin-left: var(--ancho-columna-10);
   }
 
   .desplazar-lg-11 {
-    margin-left: 91.666667%;
+    margin-left: var(--ancho-columna-11);
   }
 
   .orden-lg-primero {
@@ -806,7 +806,7 @@
   }
 }
 
-/* ========== BREAKPOINT XL (1200px) ========== */
+/* ========== PUNTOS DE QUIEBRE (BREAKPOINT) XL (1200px) ========== */
 @media (min-width: 1200px) {
   .columna-xl {
     flex-basis: 0;
@@ -821,63 +821,63 @@
   }
 
   .columna-xl-1 {
-    flex: 0 0 8.333333%;
-    max-width: 8.333333%;
+    flex: 0 0 var(--ancho-columna-1);
+    max-width: var(--ancho-columna-1);
   }
 
   .columna-xl-2 {
-    flex: 0 0 16.666667%;
-    max-width: 16.666667%;
+    flex: 0 0 var(--ancho-columna-2);
+    max-width: var(--ancho-columna-2);
   }
 
   .columna-xl-3 {
-    flex: 0 0 25%;
-    max-width: 25%;
+    flex: 0 0 var(--ancho-columna-3);
+    max-width: var(--ancho-columna-3);
   }
 
   .columna-xl-4 {
-    flex: 0 0 33.333333%;
-    max-width: 33.333333%;
+    flex: 0 0 var(--ancho-columna-4);
+    max-width: var(--ancho-columna-4);
   }
 
   .columna-xl-5 {
-    flex: 0 0 41.666667%;
-    max-width: 41.666667%;
+    flex: 0 0 var(--ancho-columna-5);
+    max-width: var(--ancho-columna-5);
   }
 
   .columna-xl-6 {
-    flex: 0 0 50%;
-    max-width: 50%;
+    flex: 0 0 var(--ancho-columna-6);
+    max-width: var(--ancho-columna-6);
   }
 
   .columna-xl-7 {
-    flex: 0 0 58.333333%;
-    max-width: 58.333333%;
+    flex: 0 0 var(--ancho-columna-7);
+    max-width: var(--ancho-columna-7);
   }
 
   .columna-xl-8 {
-    flex: 0 0 66.666667%;
-    max-width: 66.666667%;
+    flex: 0 0 var(--ancho-columna-8);
+    max-width: var(--ancho-columna-8);
   }
 
   .columna-xl-9 {
-    flex: 0 0 75%;
-    max-width: 75%;
+    flex: 0 0 var(--ancho-columna-9);
+    max-width: var(--ancho-columna-9);
   }
 
   .columna-xl-10 {
-    flex: 0 0 83.333333%;
-    max-width: 83.333333%;
+    flex: 0 0 var(--ancho-columna-10);
+    max-width: var(--ancho-columna-10);
   }
 
   .columna-xl-11 {
-    flex: 0 0 91.666667%;
-    max-width: 91.666667%;
+    flex: 0 0 var(--ancho-columna-11);
+    max-width: var(--ancho-columna-11);
   }
 
   .columna-xl-12 {
-    flex: 0 0 100%;
-    max-width: 100%;
+    flex: 0 0 var(--ancho-columna-12);
+    max-width: var(--ancho-columna-12);
   }
 
   .desplazar-xl-0 {
@@ -885,47 +885,47 @@
   }
 
   .desplazar-xl-1 {
-    margin-left: 8.333333%;
+    margin-left: var(--ancho-columna-1);
   }
 
   .desplazar-xl-2 {
-    margin-left: 16.666667%;
+    margin-left: var(--ancho-columna-2);
   }
 
   .desplazar-xl-3 {
-    margin-left: 25%;
+    margin-left: var(--ancho-columna-3);
   }
 
   .desplazar-xl-4 {
-    margin-left: 33.333333%;
+    margin-left: var(--ancho-columna-4);
   }
 
   .desplazar-xl-5 {
-    margin-left: 41.666667%;
+    margin-left: var(--ancho-columna-5);
   }
 
   .desplazar-xl-6 {
-    margin-left: 50%;
+    margin-left: var(--ancho-columna-6);
   }
 
   .desplazar-xl-7 {
-    margin-left: 58.333333%;
+    margin-left: var(--ancho-columna-7);
   }
 
   .desplazar-xl-8 {
-    margin-left: 66.666667%;
+    margin-left: var(--ancho-columna-8);
   }
 
   .desplazar-xl-9 {
-    margin-left: 75%;
+    margin-left: var(--ancho-columna-9);
   }
 
   .desplazar-xl-10 {
-    margin-left: 83.333333%;
+    margin-left: var(--ancho-columna-10);
   }
 
   .desplazar-xl-11 {
-    margin-left: 91.666667%;
+    margin-left: var(--ancho-columna-11);
   }
 
   .orden-xl-primero {
@@ -985,7 +985,7 @@
   }
 }
 
-/* ========== BREAKPOINT XXL (1400px) ========== */
+/* ========== PUNTOS DE QUIEBRE (BREAKPOINT) XXL (1400px) ========== */
 @media (min-width: 1400px) {
   .columna-xxl {
     flex-basis: 0;
@@ -1000,63 +1000,63 @@
   }
 
   .columna-xxl-1 {
-    flex: 0 0 8.333333%;
-    max-width: 8.333333%;
+    flex: 0 0 var(--ancho-columna-1);
+    max-width: var(--ancho-columna-1);
   }
 
   .columna-xxl-2 {
-    flex: 0 0 16.666667%;
-    max-width: 16.666667%;
+    flex: 0 0 var(--ancho-columna-2);
+    max-width: var(--ancho-columna-2);
   }
 
   .columna-xxl-3 {
-    flex: 0 0 25%;
-    max-width: 25%;
+    flex: 0 0 var(--ancho-columna-3);
+    max-width: var(--ancho-columna-3);
   }
 
   .columna-xxl-4 {
-    flex: 0 0 33.333333%;
-    max-width: 33.333333%;
+    flex: 0 0 var(--ancho-columna-4);
+    max-width: var(--ancho-columna-4);
   }
 
   .columna-xxl-5 {
-    flex: 0 0 41.666667%;
-    max-width: 41.666667%;
+    flex: 0 0 var(--ancho-columna-5);
+    max-width: var(--ancho-columna-5);
   }
 
   .columna-xxl-6 {
-    flex: 0 0 50%;
-    max-width: 50%;
+    flex: 0 0 var(--ancho-columna-6);
+    max-width: var(--ancho-columna-6);
   }
 
   .columna-xxl-7 {
-    flex: 0 0 58.333333%;
-    max-width: 58.333333%;
+    flex: 0 0 var(--ancho-columna-7);
+    max-width: var(--ancho-columna-7);
   }
 
   .columna-xxl-8 {
-    flex: 0 0 66.666667%;
-    max-width: 66.666667%;
+    flex: 0 0 var(--ancho-columna-8);
+    max-width: var(--ancho-columna-8);
   }
 
   .columna-xxl-9 {
-    flex: 0 0 75%;
-    max-width: 75%;
+    flex: 0 0 var(--ancho-columna-9);
+    max-width: var(--ancho-columna-9);
   }
 
   .columna-xxl-10 {
-    flex: 0 0 83.333333%;
-    max-width: 83.333333%;
+    flex: 0 0 var(--ancho-columna-10);
+    max-width: var(--ancho-columna-10);
   }
 
   .columna-xxl-11 {
-    flex: 0 0 91.666667%;
-    max-width: 91.666667%;
+    flex: 0 0 var(--ancho-columna-11);
+    max-width: var(--ancho-columna-11);
   }
 
   .columna-xxl-12 {
-    flex: 0 0 100%;
-    max-width: 100%;
+    flex: 0 0 var(--ancho-columna-12);
+    max-width: var(--ancho-columna-12);
   }
 
   .desplazar-xxl-0 {
@@ -1064,47 +1064,47 @@
   }
 
   .desplazar-xxl-1 {
-    margin-left: 8.333333%;
+    margin-left: var(--ancho-columna-1);
   }
 
   .desplazar-xxl-2 {
-    margin-left: 16.666667%;
+    margin-left: var(--ancho-columna-2);
   }
 
   .desplazar-xxl-3 {
-    margin-left: 25%;
+    margin-left: var(--ancho-columna-3);
   }
 
   .desplazar-xxl-4 {
-    margin-left: 33.333333%;
+    margin-left: var(--ancho-columna-4);
   }
 
   .desplazar-xxl-5 {
-    margin-left: 41.666667%;
+    margin-left: var(--ancho-columna-5);
   }
 
   .desplazar-xxl-6 {
-    margin-left: 50%;
+    margin-left: var(--ancho-columna-6);
   }
 
   .desplazar-xxl-7 {
-    margin-left: 58.333333%;
+    margin-left: var(--ancho-columna-7);
   }
 
   .desplazar-xxl-8 {
-    margin-left: 66.666667%;
+    margin-left: var(--ancho-columna-8);
   }
 
   .desplazar-xxl-9 {
-    margin-left: 75%;
+    margin-left: var(--ancho-columna-9);
   }
 
   .desplazar-xxl-10 {
-    margin-left: 83.333333%;
+    margin-left: var(--ancho-columna-10);
   }
 
   .desplazar-xxl-11 {
-    margin-left: 91.666667%;
+    margin-left: var(--ancho-columna-11);
   }
 
   .orden-xxl-primero {
