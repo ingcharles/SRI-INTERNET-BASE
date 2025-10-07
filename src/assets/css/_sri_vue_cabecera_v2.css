@@ -172,7 +172,7 @@ body {
   font-size: 26px !important;
 }
 
-.menu-item-escritorio .submenu-icon {
+.menu-item-escritorio .menu-icono {
   font-size: 12px !important;
   margin-left: 4px !important;
 }
@@ -225,12 +225,12 @@ body {
   background-color: rgba(255, 255, 255, 0.1) !important;
 }
 
-.menu-item-movil span[class*='pi']:not(.submenu-icon) {
+.menu-item-movil span[class*='pi']:not(.menu-icono) {
   font-size: 16px !important;
   margin-bottom: 2px !important;
 }
 
-.menu-item-movil .menu-label {
+.menu-item-movil .menu-etiqueta {
   font-size: 9px !important;
   font-weight: 400 !important;
   text-align: center !important;
@@ -238,7 +238,7 @@ body {
   line-height: 1.1 !important;
 }
 
-.menu-item-movil .submenu-icon {
+.menu-item-movil .menu-icono {
   font-size: 10px !important;
   margin-top: 2px !important;
 }
@@ -253,12 +253,12 @@ body {
   height: auto !important;
 }
 
-.menu-movil .p-submenu-list .menu-item-movil span[class*='pi']:not(.submenu-icon) {
+.menu-movil .p-submenu-list .menu-item-movil span[class*='pi']:not(.menu-icono) {
   margin: 0 0.5rem 0 0 !important;
   font-size: 14px !important;
 }
 
-.menu-movil .p-submenu-list .menu-item-movil .menu-label {
+.menu-movil .p-submenu-list .menu-item-movil .menu-etiqueta {
   font-size: 12px !important;
   margin-bottom: 0 !important;
 }
@@ -631,21 +631,17 @@ body {
   /* Menú lateral en móviles - siempre visible con iconos */
   .menu-lateral {
     width: 60px;
-    /* Ancho para solo iconos por defecto */
     transform: translateX(0);
-    /* Siempre visible */
   }
 
   .menu-lateral.menu-movil-visible {
     width: 240px;
-    /* Ancho completo cuando está expandido */
     z-index: 1001;
     box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
   }
 
   .contenido-principal {
     margin-left: 60px;
-    /* Espacio para iconos por defecto */
     padding: var(--espacio-2);
     transition: margin-left 0.3s ease;
   }
@@ -654,22 +650,8 @@ body {
     margin-left: 60px;
   }
 
-  .pie-pagina {
-    margin-left: 60px;
-    /* Espacio para iconos por defecto */
-    transition: margin-left 0.3s ease;
-  }
-
-  .pie-pagina.menu-colapsado {
-    margin-left: 60px;
-  }
-
   /* Cuando el menú móvil está expandido */
   .contenedor-pincipal.menu-movil-expandido .contenido-principal {
-    margin-left: 240px;
-  }
-
-  .contenedor-pincipal.menu-movil-expandido .pie-pagina {
     margin-left: 240px;
   }
 }

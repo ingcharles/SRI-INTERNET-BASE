@@ -108,7 +108,7 @@ function manejarClickMenu() {
 
         <!-- Sección Derecha: Iconos de acción -->
         <div class="columna-6 columna-md-3 columna-lg-4 encabezado-derecha">
-          <!-- Desktop: MenuBar solo con iconos -->
+          <!-- Escritorio: MenuBar solo con iconos -->
           <div v-if="!props.esPantallaPequena" class="menu-escritorio-container">
             <Menubar :model="itemsMenu" class="menu-escritorio">
               <template #item="{ item, props: itemProps, hasSubmenu }">
@@ -116,14 +116,14 @@ function manejarClickMenu() {
                   <a v-ripple :href="href" v-bind="itemProps.action" @click="navigate" class="menu-item-escritorio"
                     :class="{ 'badge-notificacion': item.label === 'Notificaciones' }" :aria-label="String(item.label)">
                     <span :class="item.icon" />
-                    <span v-if="hasSubmenu" class="pi pi-fw pi-angle-down submenu-icon" />
+                    <span v-if="hasSubmenu" class="pi pi-fw pi-angle-down menu-icono" />
                   </a>
                 </router-link>
                 <a v-else v-ripple :href="item.url" :target="item.target"
                   @click="() => (item.command as (() => void))?.()" class="menu-item-escritorio"
                   :class="{ 'badge-notificacion': item.label === 'Notificaciones' }" :aria-label="String(item.label)">
                   <span :class="item.icon" />
-                  <span v-if="hasSubmenu" class="pi pi-fw pi-angle-down submenu-icon" />
+                  <span v-if="hasSubmenu" class="pi pi-fw pi-angle-down menu-icono" />
                 </a>
               </template>
             </Menubar>
@@ -131,30 +131,29 @@ function manejarClickMenu() {
 
           <!-- Móvil: MenuBar con iconos y etiquetas -->
           <div v-else class="menu-movil-container">
-            <div class="card flex justify-center">
-              <Button type="button" icon="pi pi-ellipsis-v" @click="plegable" aria-haspopup="true"
-                aria-controls="btnCubrirMenu" />
-              <TieredMenu ref="menu" id="btnCubrirMenu" :model="itemsMenu" popup>
-                <template #item="{ item, props: itemProps, hasSubmenu }">
-                  <router-link v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>
-                    <a v-ripple :href="href" v-bind="itemProps.action" @click="navigate" class="menu-item-movil"
-                      :class="{ 'badge-notificacion': item.label === 'Notificaciones' }"
-                      :aria-label="String(item.label)">
-                      <span :class="item.icon" />
-                      <span class="menu-label">{{ item.label }}</span>
-                      <span v-if="hasSubmenu" class="pi pi-fw pi-angle-down submenu-icon" />
-                    </a>
-                  </router-link>
-                  <a v-else v-ripple :href="item.url" :target="item.target"
-                    @click="() => (item.command as (() => void))?.()" class="menu-item-movil"
+            <!-- <Card class="p-card mostrar-flex alinear-centro"> -->
+            <Button type="button" icon="pi pi-ellipsis-v" @click="plegable" aria-haspopup="true"
+              aria-controls="btnCubrirMenu" />
+            <TieredMenu ref="menu" id="btnCubrirMenu" :model="itemsMenu" popup>
+              <template #item="{ item, props: itemProps, hasSubmenu }">
+                <router-link v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>
+                  <a v-ripple :href="href" v-bind="itemProps.action" @click="navigate" class="menu-item-movil"
                     :class="{ 'badge-notificacion': item.label === 'Notificaciones' }" :aria-label="String(item.label)">
                     <span :class="item.icon" />
-                    <span class="menu-label">{{ item.label }}</span>
-                    <span v-if="hasSubmenu" class="pi pi-fw pi-angle-down submenu-icon" />
+                    <span class="menu-etiqueta">{{ item.label }}</span>
+                    <span v-if="hasSubmenu" class="pi pi-fw pi-angle-down menu-icono" />
                   </a>
-                </template>
-              </TieredMenu>
-            </div>
+                </router-link>
+                <a v-else v-ripple :href="item.url" :target="item.target"
+                  @click="() => (item.command as (() => void))?.()" class="menu-item-movil"
+                  :class="{ 'badge-notificacion': item.label === 'Notificaciones' }" :aria-label="String(item.label)">
+                  <span :class="item.icon" />
+                  <span class="menu-etiqueta">{{ item.label }}</span>
+                  <span v-if="hasSubmenu" class="pi pi-fw pi-angle-down menu-icono" />
+                </a>
+              </template>
+            </TieredMenu>
+            <!-- </Card> -->
           </div>
         </div>
       </div>
