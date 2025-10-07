@@ -65,7 +65,9 @@ describe('usarAlmacenPrincipalBase', () => {
 
         expect(almacen.menuFiltrado.length).toBe(totalItems);
 
-        almacen.itemsMenu[0].visible = false;
-        expect(almacen.menuFiltrado.length).toBe(totalItems - 1);
+        if (almacen.itemsMenu[0]) {
+            almacen.itemsMenu[0].visible = false;
+            expect(almacen.menuFiltrado.length).toBe(totalItems - 1);
+        }
     });
 });

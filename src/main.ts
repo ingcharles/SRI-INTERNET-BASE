@@ -48,6 +48,6 @@ app.use(PrimeVue, {
   },
 })
 
-app.component('fa', FontAwesomeIcon)
+app.component('FontAwesome', FontAwesomeIcon)
 
 app.mount('#app')

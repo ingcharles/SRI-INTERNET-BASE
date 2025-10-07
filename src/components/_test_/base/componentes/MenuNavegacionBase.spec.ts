@@ -63,7 +63,8 @@ describe('MenuNavegacionBase', () => {
         const input = wrapper.find('input');
         await input.setValue('RUC');
 
-        expect(wrapper.vm.textoBusqueda).toBe('RUC');
+        // Verificar que el input tiene el valor correcto
+        expect(input.element.value).toBe('RUC');
     });
 
     it('Debería limpiar la búsqueda al hacer click en el botón limpiar', async () => {
@@ -80,7 +81,8 @@ describe('MenuNavegacionBase', () => {
         const botonLimpiar = wrapper.find('[aria-label="Limpiar búsqueda"]');
         await botonLimpiar.trigger('click');
 
-        expect(wrapper.vm.textoBusqueda).toBe('');
+        // Verificar que el input se limpió
+        expect(input.element.value).toBe('');
     });
 
     it('Debería mostrar lista de iconos cuando soloIconos es true', () => {

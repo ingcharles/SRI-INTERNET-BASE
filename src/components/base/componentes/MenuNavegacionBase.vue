@@ -25,7 +25,7 @@ function convertirAMenuPrime(items: ItemMenu[], level = 0): MenuItem[] {
       label: item.etiqueta,
       icon: item.icono,
       to: item.ruta,
-      level
+      nivel: level
     };
 
     if (item.hijos && item.hijos.length > 0) {
