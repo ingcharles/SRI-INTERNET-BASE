@@ -14,9 +14,9 @@ describe('PrincipalBase', () => {
       global: {
         plugins: [PrimeVue],
         stubs: {
-          EncabezadoApp: true,
-          MenuLateral: true,
-          ContenidoPrincipal: true,
+          CabeceraBase: true,
+          MenuNavegacionBase: true,
+          ContenidoPrincipalBase: true,
           PiePagina: true,
           InicioVista: true
         }
@@ -31,17 +31,17 @@ describe('PrincipalBase', () => {
       global: {
         plugins: [PrimeVue],
         stubs: {
-          EncabezadoApp: true,
-          MenuLateral: true,
-          ContenidoPrincipal: true,
+          CabeceraBase: true,
+          MenuNavegacionBase: true,
+          ContenidoPrincipalBase: true,
           PiePagina: true,
           InicioVista: true
         }
       }
     });
 
-    expect(wrapper.findComponent({ name: 'EncabezadoApp' }).exists()).toBe(true);
-    expect(wrapper.findComponent({ name: 'ContenidoPrincipal' }).exists()).toBe(true);
+    expect(wrapper.findComponent({ name: 'CabeceraBase' }).exists()).toBe(true);
+    expect(wrapper.findComponent({ name: 'ContenidoPrincipalBase' }).exists()).toBe(true);
     expect(wrapper.findComponent({ name: 'PiePagina' }).exists()).toBe(true);
   });
 })

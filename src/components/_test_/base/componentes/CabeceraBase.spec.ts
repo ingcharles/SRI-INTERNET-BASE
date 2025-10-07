@@ -1,17 +1,17 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 import { mount } from '@vue/test-utils';
 import { createPinia, setActivePinia } from 'pinia';
-import EncabezadoApp from '../EncabezadoApp.vue';
+import CabeceraBase from '@/components/base/componentes/CabeceraBase.vue';
 import PrimeVue from 'primevue/config';
 import Button from 'primevue/button';
 
-describe('EncabezadoApp', () => {
+describe('CabeceraBase', () => {
     beforeEach(() => {
         setActivePinia(createPinia());
     });
 
     it('Debería renderizar el componente correctamente', () => {
-        const wrapper = mount(EncabezadoApp, {
+        const wrapper = mount(CabeceraBase, {
             global: {
                 plugins: [PrimeVue],
                 components: { Button }
@@ -24,7 +24,7 @@ describe('EncabezadoApp', () => {
     });
 
     it('Debería mostrar la información del usuario', () => {
-        const wrapper = mount(EncabezadoApp, {
+        const wrapper = mount(CabeceraBase, {
             global: {
                 plugins: [PrimeVue],
                 components: { Button }
@@ -38,7 +38,7 @@ describe('EncabezadoApp', () => {
     });
 
     it('Debería emitir evento al hacer click en el botón del menú', async () => {
-        const wrapper = mount(EncabezadoApp, {
+        const wrapper = mount(CabeceraBase, {
             global: {
                 plugins: [PrimeVue],
                 components: { Button }
@@ -52,7 +52,7 @@ describe('EncabezadoApp', () => {
     });
 
     it('Debería mostrar botones completos en pantalla grande', () => {
-        const wrapper = mount(EncabezadoApp, {
+        const wrapper = mount(CabeceraBase, {
             props: {
                 esPantallaPequena: false
             },
@@ -67,7 +67,7 @@ describe('EncabezadoApp', () => {
     });
 
     it('Debería mostrar menú de tres puntos en pantalla pequeña', () => {
-        const wrapper = mount(EncabezadoApp, {
+        const wrapper = mount(CabeceraBase, {
             props: {
                 esPantallaPequena: true
             },

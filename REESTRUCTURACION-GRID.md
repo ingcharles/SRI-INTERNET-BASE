@@ -10,13 +10,15 @@ Se ha reestructurado completamente el proyecto para utilizar el sistema de grid 
 
 **Antes:** Usaba flexbox directo y estilos personalizados sin aprovechar el sistema de grid.
 
-**Después:** 
+**Después:**
+
 - Utiliza las clases del grid-sistema.css (`.contenedor-fluido`, `.fila`, `.columna-*`)
 - Implementa breakpoints responsive del sistema de grid
 - Estructura modular con comentarios claros por sección
 - Mejor organización del código CSS
 
 **Características principales:**
+
 - **Encabezado:** Sistema de 3 columnas responsive (izquierda, centro, derecha)
 - **Menú Lateral:** Ancho fijo de 240px, colapsable a 60px (solo iconos)
 - **Contenido Principal:** Margen dinámico según estado del menú
@@ -27,12 +29,14 @@ Se ha reestructurado completamente el proyecto para utilizar el sistema de grid 
 **Antes:** Estilos básicos sin aprovechar el sistema de grid.
 
 **Después:**
+
 - **Carrusel de Servicios:** Usa grid para organizar los círculos de servicios destacados
 - **Cards Circulares:** Diseño fiel al SRI con bordes de colores y iconos circulares
 - **Sistema de Tabs:** Layout responsive con grid para los servicios adicionales
 - **Servicios Lista:** Grid de 3 columnas en desktop, 2 en tablet, 1 en móvil
 
 **Características principales:**
+
 - Servicios circulares de 180px con hover effects
 - Carrusel con botones de navegación
 - Tabs con indicador visual activo
@@ -40,7 +44,8 @@ Se ha reestructurado completamente el proyecto para utilizar el sistema de grid 
 
 ### 3. Componentes Vue Reestructurados
 
-#### EncabezadoApp.vue
+#### CabeceraBase.vue
+
 ```vue
 <!-- Estructura con grid -->
 <div class="contenedor-fluido">
@@ -53,11 +58,13 @@ Se ha reestructurado completamente el proyecto para utilizar el sistema de grid 
 ```
 
 **Mejoras:**
+
 - Layout responsive de 3 columnas
 - Oculta información de usuario en móviles
 - Usa clases de alineación del grid (`alinear-centro`, `justificar-fin`)
 
-#### MenuLateral.vue
+#### MenuNavegacionBase.vue
+
 ```vue
 <!-- Buscador con grid -->
 <div class="fila alinear-centro">
@@ -71,11 +78,13 @@ Se ha reestructurado completamente el proyecto para utilizar el sistema de grid 
 ```
 
 **Mejoras:**
+
 - Buscador con proporción 10/2 columnas
 - Navegación con PanelMenu de PrimeVue
 - Modo solo iconos para menú colapsado
 
 #### InicioVista.vue
+
 ```vue
 <!-- Carrusel con grid -->
 <div class="fila alinear-centro">
@@ -93,11 +102,13 @@ Se ha reestructurado completamente el proyecto para utilizar el sistema de grid 
 ```
 
 **Mejoras:**
+
 - Carrusel con botones laterales usando `columna-auto`
 - Grid responsive para servicios (1, 2 o 3 columnas según pantalla)
 - Estructura semántica y accesible
 
-#### ContenidoPrincipal.vue
+#### ContenidoPrincipalBase.vue
+
 ```vue
 <div class="contenedor-fluido">
   <div class="fila">
@@ -114,11 +125,13 @@ Se ha reestructurado completamente el proyecto para utilizar el sistema de grid 
 ```
 
 **Mejoras:**
+
 - Usa contenedor fluido para máximo ancho
 - Separación clara entre breadcrumb y contenido
 - Estructura modular con slots
 
 #### PiePagina.vue
+
 ```vue
 <div class="fila alinear-centro">
   <div class="columna-12 columna-md-4"><!-- Enlaces --></div>
@@ -128,6 +141,7 @@ Se ha reestructurado completamente el proyecto para utilizar el sistema de grid 
 ```
 
 **Mejoras:**
+
 - Layout de 3 columnas en desktop
 - Apilado vertical en móviles
 - Alineación centrada con clases del grid
@@ -135,26 +149,31 @@ Se ha reestructurado completamente el proyecto para utilizar el sistema de grid 
 ## Ventajas de la Reestructuración
 
 ### 1. Consistencia
+
 - Todos los componentes usan el mismo sistema de grid
 - Nomenclatura en español coherente en todo el proyecto
 - Breakpoints unificados
 
 ### 2. Mantenibilidad
+
 - Código más limpio y organizado
 - Fácil de entender y modificar
 - Comentarios claros en cada sección
 
 ### 3. Responsive
+
 - Diseño mobile-first
 - Breakpoints bien definidos (xs, sm, md, lg, xl, xxl)
 - Comportamiento predecible en todos los dispositivos
 
 ### 4. Reutilización
+
 - Clases del grid reutilizables
 - No hay código CSS duplicado
 - Componentes modulares
 
 ### 5. Performance
+
 - CSS optimizado
 - Menos estilos inline
 - Mejor cacheo del navegador
@@ -162,7 +181,7 @@ Se ha reestructurado completamente el proyecto para utilizar el sistema de grid 
 ## Breakpoints Utilizados
 
 ```css
-/* Extra Small (xs) */ 
+/* Extra Small (xs) */
 < 576px: Móviles pequeños
 
 /* Small (sm) */
@@ -184,26 +203,31 @@ Se ha reestructurado completamente el proyecto para utilizar el sistema de grid 
 ## Clases del Grid Más Utilizadas
 
 ### Contenedores
+
 - `.contenedor`: Ancho máximo según breakpoint
 - `.contenedor-fluido`: Ancho completo con padding
 
 ### Layout
+
 - `.fila`: Contenedor flex para columnas
 - `.columna-*`: Columnas de 1 a 12
 - `.columna-{breakpoint}-*`: Columnas responsive
 
 ### Alineación
+
 - `.alinear-centro`: Alinea items verticalmente al centro
 - `.justificar-centro`: Justifica contenido horizontalmente al centro
 - `.justificar-fin`: Justifica contenido al final
 - `.justificar-entre`: Espacio entre items
 
 ### Visualización
+
 - `.mostrar-flex`: Display flex
 - `.mostrar-bloque`: Display block
 - `.ocultar-elemento`: Ocultar elemento (display: none)
 
 ### Responsive
+
 - `.ocultar-xs`: Ocultar en móviles pequeños
 - `.ocultar-sm`: Ocultar en móviles grandes
 - `.mostrar-md`: Mostrar desde tablets
@@ -220,9 +244,9 @@ src/
 │       └── inicio.css              # Estilos de inicio (REESTRUCTURADO)
 ├── componentes/
 │   └── layout/
-│       ├── EncabezadoApp.vue       # (REESTRUCTURADO)
-│       ├── MenuLateral.vue         # (REESTRUCTURADO)
-│       ├── ContenidoPrincipal.vue  # (REESTRUCTURADO)
+│       ├── CabeceraBase.vue       # (REESTRUCTURADO)
+│       ├── MenuNavegacionBase.vue         # (REESTRUCTURADO)
+│       ├── ContenidoPrincipalBase.vue  # (REESTRUCTURADO)
 │       └── PiePagina.vue           # (REESTRUCTURADO)
 └── vistas/
     └── InicioVista.vue             # (REESTRUCTURADO)
@@ -262,6 +286,7 @@ npm run build
 ## Soporte
 
 Para dudas o problemas con el sistema de grid, consultar:
+
 - `GUIA-GRID-SISTEMA.md`: Guía completa del sistema de grid
 - `VARIABLES-GRID-ESPANOL.md`: Documentación de variables CSS
 - `PERSONALIZACION-GRID.md`: Cómo personalizar el grid

@@ -1,19 +1,19 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 import { mount } from '@vue/test-utils';
 import { createPinia, setActivePinia } from 'pinia';
-import MenuLateral from '../MenuLateral.vue';
+import MenuNavegacionBase from '@/components/base/componentes/MenuNavegacionBase.vue';
 import PrimeVue from 'primevue/config';
 import InputText from 'primevue/inputtext';
 import Button from 'primevue/button';
 import PanelMenu from 'primevue/panelmenu';
 
-describe('MenuLateral', () => {
+describe('MenuNavegacionBase', () => {
     beforeEach(() => {
         setActivePinia(createPinia());
     });
 
     it('Debería renderizar el componente correctamente', () => {
-        const wrapper = mount(MenuLateral, {
+        const wrapper = mount(MenuNavegacionBase, {
             global: {
                 plugins: [PrimeVue],
                 components: { InputText, Button, PanelMenu }
@@ -24,7 +24,7 @@ describe('MenuLateral', () => {
     });
 
     it('Debería mostrar la sección de búsqueda cuando no es solo iconos', () => {
-        const wrapper = mount(MenuLateral, {
+        const wrapper = mount(MenuNavegacionBase, {
             props: {
                 soloIconos: false
             },
@@ -39,7 +39,7 @@ describe('MenuLateral', () => {
     });
 
     it('Debería ocultar la sección de búsqueda cuando es solo iconos', () => {
-        const wrapper = mount(MenuLateral, {
+        const wrapper = mount(MenuNavegacionBase, {
             props: {
                 soloIconos: true
             },
@@ -53,7 +53,7 @@ describe('MenuLateral', () => {
     });
 
     it('Debería filtrar items del menú al buscar', async () => {
-        const wrapper = mount(MenuLateral, {
+        const wrapper = mount(MenuNavegacionBase, {
             global: {
                 plugins: [PrimeVue],
                 components: { InputText, Button, PanelMenu }
@@ -67,7 +67,7 @@ describe('MenuLateral', () => {
     });
 
     it('Debería limpiar la búsqueda al hacer click en el botón limpiar', async () => {
-        const wrapper = mount(MenuLateral, {
+        const wrapper = mount(MenuNavegacionBase, {
             global: {
                 plugins: [PrimeVue],
                 components: { InputText, Button, PanelMenu }
@@ -84,7 +84,7 @@ describe('MenuLateral', () => {
     });
 
     it('Debería mostrar lista de iconos cuando soloIconos es true', () => {
-        const wrapper = mount(MenuLateral, {
+        const wrapper = mount(MenuNavegacionBase, {
             props: {
                 soloIconos: true
             },

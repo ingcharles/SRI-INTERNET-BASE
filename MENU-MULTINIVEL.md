@@ -109,7 +109,7 @@ interface ItemMenu {
 }
 ```
 
-### 2. `src/componentes/base/MenuLateral.vue`
+### 2. `src/componentes/base/MenuNavegacionBase.vue`
 
 **Cambios:**
 
@@ -317,12 +317,12 @@ Todas las pruebas unitarias pasan correctamente:
 ```bash
 npm run test:unit
 
-✓ MenuLateral > Debería renderizar el componente correctamente
-✓ MenuLateral > Debería mostrar la sección de búsqueda cuando no es solo iconos
-✓ MenuLateral > Debería limpiar la búsqueda al hacer click en el botón limpiar
-✓ MenuLateral > Debería ocultar la sección de búsqueda en modo solo iconos
-✓ MenuLateral > Debería renderizar el PanelMenu cuando no es solo iconos
-✓ MenuLateral > Debería renderizar botones en modo solo iconos
+✓ MenuNavegacionBase > Debería renderizar el componente correctamente
+✓ MenuNavegacionBase > Debería mostrar la sección de búsqueda cuando no es solo iconos
+✓ MenuNavegacionBase > Debería limpiar la búsqueda al hacer click en el botón limpiar
+✓ MenuNavegacionBase > Debería ocultar la sección de búsqueda en modo solo iconos
+✓ MenuNavegacionBase > Debería renderizar el PanelMenu cuando no es solo iconos
+✓ MenuNavegacionBase > Debería renderizar botones en modo solo iconos
 ```
 
 ## Problemas Resueltos

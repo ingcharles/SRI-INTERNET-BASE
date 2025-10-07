@@ -17,14 +17,3 @@ export interface InformacionUsuario {
     nombre: string;
     identificacion: string;
 }
-
-/**
- * Interface para las opciones del navbar
- */
-export interface OpcionNavbar {
-    id: string;
-    etiqueta: string;
-    icono: string;
-    accion?: () => void;
-    ruta?: string;
-}

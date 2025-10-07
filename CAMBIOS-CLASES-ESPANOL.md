@@ -52,8 +52,8 @@ Se han cambiado todas las clases CSS del sistema de grid del inglés al español
 
 ### 3. Componentes Vue
 
-- ✅ `src/componentes/base/EncabezadoApp.vue` - Actualizado en template
-- ✅ `src/componentes/base/MenuLateral.vue` - Actualizado en template
+- ✅ `src/componentes/base/CabeceraBase.vue` - Actualizado en template
+- ✅ `src/componentes/base/MenuNavegacionBase.vue` - Actualizado en template
 - ✅ `src/componentes/base/PiePagina.vue` - Actualizado en template
 - ✅ `src/vistas/InicioVista.vue` - Actualizado en template
 - ✅ `src/componentes/ejemplos/EjemploGrid.vue` - Actualizado en ejemplos

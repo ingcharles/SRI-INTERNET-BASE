@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted } from 'vue';
-import { usarAlmacenPrincipalBase } from '@/stores/principalBase';
-import EncabezadoApp from '@/components/base/componentes/EncabezadoApp.vue';
-import MenuLateral from '@/components/base/componentes/MenuLateral.vue';
-import ContenidoPrincipal from '@/components/base/componentes/ContenidoPrincipal.vue';
-import PiePagina from '@/components/base/componentes/PiePagina.vue';
+import { usarAlmacenPrincipalBase } from '@/stores/base/principalBase';
+import CabeceraBase from '@/components/base/componentes/CabeceraBase.vue';
+import MenuNavegacionBase from '@/components/base/componentes/MenuNavegacionBase.vue';
+import ContenidoPrincipalBase from '@/components/base/componentes/ContenidoPrincipalBase.vue';
 
 
 const almacenPrincipalBase = usarAlmacenPrincipalBase();
@@ -52,17 +51,16 @@ onUnmounted(() => {
 <template>
   <div class="app-container"
     :class="{ 'menu-movil-expandido': esPantallaPequena && almacenPrincipalBase.menuMovilVisible }">
-    <EncabezadoApp :es-pantalla-pequena="esPantallaPequena" @alternar-menu="manejarToggleMenu" />
+    <CabeceraBase :es-pantalla-pequena="esPantallaPequena" @alternar-menu="manejarToggleMenu" />
 
-    <MenuLateral :solo-iconos="mostrarSoloIconos" :class="{
+    <MenuNavegacionBase :solo-iconos="mostrarSoloIconos" :class="{
       'menu-movil-visible': esPantallaPequena && almacenPrincipalBase.menuMovilVisible
     }" />
 
-    <ContenidoPrincipal :class="{ 'menu-colapsado': menuColapsado }" :ruta-actual="['Inicio']">
+    <ContenidoPrincipalBase :class="{ 'menu-colapsado': menuColapsado }" :ruta-actual="['Inicio']">
       <router-view />
-    </ContenidoPrincipal>
+    </ContenidoPrincipalBase>
 
-    <PiePagina :class="{ 'menu-colapsado': menuColapsado }" />
   </div>
 </template>
 

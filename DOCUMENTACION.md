@@ -7,6 +7,7 @@ Sistema de plantilla base responsiva para aplicaciones web del SRI (Servicio de 
 ## Características Principales
 
 ### 1. Encabezado / Navbar
+
 - Menú tipo hamburguesa para colapsar/expandir el menú lateral
 - Logo del SRI (derecha)
 - Información del usuario (identificación y nombre completo)
@@ -20,6 +21,7 @@ Sistema de plantilla base responsiva para aplicaciones web del SRI (Servicio de 
 - En dispositivos pequeños: menú de 3 puntos que agrupa todas las opciones
 
 ### 2. Menú Lateral
+
 - Navegación secundaria con secciones y módulos
 - Buscador de servicios con filtrado en tiempo real
 - Submenús desplegables de n niveles
@@ -28,6 +30,7 @@ Sistema de plantilla base responsiva para aplicaciones web del SRI (Servicio de 
 - En dispositivos pequeños: se oculta y aparece como overlay
 
 ### 3. Contenido Principal
+
 - Área de contenido dinámico
 - Breadcrumbs para navegación jerárquica
 - Panel principal adaptable
@@ -37,6 +40,7 @@ Sistema de plantilla base responsiva para aplicaciones web del SRI (Servicio de 
   - Grid de servicios adicionales
 
 ### 4. Pie de Página
+
 - Información legal (términos y condiciones, política de privacidad)
 - Copyright
 - Versión del sistema
@@ -65,9 +69,9 @@ src/
 │       └── layout.spec.ts
 ├── componentes/           # Componentes reutilizables
 │   └── layout/           # Componentes del layout
-│       ├── EncabezadoApp.vue
-│       ├── MenuLateral.vue
-│       ├── ContenidoPrincipal.vue
+│       ├── CabeceraBase.vue
+│       ├── MenuNavegacionBase.vue
+│       ├── ContenidoPrincipalBase.vue
 │       ├── PiePagina.vue
 │       └── pruebas/      # Tests de componentes
 ├── vistas/               # Vistas de la aplicación
@@ -89,6 +93,7 @@ src/
 ## Principios de Desarrollo
 
 ### SOLID
+
 - **S**ingle Responsibility: Cada componente tiene una única responsabilidad
 - **O**pen/Closed: Componentes abiertos para extensión, cerrados para modificación
 - **L**iskov Substitution: Los componentes pueden ser reemplazados por sus variantes
@@ -96,6 +101,7 @@ src/
 - **D**ependency Inversion: Dependencia de abstracciones, no de implementaciones
 
 ### TDD (Test-Driven Development)
+
 - Todas las funcionalidades tienen pruebas unitarias
 - 34 tests pasando exitosamente
 - Cobertura de:
@@ -132,17 +138,22 @@ npm run format
 ## Estilos Personalizados
 
 ### Variables SCSS
+
 El archivo `_sri-vue-variables.scss` contiene todas las variables de diseño:
+
 - Colores corporativos del SRI
 - Tamaños de fuente
 - Espaciados
 - Breakpoints responsive
 
 ### Color Principal
+
 - **Azul Principal**: #0c4597
 
 ### Responsive Design
+
 El sistema es completamente responsivo con breakpoints:
+
 - **xs**: 0px
 - **sm**: 576px
 - **md**: 768px
@@ -152,48 +163,60 @@ El sistema es completamente responsivo con breakpoints:
 
 ## Componentes Principales
 
-### EncabezadoApp
+### CabeceraBase
+
 Encabezado fijo con información del usuario y opciones de navegación.
 
 **Props:**
+
 - `esPantallaPequena?: boolean` - Indica si es pantalla pequeña
 
 **Eventos:**
+
 - `alternar-menu` - Emitido al hacer click en el botón del menú
 
-### MenuLateral
+### MenuNavegacionBase
+
 Menú lateral con navegación y búsqueda.
 
 **Props:**
+
 - `soloIconos?: boolean` - Muestra solo iconos cuando está colapsado
 
-### ContenidoPrincipal
+### ContenidoPrincipalBase
+
 Área principal de contenido con breadcrumbs.
 
 **Props:**
+
 - `rutaActual?: string[]` - Ruta actual para breadcrumbs
 
 **Slots:**
+
 - `default` - Contenido principal
 
 ### PiePagina
+
 Pie de página con información legal y versión.
 
 ## Store de Layout
 
 ### Estado
+
 - `menuLateralVisible: boolean` - Visibilidad del menú lateral
 - `menuMovilVisible: boolean` - Visibilidad del menú móvil
 - `informacionUsuario: InformacionUsuario` - Datos del usuario
 - `itemsMenu: ItemMenu[]` - Items del menú
 
 ### Acciones
+
 - `alternarMenuLateral()` - Alterna visibilidad del menú lateral
 - `alternarMenuMovil()` - Alterna visibilidad del menú móvil
 - `cerrarMenuMovil()` - Cierra el menú móvil
 - `actualizarInformacionUsuario(info)` - Actualiza información del usuario
 
 ### Getters
+
 - `menuFiltrado` - Items del menú visibles
 
 ## Accesibilidad

@@ -65,23 +65,27 @@ src/
 
 ## 🎨 Componentes del Layout
 
-### 1. Encabezado (EncabezadoApp)
+### 1. Encabezado (CabeceraBase)
+
 - Menú hamburguesa
 - Logo SRI
 - Información del usuario
 - Iconos de navegación
 
-### 2. Menú Lateral (MenuLateral)
+### 2. Menú Lateral (MenuNavegacionBase)
+
 - Navegación con búsqueda
 - Submenús multinivel
 - Modo colapsado (solo iconos)
 - Responsive
 
-### 3. Contenido Principal (ContenidoPrincipal)
+### 3. Contenido Principal (ContenidoPrincipalBase)
+
 - Breadcrumbs
 - Área de contenido dinámico
 
 ### 4. Pie de Página (PiePagina)
+
 - Información legal
 - Copyright
 - Versión del sistema
@@ -89,6 +93,7 @@ src/
 ## 🧪 Pruebas
 
 El proyecto incluye 34 pruebas unitarias que cubren:
+
 - Stores de Pinia
 - Componentes Vue
 - Vistas
@@ -108,16 +113,20 @@ npm run test:unit -- --coverage
 ## 🎨 Estilos
 
 ### Variables SCSS
+
 Todas las variables de diseño están en `src/assets/css/_sri-vue-variables.scss`:
+
 - Colores corporativos
 - Tamaños de fuente
 - Espaciados
 - Breakpoints
 
 ### Color Principal
+
 - **Azul SRI**: #0c4597
 
 ### Breakpoints Responsive
+
 - xs: 0px
 - sm: 576px
 - md: 768px
@@ -137,12 +146,14 @@ Todas las variables de diseño están en `src/assets/css/_sri-vue-variables.scss
 Este proyecto incluye **dos implementaciones de estilos**:
 
 ### 1. SCSS (Por Defecto - Actual)
+
 - Variables SCSS tradicionales
 - Compilación en build time
 - Más potente para cálculos complejos
 - **Archivos**: `_layout.scss`, `_inicio.scss`
 
 ### 2. CSS Custom Properties (Alternativa)
+
 - Variables CSS nativas
 - Cambios dinámicos en runtime
 - Ideal para temas dinámicos
@@ -177,12 +188,13 @@ El proyecto incluye un **sistema de grid completo** similar a Bootstrap pero con
 
 ```css
 :root {
-  --grid-gutter: 20px;        /* Cambiar espaciado */
-  --contenedor-lg: 1000px;    /* Cambiar ancho máximo */
+  --grid-gutter: 20px; /* Cambiar espaciado */
+  --contenedor-lg: 1000px; /* Cambiar ancho máximo */
 }
 ```
 
 **Documentación**:
+
 - [GUIA-GRID-SISTEMA.md](./GUIA-GRID-SISTEMA.md) - Guía completa
 - [PERSONALIZACION-GRID.md](./PERSONALIZACION-GRID.md) - Personalización con variables
 

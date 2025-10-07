@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 import { setActivePinia, createPinia } from 'pinia';
-import { usarAlmacenPrincipalBase } from '../principalBase';
+import { usarAlmacenPrincipalBase } from '../../base/principalBase';
 
 describe('usarAlmacenPrincipalBase', () => {
     beforeEach(() => {

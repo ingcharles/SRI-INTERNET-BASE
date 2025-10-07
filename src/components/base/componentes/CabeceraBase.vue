@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
-import { usarAlmacenPrincipalBase } from '@/stores/principalBase';
+import { usarAlmacenPrincipalBase } from '@/stores/base/principalBase';
 import Button from 'primevue/button';
 import Menubar from 'primevue/menubar';
 import TieredMenu from 'primevue/tieredmenu';
@@ -20,8 +20,8 @@ const almacenPrincipalBase = usarAlmacenPrincipalBase();
 const menu = ref();
 
 const plegable = (event: Event) => {
-  if (menu.value && menu.value.plegable) {
-    menu.value.plegable(event);
+  if (menu.value && menu.value.toggle) {
+    menu.value.toggle(event);
   }
 };
 

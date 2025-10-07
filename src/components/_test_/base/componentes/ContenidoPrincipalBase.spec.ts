@@ -1,12 +1,12 @@
 import { describe, it, expect } from 'vitest';
 import { mount } from '@vue/test-utils';
-import ContenidoPrincipal from '@/components/base/componentes/ContenidoPrincipal.vue';
+import ContenidoPrincipalBase from '@/components/base/componentes/ContenidoPrincipalBase.vue';
 import PrimeVue from 'primevue/config';
 import Breadcrumb from 'primevue/breadcrumb';
 
-describe('ContenidoPrincipal', () => {
+describe('ContenidoPrincipalBase', () => {
     it('Debería renderizar el componente correctamente', () => {
-        const wrapper = mount(ContenidoPrincipal, {
+        const wrapper = mount(ContenidoPrincipalBase, {
             global: {
                 plugins: [PrimeVue],
                 components: { Breadcrumb }
@@ -18,7 +18,7 @@ describe('ContenidoPrincipal', () => {
     });
 
     it('Debería mostrar breadcrumb cuando hay ruta actual', () => {
-        const wrapper = mount(ContenidoPrincipal, {
+        const wrapper = mount(ContenidoPrincipalBase, {
             props: {
                 rutaActual: ['Inicio', 'RUC']
             },
@@ -32,7 +32,7 @@ describe('ContenidoPrincipal', () => {
     });
 
     it('Debería ocultar breadcrumb cuando no hay ruta actual', () => {
-        const wrapper = mount(ContenidoPrincipal, {
+        const wrapper = mount(ContenidoPrincipalBase, {
             global: {
                 plugins: [PrimeVue],
                 components: { Breadcrumb }
@@ -43,7 +43,7 @@ describe('ContenidoPrincipal', () => {
     });
 
     it('Debería renderizar el contenido del slot', () => {
-        const wrapper = mount(ContenidoPrincipal, {
+        const wrapper = mount(ContenidoPrincipalBase, {
             slots: {
                 default: '<div class="contenido-test">Contenido de prueba</div>'
             },
