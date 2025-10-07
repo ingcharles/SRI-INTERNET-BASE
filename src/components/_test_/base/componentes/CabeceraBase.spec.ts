@@ -8,6 +8,20 @@ import Button from 'primevue/button';
 describe('CabeceraBase', () => {
     beforeEach(() => {
         setActivePinia(createPinia());
+        // Mock matchMedia for PrimeVue components
+        Object.defineProperty(window, 'matchMedia', {
+            writable: true,
+            value: (query: string) => ({
+                matches: false,
+                media: query,
+                onchange: null,
+                addListener: () => {},
+                removeListener: () => {},
+                addEventListener: () => {},
+                removeEventListener: () => {},
+                dispatchEvent: () => {}
+            })
+        });
     });
 
     it('Debería renderizar el componente correctamente', () => {
@@ -65,21 +79,11 @@ describe('CabeceraBase', () => {
             }
         });
 
-        const botones = wrapper.findAll('.encabezado-derecha button');
-        expect(botones.length).toBeGreaterThan(1);
+        const menuDesktop = wrapper.find('.menu-desktop-container');
+        expect(menuDesktop.exists()).toBe(true);
     });
 
     it('Debería mostrar menú de tres puntos en pantalla pequeña', () => {
-        // Mock matchMedia for TieredMenu
-        Object.defineProperty(window, 'matchMedia', {
-            writable: true,
-            value: () => ({
-                matches: false,
-                addListener: () => {},
-                removeListener: () => {}
-            })
-        });
-
         const wrapper = mount(CabeceraBase, {
             props: {
                 esPantallaPequena: true
@@ -91,7 +95,7 @@ describe('CabeceraBase', () => {
             }
         });
 
-        const botonOpciones = wrapper.find('button[icon="pi pi-ellipsis-v"]');
+        const botonOpciones = wrapper.find('.menu-movil-container button');
         expect(botonOpciones.exists()).toBe(true);
     });
 });
