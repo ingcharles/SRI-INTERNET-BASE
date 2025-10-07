@@ -109,15 +109,12 @@ function limpiarBusqueda() {
 
     </PanelMenu>
 
-    <!-- <PanelMenu v-if="!soloIconos" :model="itemsMenuPrime" /> -->
-
     <!-- Solo iconos cuando está colapsado -->
     <div v-else class="lista-menu">
       <div class="mostrar-flex flex-columna alinear-centro espacio-2">
-        <Button v-for="item in itemsIconos" :key="item.id" :icon="item.icono" class="p-button-rounded p-button-text"
-          :aria-label="item.etiqueta" :title="item.etiqueta" />
+        <Button v-for="item in itemsIconos" :key="item.id" :icon="item.icono" :aria-label="item.etiqueta"
+          :title="item.etiqueta" />
       </div>
     </div>
-    <!-- </nav> -->
   </aside>
 </template>

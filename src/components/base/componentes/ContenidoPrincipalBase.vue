@@ -30,7 +30,7 @@ const itemInicio: MenuItem = {
       <!-- Breadcrumb -->
       <div v-if="rutaActual && rutaActual.length > 0" class="fila">
         <div class="columna-12">
-          <div class="seccion-breadcrumb">
+          <div class="seccion-miga-pan">
             <Breadcrumb :home="itemInicio" :model="itemsMiga" />
           </div>
         </div>

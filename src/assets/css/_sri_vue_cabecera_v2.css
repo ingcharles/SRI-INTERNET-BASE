@@ -21,7 +21,6 @@
   border: none;
   scrollbar-width: thin;
   scrollbar-color: var(--color-azul-fuerte) var(--color-blanco);
-  /* font-family: var(--fuente-principal) !important;  */
 }
 
 body {
@@ -58,7 +57,6 @@ body {
 /* Sección izquierda del encabezado */
 .encabezado-izquierda {
   padding-left: 23px;
-  /* height: var(--alto-100); */
 }
 
 .encabezado-izquierda .mostrar-flex {
@@ -157,7 +155,6 @@ body {
   justify-content: center !important;
   min-width: 45px !important;
   height: 45px !important;
-  /* text-decoration: none !important; */
   cursor: pointer !important;
 }
 
@@ -215,7 +212,6 @@ body {
   justify-content: center !important;
   min-width: 50px !important;
   height: 50px !important;
-  /* text-decoration: none !important; */
   cursor: pointer !important;
 }
 
@@ -352,19 +348,6 @@ body {
   padding: 5px;
 }
 
-/* .input-buscador {
-  width: var(--ancho-100);
-  padding: 0.5rem;
-  border: 1px solid var(--color-gris-claro);
-  border-radius: 4px;
-  font-size: 13px;
-}
-
-.input-buscador:focus {
-  outline: none;
-  border-color: var(--color-azul-principal);
-} */
-
 .btn-buscar {
   background: transparent !important;
   border: none !important;
@@ -406,28 +389,14 @@ body {
   font-size: var(--tamanio-fuente-25) !important;
 }
 
-/* Navegación del menú */
-
-.lista-menu .mostrar-flex {
-  gap: var(--espacio-2);
-}
-
 /* Estilos para PanelMenu de PrimeVue */
 .menu-lateral .p-panelmenu {
   border: none;
 }
 
-.menu-lateral .p-panelmenu .p-panelmenu-header {
-  background: transparent;
-  border: none;
-  border-radius: 0;
-  margin-bottom: 0;
-}
-
 .menu-lateral .p-panelmenu .p-panelmenu-header-link {
   padding: 0.625rem 1rem;
   border: none;
-  /* background: transparent; */
   color: var(--color-gris-fuerte);
   font-size: 10px;
   font-weight: 600;
@@ -503,24 +472,11 @@ body {
   font-size: 1.1rem;
 }
 
-/* Estilos para PanelMenu de PrimeVue */
-.menu-lateral .p-panelmenu {
-  border: none;
-  background: transparent;
-  width: var(--ancho-100);
-}
-
 /* Panel del menú */
 .menu-lateral .p-panelmenu .p-panelmenu-panel {
   margin-bottom: 3px;
   border-style: none;
 }
-
-/* body .ui-panelmenu .ui-panelmenu-header.ui-state-active {
-  background-color: #e7eaee;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-} */
 
 /* Header del panel (categorías principales) */
 .menu-lateral .p-panelmenu .p-panelmenu-header {
@@ -528,7 +484,6 @@ body {
   border: 1px solid var(--color-gris-claro);
   height: 42px;
   margin: -2px;
-  border: 1px solid #e7eaee;
 }
 
 .menu-lateral .p-panelmenu .p-panelmenu-header.p-panelmenu-header-active {
@@ -594,16 +549,8 @@ body {
 }
 
 /* Lista de iconos cuando está colapsado */
-/* .lista-menu {
-  padding: var(--espacio-2);
-} */
 .lista-menu {
   padding: 0.5rem 0;
-}
-
-.lista-menu .mostrar-flex {
-  gap: 0.5rem;
-  padding: 0 0.5rem;
 }
 
 .lista-menu .p-button {
@@ -619,7 +566,6 @@ body {
   margin-top: 60px;
   margin-left: 240px;
   min-height: calc(100vh - 120px);
-  /* background-color: var(--color-gris-tenue); */
   transition: margin-left 0.3s ease;
   padding: var(--espacio-3);
 }
@@ -629,7 +575,7 @@ body {
 }
 
 /* Breadcrumb */
-.seccion-breadcrumb {
+.seccion-miga-pan {
   background-color: var(--color-blanco);
   border-radius: 4px;
   padding: var(--espacio-2);
@@ -644,47 +590,6 @@ body {
   border-radius: 4px;
   min-height: 400px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-}
-
-/* ========== PIE DE PÁGINA ========== */
-.pie-pagina {
-  background-color: var(--color-azul-principal);
-  color: var(--color-blanco);
-  padding: var(--espacio-3) 0;
-  margin-left: 240px;
-  transition: margin-left 0.3s ease;
-}
-
-.pie-pagina.menu-colapsado {
-  margin-left: 60px;
-}
-
-.pie-pagina .contenedor-fluido {
-  padding: 0 var(--espacio-3);
-}
-
-.pie-enlace {
-  color: var(--color-blanco);
-  text-decoration: none;
-  font-size: 12px;
-  transition: opacity 0.2s;
-}
-
-.pie-enlace:hover {
-  opacity: 0.8;
-  text-decoration: underline;
-}
-
-.separador {
-  color: var(--color-blanco);
-  font-size: 12px;
-  margin: 0 var(--espacio-1);
-}
-
-.pie-texto {
-  font-size: 12px;
-  color: var(--color-blanco);
-  margin: 0;
 }
 
 /* ========== COLORES ========== */

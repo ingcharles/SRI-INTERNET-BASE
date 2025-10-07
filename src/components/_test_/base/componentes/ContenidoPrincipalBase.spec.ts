@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { mount } from '@vue/test-utils';
-import ContenidoPrincipalBase from '@/components/base/componentes/ContenidoPrincipalBase.vue';
+import ContenidoPrincipalBase from '@/components/base/componentes/ContenidoPrincipalBase.vue'
 import PrimeVue from 'primevue/config';
 import Breadcrumb from 'primevue/breadcrumb';
 
@@ -28,7 +28,7 @@ describe('ContenidoPrincipalBase', () => {
             }
         });
 
-        expect(wrapper.find('.seccion-breadcrumb').exists()).toBe(true);
+        expect(wrapper.find('.seccion-miga-pan').exists()).toBe(true);
     });
 
     it('Debería ocultar breadcrumb cuando no hay ruta actual', () => {
@@ -39,7 +39,7 @@ describe('ContenidoPrincipalBase', () => {
             }
         });
 
-        expect(wrapper.find('.seccion-breadcrumb').exists()).toBe(false);
+        expect(wrapper.find('.seccion-miga-pan').exists()).toBe(false);
     });
 
     it('Debería renderizar el contenido del slot', () => {
