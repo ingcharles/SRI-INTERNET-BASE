@@ -63,11 +63,3 @@ onUnmounted(() => {
 
   </div>
 </template>
-
-<style lang="scss">
-.app-container {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-</style>

@@ -19,8 +19,7 @@ describe('CabeceraBase', () => {
         });
 
         expect(wrapper.find('.encabezado-app').exists()).toBe(true);
-        expect(wrapper.find('.logo-texto').text()).toBe('SRI');
-        expect(wrapper.find('.logo-subtexto').text()).toBe('en línea');
+        expect(wrapper.find('.logo-aplicacion').attributes('alt')).toBe('Logo SRI');
     });
 
     it('Debería mostrar la información del usuario', () => {

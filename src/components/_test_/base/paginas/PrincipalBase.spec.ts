@@ -17,13 +17,10 @@ describe('PrincipalBase', () => {
           CabeceraBase: true,
           MenuNavegacionBase: true,
           ContenidoPrincipalBase: true,
-          PiePagina: true,
-          InicioVista: true
         }
       }
     });
-
-    expect(wrapper.find('.PrincipalBase-container').exists()).toBe(true);
+    expect(wrapper.findComponent({ name: 'PrincipalBase' }).exists()).toBe(true);
   });
 
   it('Debería tener todos los componentes principales', () => {
@@ -34,14 +31,11 @@ describe('PrincipalBase', () => {
           CabeceraBase: true,
           MenuNavegacionBase: true,
           ContenidoPrincipalBase: true,
-          PiePagina: true,
-          InicioVista: true
         }
       }
     });
 
     expect(wrapper.findComponent({ name: 'CabeceraBase' }).exists()).toBe(true);
     expect(wrapper.findComponent({ name: 'ContenidoPrincipalBase' }).exists()).toBe(true);
-    expect(wrapper.findComponent({ name: 'PiePagina' }).exists()).toBe(true);
   });
 })

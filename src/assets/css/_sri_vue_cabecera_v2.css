@@ -32,6 +32,12 @@ body {
   box-sizing: border-box;
 }
 
+.contenedor-pincipal {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 /* ========== ENCABEZADO ========== */
 .encabezado-app {
   background-color: var(--color-azul-principal);
@@ -659,11 +665,11 @@ body {
   }
 
   /* Cuando el menú móvil está expandido */
-  .app-container.menu-movil-expandido .contenido-principal {
+  .contenedor-pincipal.menu-movil-expandido .contenido-principal {
     margin-left: 240px;
   }
 
-  .app-container.menu-movil-expandido .pie-pagina {
+  .contenedor-pincipal.menu-movil-expandido .pie-pagina {
     margin-left: 240px;
   }
 }
