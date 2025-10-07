@@ -5,7 +5,7 @@ import InputText from 'primevue/inputtext';
 import Button from 'primevue/button';
 import PanelMenu from 'primevue/panelmenu';
 import type { MenuItem } from 'primevue/menuitem';
-import type { ItemMenu } from '@/interfaces/menu.interface';
+import type { ItemMenuAmburguesa } from '@/interfaces/menu.interface';
 
 const almacenPrincipalBase = usarAlmacenPrincipalBase();
 
@@ -19,7 +19,7 @@ const textoBusqueda = ref('');
  * Convierte recursivamente los items del menú al formato de PrimeVue
  */
 
-function convertirAMenuPrime(items: ItemMenu[], level = 0): MenuItem[] {
+function convertirAMenuPrime(items: ItemMenuAmburguesa[], level = 0): MenuItem[] {
   return items.map(item => {
     const menuItem: MenuItem & { nivel: number } = {
       label: item.etiqueta,

@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { mount } from '@vue/test-utils';
-import ContenidoPrincipalBase from '@/components/base/componentes/ContenidoPrincipalBase.vue'
-import MigaPanBase from '@/components/base/componentes/MigaPanBase.vue';
+import ContenidoPrincipalBase from '../../../base/componentes/ContenidoPrincipalBase.vue'
+import MigaPanBase from '../../../base/componentes/MigaPanBase.vue';
 import PrimeVue from 'primevue/config';
 
 describe('ContenidoPrincipalBase', () => {

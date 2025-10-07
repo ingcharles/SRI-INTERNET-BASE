@@ -1,12 +1,12 @@
 /**
  * Interface para los items del menú
  */
-export interface ItemMenu {
+export interface ItemMenuAmburguesa {
     id: string;
     etiqueta: string;
     icono?: string;
     ruta?: string;
-    hijos?: ItemMenu[];
+    hijos?: ItemMenuAmburguesa[];
     visible?: boolean;
 }
 
