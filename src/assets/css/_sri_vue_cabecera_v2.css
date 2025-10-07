@@ -125,20 +125,20 @@ body {
 }
 
 /* ========== MENUBAR DESKTOP ========== */
-.menu-desktop-container {
+.menu-escritorio-container {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   height: var(--alto-100);
 }
 
-.menu-desktop {
+.menu-escritorio {
   background: transparent !important;
   border: none !important;
   padding: 0 !important;
 }
 
-.menu-desktop .p-menubar-root-list {
+.menu-escritorio .p-menubar-root-list {
   background: transparent !important;
   border: none !important;
   padding: 0 !important;
@@ -146,11 +146,11 @@ body {
   gap: var(--espacio-1);
 }
 
-.menu-desktop .p-menuitem {
+.menu-escritorio .p-menuitem {
   background: transparent !important;
 }
 
-.menu-item-desktop {
+.menu-item-escritorio {
   color: var(--color-blanco) !important;
   background: transparent !important;
   border: none !important;
@@ -164,15 +164,15 @@ body {
   cursor: pointer !important;
 }
 
-.menu-item-desktop:hover {
+.menu-item-escritorio:hover {
   background-color: rgba(255, 255, 255, 0.1) !important;
 }
 
-.menu-item-desktop span[class*='sri'] {
+.menu-item-escritorio span[class*='sri'] {
   font-size: 26px !important;
 }
 
-.menu-item-desktop .submenu-icon {
+.menu-item-escritorio .submenu-icon {
   font-size: 12px !important;
   margin-left: 4px !important;
 }

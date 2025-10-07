@@ -8,100 +8,68 @@ import Button from 'primevue/button';
 import PanelMenu from 'primevue/panelmenu';
 
 describe('MenuNavegacionBase', () => {
+    // Configuración compartida para todos los tests
+    const configuracionGlobal = {
+        plugins: [PrimeVue],
+        components: { InputText, Button, PanelMenu },
+        stubs: ['router-link']
+    };
+
     beforeEach(() => {
         setActivePinia(createPinia());
     });
 
-    it('Debería renderizar el componente correctamente', () => {
-        const wrapper = mount(MenuNavegacionBase, {
-            global: {
-                plugins: [PrimeVue],
-                components: { InputText, Button, PanelMenu },
-                stubs: ['router-link']
-            }
+    // Helper para crear el contenedor con configuración común
+    const crearContenedor = (propiedades = {}) => {
+        return mount(MenuNavegacionBase, {
+            props: propiedades,
+            global: configuracionGlobal
         });
+    };
 
-        expect(wrapper.find('.menu-lateral').exists()).toBe(true);
+    it('Debería renderizar el componente correctamente', () => {
+        const contenedor = crearContenedor();
+
+        expect(contenedor.find('.menu-lateral').exists()).toBe(true);
     });
 
     it('Debería mostrar la sección de búsqueda cuando no es solo iconos', () => {
-        const wrapper = mount(MenuNavegacionBase, {
-            props: {
-                soloIconos: false
-            },
-            global: {
-                plugins: [PrimeVue],
-                components: { InputText, Button, PanelMenu },
-                stubs: ['router-link']
-            }
-        });
+        const contenedor = crearContenedor({ soloIconos: false });
 
-        expect(wrapper.find('.seccion-buscar').exists()).toBe(true);
-        expect(wrapper.find('input').exists()).toBe(true);
+        expect(contenedor.find('.seccion-buscar').exists()).toBe(true);
+        expect(contenedor.find('input').exists()).toBe(true);
     });
 
     it('Debería ocultar la sección de búsqueda cuando es solo iconos', () => {
-        const wrapper = mount(MenuNavegacionBase, {
-            props: {
-                soloIconos: true
-            },
-            global: {
-                plugins: [PrimeVue],
-                components: { InputText, Button, PanelMenu },
-                stubs: ['router-link']
-            }
-        });
+        const contenedor = crearContenedor({ soloIconos: true });
 
-        expect(wrapper.find('.seccion-buscar').exists()).toBe(false);
+        expect(contenedor.find('.seccion-buscar').exists()).toBe(false);
     });
 
     it('Debería filtrar items del menú al buscar', async () => {
-        const wrapper = mount(MenuNavegacionBase, {
-            global: {
-                plugins: [PrimeVue],
-                components: { InputText, Button, PanelMenu },
-                stubs: ['router-link']
-            }
-        });
+        const contenedor = crearContenedor();
+        const entrada = contenedor.find('input');
 
-        const input = wrapper.find('input');
-        await input.setValue('RUC');
+        await entrada.setValue('RUC');
 
-        // Verificar que el input tiene el valor correcto
-        expect(input.element.value).toBe('RUC');
+        expect(entrada.element.value).toBe('RUC');
     });
 
     it('Debería limpiar la búsqueda al hacer click en el botón limpiar', async () => {
-        const wrapper = mount(MenuNavegacionBase, {
-            global: {
-                plugins: [PrimeVue],
-                components: { InputText, Button, PanelMenu },
-                stubs: ['router-link']
-            }
-        });
+        const contenedor = crearContenedor();
+        const entrada = contenedor.find('input');
 
-        const input = wrapper.find('input');
-        await input.setValue('test');
+        await entrada.setValue('test');
 
-        const botonLimpiar = wrapper.find('[aria-label="Limpiar búsqueda"]');
+        const botonLimpiar = contenedor.find('[aria-label="Limpiar búsqueda"]');
         await botonLimpiar.trigger('click');
 
-        // Verificar que el input se limpió
-        expect(input.element.value).toBe('');
+        expect(entrada.element.value).toBe('');
     });
 
     it('Debería mostrar lista de iconos cuando soloIconos es true', () => {
-        const wrapper = mount(MenuNavegacionBase, {
-            props: {
-                soloIconos: true
-            },
-            global: {
-                plugins: [PrimeVue],
-                components: { InputText, Button, PanelMenu },
-                stubs: ['router-link']
-            }
-        });
+        const contenedor = crearContenedor({ soloIconos: true });
 
-        expect(wrapper.find('.lista-menu').exists()).toBe(true);
+        expect(contenedor.find('.lista-menu').exists()).toBe(true);
     });
 });

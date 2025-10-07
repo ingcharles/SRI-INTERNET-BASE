@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach } from 'vitest';
+import { describe, it, expect, beforeEach, beforeAll } from 'vitest';
 import { mount } from '@vue/test-utils';
 import { createPinia, setActivePinia } from 'pinia';
 import CabeceraBase from '@/components/base/componentes/CabeceraBase.vue';
@@ -6,96 +6,75 @@ import PrimeVue from 'primevue/config';
 import Button from 'primevue/button';
 
 describe('CabeceraBase', () => {
-    beforeEach(() => {
-        setActivePinia(createPinia());
-        // Mock matchMedia for PrimeVue components
-        Object.defineProperty(window, 'matchMedia', {
-            writable: true,
-            value: (query: string) => ({
-                matches: false,
-                media: query,
-                onchange: null,
-                addListener: () => {},
-                removeListener: () => {},
-                addEventListener: () => {},
-                removeEventListener: () => {},
-                dispatchEvent: () => {}
-            })
-        });
+  // Configuración compartida para todos los tests
+  const configuracionGlobal = {
+    plugins: [PrimeVue],
+    components: { Button },
+    stubs: ['router-link']
+  };
+
+  // Mock de matchMedia una sola vez para todos los tests
+  beforeAll(() => {
+    Object.defineProperty(window, 'matchMedia', {
+      writable: true,
+      value: (consulta: string) => ({
+        matches: false,
+        media: consulta,
+        onchange: null,
+        addListener: () => {},
+        removeListener: () => {},
+        addEventListener: () => {},
+        removeEventListener: () => {},
+        dispatchEvent: () => false
+      })
     });
+  });
 
-    it('Debería renderizar el componente correctamente', () => {
-        const wrapper = mount(CabeceraBase, {
-            global: {
-                plugins: [PrimeVue],
-                components: { Button },
-                stubs: ['router-link']
-            }
-        });
+  beforeEach(() => {
+    setActivePinia(createPinia());
+  });
 
-        expect(wrapper.find('.encabezado-app').exists()).toBe(true);
-        expect(wrapper.find('.logo-aplicacion').attributes('alt')).toBe('Logo SRI');
+  // Helper para crear el wrapper con configuración común
+  const crearContenedor = (props = {}) => {
+    return mount(CabeceraBase, {
+      props,
+      global: configuracionGlobal
     });
+  };
 
-    it('Debería mostrar la información del usuario', () => {
-        const wrapper = mount(CabeceraBase, {
-            global: {
-                plugins: [PrimeVue],
-                components: { Button },
-                stubs: ['router-link']
-            }
-        });
+  it('Debería renderizar el componente correctamente', () => {
+    const wrapper = crearContenedor();
 
-        const infoUsuario = wrapper.find('.info-usuario');
-        expect(infoUsuario.exists()).toBe(true);
-        expect(infoUsuario.text()).toContain('1722039953001');
-        expect(infoUsuario.text()).toContain('ANCHUNDIA VALENCIA CARLOS EDUARDO');
-    });
+    expect(wrapper.find('.encabezado-app').exists()).toBe(true);
+    expect(wrapper.find('.logo-aplicacion').attributes('alt')).toBe('Logo SRI');
+  });
 
-    it('Debería emitir evento al hacer click en el botón del menú', async () => {
-        const wrapper = mount(CabeceraBase, {
-            global: {
-                plugins: [PrimeVue],
-                components: { Button },
-                stubs: ['router-link']
-            }
-        });
+  it('Debería mostrar la información del usuario', () => {
+    const wrapper = crearContenedor();
+    const infoUsuario = wrapper.find('.info-usuario');
 
-        const botonMenu = wrapper.find('button[aria-label="Abrir o cerrar menu desplegado"]');
-        await botonMenu.trigger('click');
+    expect(infoUsuario.exists()).toBe(true);
+    expect(infoUsuario.text()).toContain('1722039953001');
+    expect(infoUsuario.text()).toContain('ANCHUNDIA VALENCIA CARLOS EDUARDO');
+  });
 
-        expect(wrapper.emitted('alternar-menu')).toBeTruthy();
-    });
+  it('Debería emitir evento al hacer click en el botón del menú', async () => {
+    const wrapper = crearContenedor();
 
-    it('Debería mostrar botones completos en pantalla grande', () => {
-        const wrapper = mount(CabeceraBase, {
-            props: {
-                esPantallaPequena: false
-            },
-            global: {
-                plugins: [PrimeVue],
-                components: { Button },
-                stubs: ['router-link']
-            }
-        });
+    await wrapper.find('button[aria-label="Abrir o cerrar menu desplegado"]').trigger('click');
 
-        const menuDesktop = wrapper.find('.menu-desktop-container');
-        expect(menuDesktop.exists()).toBe(true);
-    });
+    expect(wrapper.emitted('alternar-menu')).toBeTruthy();
+  });
 
-    it('Debería mostrar menú de tres puntos en pantalla pequeña', () => {
-        const wrapper = mount(CabeceraBase, {
-            props: {
-                esPantallaPequena: true
-            },
-            global: {
-                plugins: [PrimeVue],
-                components: { Button },
-                stubs: ['router-link']
-            }
-        });
+  it('Debería mostrar botones completos en pantalla grande', () => {
+    const wrapper = crearContenedor({ esPantallaPequena: false });
 
-        const botonOpciones = wrapper.find('.menu-movil-container button');
-        expect(botonOpciones.exists()).toBe(true);
-    });
+    expect(wrapper.find('.menu-escritorio-container').exists()).toBe(true);
+  });
+
+  it('Debería mostrar menú de tres puntos en pantalla pequeña', () => {
+    const wrapper = crearContenedor({ esPantallaPequena: true });
+
+    expect(wrapper.find('.menu-movil-container button').exists()).toBe(true);
+  });
 });

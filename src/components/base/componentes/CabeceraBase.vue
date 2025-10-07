@@ -109,18 +109,18 @@ function manejarClickMenu() {
         <!-- Sección Derecha: Iconos de acción -->
         <div class="columna-6 columna-md-3 columna-lg-4 encabezado-derecha">
           <!-- Desktop: MenuBar solo con iconos -->
-          <div v-if="!props.esPantallaPequena" class="menu-desktop-container">
-            <Menubar :model="itemsMenu" class="menu-desktop">
+          <div v-if="!props.esPantallaPequena" class="menu-escritorio-container">
+            <Menubar :model="itemsMenu" class="menu-escritorio">
               <template #item="{ item, props: itemProps, hasSubmenu }">
                 <router-link v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>
-                  <a v-ripple :href="href" v-bind="itemProps.action" @click="navigate" class="menu-item-desktop"
+                  <a v-ripple :href="href" v-bind="itemProps.action" @click="navigate" class="menu-item-escritorio"
                     :class="{ 'badge-notificacion': item.label === 'Notificaciones' }" :aria-label="String(item.label)">
                     <span :class="item.icon" />
                     <span v-if="hasSubmenu" class="pi pi-fw pi-angle-down submenu-icon" />
                   </a>
                 </router-link>
                 <a v-else v-ripple :href="item.url" :target="item.target"
-                  @click="() => (item.command as (() => void))?.()" class="menu-item-desktop"
+                  @click="() => (item.command as (() => void))?.()" class="menu-item-escritorio"
                   :class="{ 'badge-notificacion': item.label === 'Notificaciones' }" :aria-label="String(item.label)">
                   <span :class="item.icon" />
                   <span v-if="hasSubmenu" class="pi pi-fw pi-angle-down submenu-icon" />

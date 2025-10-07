@@ -1,34 +1,41 @@
 import { describe, it, expect } from 'vitest';
 import { mount } from '@vue/test-utils';
-import ContenidoPrincipalBase from '../../../base/componentes/ContenidoPrincipalBase.vue'
+import ContenidoPrincipalBase from '../../../base/componentes/ContenidoPrincipalBase.vue';
 import MigaPanBase from '../../../base/componentes/MigaPanBase.vue';
 import PrimeVue from 'primevue/config';
 
 describe('ContenidoPrincipalBase', () => {
-    it('Debería renderizar el componente correctamente', () => {
-        const wrapper = mount(ContenidoPrincipalBase, {
-            global: {
-                plugins: [PrimeVue],
-                components: { MigaPanBase }
-            }
-        });
+    // Configuración compartida para todos los tests
+    const configuracionGlobal = {
+        plugins: [PrimeVue],
+        components: { MigaPanBase }
+    };
 
-        expect(wrapper.find('.contenido-principal').exists()).toBe(true);
-        expect(wrapper.find('.area-contenido').exists()).toBe(true);
+    // Helper para crear el contenedor con configuración común
+    const crearContenedor = (opciones = {}) => {
+        return mount(ContenidoPrincipalBase, {
+            ...opciones,
+            global: configuracionGlobal
+        });
+    };
+
+    it('Debería renderizar el componente correctamente', () => {
+        const contenedor = crearContenedor();
+
+        expect(contenedor.find('.contenido-principal').exists()).toBe(true);
+        expect(contenedor.find('.area-contenido').exists()).toBe(true);
     });
 
     it('Debería renderizar el contenido del slot', () => {
-        const wrapper = mount(ContenidoPrincipalBase, {
+        const contenedor = crearContenedor({
             slots: {
                 default: '<div class="contenido-test">Contenido de prueba</div>'
-            },
-            global: {
-                plugins: [PrimeVue],
-                components: { MigaPanBase }
             }
         });
 
-        expect(wrapper.find('.contenido-test').exists()).toBe(true);
-        expect(wrapper.find('.contenido-test').text()).toBe('Contenido de prueba');
+        const contenidoTest = contenedor.find('.contenido-test');
+
+        expect(contenidoTest.exists()).toBe(true);
+        expect(contenidoTest.text()).toBe('Contenido de prueba');
     });
 });

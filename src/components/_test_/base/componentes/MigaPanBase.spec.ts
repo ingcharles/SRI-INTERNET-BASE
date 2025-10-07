@@ -5,65 +5,48 @@ import PrimeVue from 'primevue/config';
 import Breadcrumb from 'primevue/breadcrumb';
 
 describe('MigaPanBase', () => {
-    it('Debería renderizar el breadcrumb cuando hay ruta actual', () => {
-        const wrapper = mount(MigaPanBase, {
-            props: {
-                rutaActual: ['Inicio', 'RUC']
-            },
-            global: {
-                plugins: [PrimeVue],
-                components: { Breadcrumb }
-            }
-        });
+    // Configuración compartida para todos los tests
+    const configuracionGlobal = {
+        plugins: [PrimeVue],
+        components: { Breadcrumb }
+    };
 
-        expect(wrapper.find('.fila').exists()).toBe(true);
-        expect(wrapper.find('.seccion-miga-pan').exists()).toBe(true);
-        expect(wrapper.find('.p-breadcrumb').exists()).toBe(true);
+    // Helper para crear el contenedor con configuración común
+    const crearContenedor = (propiedades = {}) => {
+        return mount(MigaPanBase, {
+            props: propiedades,
+            global: configuracionGlobal
+        });
+    };
+
+    it('Debería renderizar el breadcrumb cuando hay ruta actual', () => {
+        const contenedor = crearContenedor({ rutaActual: ['Inicio', 'RUC'] });
+
+        expect(contenedor.find('.fila').exists()).toBe(true);
+        expect(contenedor.find('.seccion-miga-pan').exists()).toBe(true);
+        expect(contenedor.find('.p-breadcrumb').exists()).toBe(true);
     });
 
     it('No debería renderizar nada cuando no hay ruta actual', () => {
-        const wrapper = mount(MigaPanBase, {
-            global: {
-                plugins: [PrimeVue],
-                components: { Breadcrumb }
-            }
-        });
+        const contenedor = crearContenedor();
 
-        expect(wrapper.find('.fila').exists()).toBe(false);
-        expect(wrapper.find('.seccion-miga-pan').exists()).toBe(false);
+        expect(contenedor.find('.fila').exists()).toBe(false);
+        expect(contenedor.find('.seccion-miga-pan').exists()).toBe(false);
     });
 
     it('No debería renderizar nada cuando la ruta actual está vacía', () => {
-        const wrapper = mount(MigaPanBase, {
-            props: {
-                rutaActual: []
-            },
-            global: {
-                plugins: [PrimeVue],
-                components: { Breadcrumb }
-            }
-        });
+        const contenedor = crearContenedor({ rutaActual: [] });
 
-        expect(wrapper.find('.fila').exists()).toBe(false);
-        expect(wrapper.find('.seccion-miga-pan').exists()).toBe(false);
+        expect(contenedor.find('.fila').exists()).toBe(false);
+        expect(contenedor.find('.seccion-miga-pan').exists()).toBe(false);
     });
 
     it('Debería generar los elementos correctos para la ruta', () => {
-        const wrapper = mount(MigaPanBase, {
-            props: {
-                rutaActual: ['Inicio', 'Usuario', 'Perfil']
-            },
-            global: {
-                plugins: [PrimeVue],
-                components: { Breadcrumb }
-            }
-        });
+        const contenedor = crearContenedor({ rutaActual: ['Inicio', 'Usuario', 'Perfil'] });
+        const migaPan = contenedor.findComponent(Breadcrumb);
 
-        const breadcrumb = wrapper.findComponent(Breadcrumb);
-        expect(breadcrumb.exists()).toBe(true);
-
-        // Verificar que el home tiene el icono correcto
-        expect(breadcrumb.props('home')).toEqual({
+        expect(migaPan.exists()).toBe(true);
+        expect(migaPan.props('home')).toEqual({
             icon: 'pi pi-home',
             to: '/'
         });
