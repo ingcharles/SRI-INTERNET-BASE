@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import MigaPanBase from './MigaPanBase.vue';
+import MigaPanBase from '@/components/base/componentes/MigaPanBase.vue';
 
-const props = defineProps<{
+defineProps<{
   rutaActual?: string[];
 }>();
 </script>
