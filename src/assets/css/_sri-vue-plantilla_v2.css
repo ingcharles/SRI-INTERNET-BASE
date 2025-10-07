@@ -58,3 +58,12 @@ textarea::placeholder,
 input.p-inputtext.p-component .p-disabled:hover {
   border-bottom: none;
 }
+
+/******** tooltip primevue ***********/
+.p-tooltip .p-tooltip-text {
+  background-color: var(--color-celeste);
+  color: var(--color-gris-fuerte);
+  font-size: 12px;
+  border-radius: 4px;
+  padding: 3px;
+}

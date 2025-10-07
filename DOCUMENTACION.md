@@ -13,7 +13,7 @@ Sistema de plantilla base responsiva para aplicaciones web del SRI (Servicio de 
 - Información del usuario (identificación y nombre completo)
 - Iconos de acción (izquierda):
   - Perfil
-  - Notificaciones
+  - Alertas y avisos
   - Home
   - Iniciar sesión
   - Cerrar sesión
