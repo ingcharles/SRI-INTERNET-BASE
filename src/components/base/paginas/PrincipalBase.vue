@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted } from 'vue';
-import { usarAlmacenPrincipalBase } from '@/almacenes/principalBase';
-import EncabezadoApp from '@/componentes/layout/EncabezadoApp.vue';
-import MenuLateral from '@/componentes/layout/MenuLateral.vue';
-import ContenidoPrincipal from '@/componentes/layout/ContenidoPrincipal.vue';
-import PiePagina from '@/componentes/layout/PiePagina.vue';
+import { usarAlmacenPrincipalBase } from '@/stores/principalBase';
+import EncabezadoApp from '@/components/base/componentes/EncabezadoApp.vue';
+import MenuLateral from '@/components/base/componentes/MenuLateral.vue';
+import ContenidoPrincipal from '@/components/base/componentes/ContenidoPrincipal.vue';
+import PiePagina from '@/components/base/componentes/PiePagina.vue';
 
 
 const almacenPrincipalBase = usarAlmacenPrincipalBase();

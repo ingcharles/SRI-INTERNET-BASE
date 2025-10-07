@@ -7,16 +7,19 @@ Se ha implementado un menú lateral multinivel siguiendo el diseño del SRI, con
 ## Características Implementadas
 
 ### 1. Menú Multinivel
+
 - ✅ Soporte para múltiples niveles de anidación
 - ✅ Submenús desplegables con indicadores visuales
 - ✅ Navegación jerárquica clara
 
 ### 2. Modo Colapsado
+
 - ✅ Muestra solo iconos cuando el menú está colapsado
 - ✅ Tooltips con el nombre completo al pasar el mouse
 - ✅ Transición suave entre estados
 
 ### 3. Búsqueda
+
 - ✅ Buscador de servicios funcional
 - ✅ Filtrado en tiempo real
 - ✅ Botón para limpiar búsqueda
@@ -64,78 +67,87 @@ Se ha implementado un menú lateral multinivel siguiendo el diseño del SRI, con
 ## Niveles de Menú
 
 ### Nivel 1 - Categorías Principales
+
 - Texto en mayúsculas
 - Icono a la izquierda
 - Fondo gris claro al expandir
 - Ejemplo: **CLAVES**, **RUC**, **FACTURACIÓN FÍSICA**
 
 ### Nivel 2 - Opciones de Categoría
+
 - Texto en formato normal
 - Indentación de 2.5rem
 - Sin iconos
-- Ejemplo: *Generar o recuperar clave*, *Cambiar clave*
+- Ejemplo: _Generar o recuperar clave_, _Cambiar clave_
 
 ### Nivel 3 - Sub-opciones
+
 - Texto en formato normal
 - Indentación de 3.5rem
 - Sin iconos
-- Ejemplo: *Crear y administrar*, *Confirmación*
+- Ejemplo: _Crear y administrar_, _Confirmación_
 
 ## Componentes Modificados
 
-### 1. `src/almacenes/layout.ts`
+### 1. `src/stores/layout.ts`
 
 **Cambios:**
+
 - Agregado soporte para estructura multinivel en `itemsMenu`
 - Implementado menú de CLAVES con submenús anidados
 
 **Estructura:**
+
 ```typescript
 interface ItemMenu {
-  id: string;
-  etiqueta: string;
-  icono?: string;
-  ruta?: string;
-  visible: boolean;
-  hijos?: ItemMenu[];  // Soporte recursivo
+  id: string
+  etiqueta: string
+  icono?: string
+  ruta?: string
+  visible: boolean
+  hijos?: ItemMenu[] // Soporte recursivo
 }
 ```
 
-### 2. `src/componentes/layout/MenuLateral.vue`
+### 2. `src/componentes/base/MenuLateral.vue`
 
 **Cambios:**
+
 - Función recursiva `convertirAMenuPrime()` para convertir estructura multinivel
 - Computed `itemsIconos` para mostrar solo iconos en modo colapsado
 - Mejora en el filtrado de búsqueda
 
 **Funciones clave:**
+
 ```typescript
 function convertirAMenuPrime(items: ItemMenu[]): MenuItem[] {
-  return items.map(item => {
+  return items.map((item) => {
     const menuItem: MenuItem = {
       label: item.etiqueta,
       icon: item.icono,
-      to: item.ruta
-    };
-
-    if (item.hijos && item.hijos.length > 0) {
-      menuItem.items = convertirAMenuPrime(item.hijos);
+      to: item.ruta,
     }
 
-    return menuItem;
-  });
+    if (item.hijos && item.hijos.length > 0) {
+      menuItem.items = convertirAMenuPrime(item.hijos)
+    }
+
+    return menuItem
+  })
 }
 ```
 
 ### 3. `src/assets/css/layout.css`
 
 **Cambios:**
+
 - Estilos específicos para cada nivel de menú
 - Indentación progresiva para submenús
 - Estilos para modo colapsado con iconos
 - Mejoras en hover y focus states
 
 **Estilos clave:**
+
 ```css
 /* Nivel 1 */
 .menu-lateral .p-panelmenu .p-menuitem-link {
@@ -169,11 +181,11 @@ Cuando el menú está colapsado (`soloIconos = true`):
 ```vue
 <div v-else class="lista-menu">
   <div class="mostrar-flex flex-columna alinear-centro espacio-2">
-    <Button 
-      v-for="item in itemsIconos" 
-      :key="item.id" 
+    <Button
+      v-for="item in itemsIconos"
+      :key="item.id"
       :icon="item.icono"
-      class="p-button-rounded p-button-text" 
+      class="p-button-rounded p-button-text"
       :aria-label="item.etiqueta"
       :title="item.etiqueta"
     />
@@ -184,6 +196,7 @@ Cuando el menú está colapsado (`soloIconos = true`):
 ## Estilos Visuales
 
 ### Colores
+
 - **Fondo menú:** Blanco (`var(--color-blanco)`)
 - **Texto principal:** Gris fuerte (`var(--color-gris-fuerte)`)
 - **Texto secundario:** Gris medio (`var(--color-gris-medio)`)
@@ -191,11 +204,13 @@ Cuando el menú está colapsado (`soloIconos = true`):
 - **Activo:** Azul principal (`var(--color-azul-principal)`)
 
 ### Tipografía
+
 - **Nivel 1:** 13px, bold, uppercase
 - **Nivel 2:** 13px, normal
 - **Nivel 3:** 12px, normal
 
 ### Espaciado
+
 - **Padding vertical:** 0.6rem - 0.75rem
 - **Indentación nivel 1:** 2.5rem
 - **Indentación nivel 2:** 3.5rem
@@ -204,15 +219,18 @@ Cuando el menú está colapsado (`soloIconos = true`):
 ## Responsive
 
 ### Desktop (> 768px)
+
 - Menú visible por defecto
 - Ancho: 240px (expandido) / 60px (colapsado)
 - Muestra texto completo o solo iconos
 
 ### Tablet (768px - 992px)
+
 - Menú colapsable
 - Se oculta automáticamente en pantallas pequeñas
 
 ### Mobile (< 768px)
+
 - Menú overlay desde la izquierda
 - Se oculta por defecto
 - Botón hamburguesa para abrir/cerrar
@@ -222,7 +240,7 @@ Cuando el menú está colapsado (`soloIconos = true`):
 ### Agregar un Nuevo Item de Menú
 
 ```typescript
-// En src/almacenes/layout.ts
+// En src/stores/layout.ts
 {
   id: 'nuevo-servicio',
   etiqueta: 'NUEVO SERVICIO',
@@ -310,12 +328,15 @@ npm run test:unit
 ## Problemas Resueltos
 
 ### ✅ Problema 1: Iconos no se mostraban en modo colapsado
+
 **Solución:** Creado computed `itemsIconos` que filtra solo items con iconos
 
 ### ✅ Problema 2: Menú multinivel no funcionaba
+
 **Solución:** Implementada función recursiva `convertirAMenuPrime()`
 
 ### ✅ Problema 3: Indentación incorrecta en submenús
+
 **Solución:** Estilos CSS específicos para cada nivel con padding-left progresivo
 
 ## Mejoras Futuras

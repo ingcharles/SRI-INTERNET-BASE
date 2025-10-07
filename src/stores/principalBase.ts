@@ -3,9 +3,9 @@ import { ref, computed } from 'vue';
 import type { ItemMenu, InformacionUsuario } from '@/interfaces/menu.interface';
 
 /**
- * Almacén para gestionar el estado del layout
+ * Almacén para gestionar el estado del principal base
  */
-export const usarAlmacenPrincipalBase = defineStore('layout', () => {
+export const usarAlmacenPrincipalBase = defineStore('principalBase', () => {
   const menuLateralVisible = ref(true);
   const menuMovilVisible = ref(false);
   const informacionUsuario = ref<InformacionUsuario>({

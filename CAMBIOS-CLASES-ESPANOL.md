@@ -7,6 +7,7 @@ Se han cambiado todas las clases CSS del sistema de grid del inglés al español
 ## Clases de Visualización (Display)
 
 ### Antes (Inglés)
+
 ```css
 .d-flex
 .d-inline-flex
@@ -17,6 +18,7 @@ Se han cambiado todas las clases CSS del sistema de grid del inglés al español
 ```
 
 ### Después (Español)
+
 ```css
 .mostrar-flex
 .mostrar-flex-inline
@@ -28,38 +30,43 @@ Se han cambiado todas las clases CSS del sistema de grid del inglés al español
 
 ## Tabla de Equivalencias
 
-| Clase Anterior (Inglés) | Clase Nueva (Español) | Descripción |
-|-------------------------|----------------------|-------------|
-| `.d-flex` | `.mostrar-flex` | Display flex |
-| `.d-inline-flex` | `.mostrar-flex-inline` | Display inline-flex |
-| `.d-block` | `.mostrar-bloque` | Display block |
-| `.d-inline-block` | `.mostrar-bloque-inline` | Display inline-block |
-| `.d-inline` | `.mostrar-inline` | Display inline |
-| `.d-none` | `.ocultar-elemento` | Display none (ocultar) |
+| Clase Anterior (Inglés) | Clase Nueva (Español)    | Descripción            |
+| ----------------------- | ------------------------ | ---------------------- |
+| `.d-flex`               | `.mostrar-flex`          | Display flex           |
+| `.d-inline-flex`        | `.mostrar-flex-inline`   | Display inline-flex    |
+| `.d-block`              | `.mostrar-bloque`        | Display block          |
+| `.d-inline-block`       | `.mostrar-bloque-inline` | Display inline-block   |
+| `.d-inline`             | `.mostrar-inline`        | Display inline         |
+| `.d-none`               | `.ocultar-elemento`      | Display none (ocultar) |
 
 ## Archivos Modificados
 
 ### 1. Sistema de Grid
+
 - ✅ `src/assets/css/grid-sistema.css` - Definiciones de clases actualizadas
 
 ### 2. Archivos CSS
+
 - ✅ `src/assets/css/layout.css` - Actualizado `.d-flex` → `.mostrar-flex`
 - ✅ `src/assets/css/inicio.css` - Actualizado `.d-flex` → `.mostrar-flex`
 
 ### 3. Componentes Vue
-- ✅ `src/componentes/layout/EncabezadoApp.vue` - Actualizado en template
-- ✅ `src/componentes/layout/MenuLateral.vue` - Actualizado en template
-- ✅ `src/componentes/layout/PiePagina.vue` - Actualizado en template
+
+- ✅ `src/componentes/base/EncabezadoApp.vue` - Actualizado en template
+- ✅ `src/componentes/base/MenuLateral.vue` - Actualizado en template
+- ✅ `src/componentes/base/PiePagina.vue` - Actualizado en template
 - ✅ `src/vistas/InicioVista.vue` - Actualizado en template
 - ✅ `src/componentes/ejemplos/EjemploGrid.vue` - Actualizado en ejemplos
 
 ### 4. Documentación
+
 - ✅ `REESTRUCTURACION-GRID.md` - Actualizada tabla de clases
 - ✅ `CAMBIOS-CLASES-ESPANOL.md` - Documento nuevo (este archivo)
 
 ## Ejemplos de Uso
 
 ### Antes
+
 ```vue
 <div class="d-flex justificar-centro alinear-centro">
   <span>Contenido</span>
@@ -67,6 +74,7 @@ Se han cambiado todas las clases CSS del sistema de grid del inglés al español
 ```
 
 ### Después
+
 ```vue
 <div class="mostrar-flex justificar-centro alinear-centro">
   <span>Contenido</span>
@@ -76,6 +84,7 @@ Se han cambiado todas las clases CSS del sistema de grid del inglés al español
 ## Casos de Uso Comunes
 
 ### 1. Contenedor Flex Horizontal
+
 ```html
 <div class="mostrar-flex justificar-entre alinear-centro">
   <div>Izquierda</div>
@@ -84,6 +93,7 @@ Se han cambiado todas las clases CSS del sistema de grid del inglés al español
 ```
 
 ### 2. Contenedor Flex Vertical
+
 ```html
 <div class="mostrar-flex flex-columna espacio-3">
   <div>Item 1</div>
@@ -93,17 +103,15 @@ Se han cambiado todas las clases CSS del sistema de grid del inglés al español
 ```
 
 ### 3. Ocultar Elemento
+
 ```html
-<div class="ocultar-elemento">
-  Este contenido está oculto
-</div>
+<div class="ocultar-elemento">Este contenido está oculto</div>
 ```
 
 ### 4. Mostrar como Bloque
+
 ```html
-<span class="mostrar-bloque">
-  Este span se muestra como bloque
-</span>
+<span class="mostrar-bloque"> Este span se muestra como bloque </span>
 ```
 
 ## Beneficios del Cambio
@@ -158,6 +166,7 @@ grep -r "d-inline" src/
 ## Soporte
 
 Para dudas sobre las nuevas clases, consultar:
+
 - `GUIA-GRID-SISTEMA.md` - Guía completa del sistema
 - `VARIABLES-GRID-ESPANOL.md` - Variables CSS disponibles
 - `REESTRUCTURACION-GRID.md` - Documentación de la reestructuración

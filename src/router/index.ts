@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import type { RouteRecordRaw } from 'vue-router';
 
 // Importar vistas
-import InicioVista from '@/vistas/InicioVista.vue';
+import InicioVista from '@/components/base/paginas/InicioVista.vue';
 
 const routes: Array<RouteRecordRaw> = [
     {
@@ -13,12 +13,12 @@ const routes: Array<RouteRecordRaw> = [
     {
         path: '/perfil',
         name: 'Perfil',
-        component: () => import('@/vistas/PerfilVista.vue')
+        component: () => import('@/components/base/paginas/PerfilVista.vue')
     },
     {
         path: '/login',
         name: 'Login',
-        component: () => import('@/vistas/LoginVista.vue')
+        component: () => import('@/components/base/paginas/LoginVista.vue')
     },
     // Ruta catch-all para 404
     {

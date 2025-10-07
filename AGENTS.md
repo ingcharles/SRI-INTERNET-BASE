@@ -53,7 +53,7 @@ assets/
 ## Uso estilos u componentes
 
 - Utilizar componentes de la libreria primeVue.
-- Estilos CSS responsivos para diferentes dispositivos crear los estilos en _sri-vue-plantilla.scss; evita estilos inline.
+- Estilos CSS responsivos para diferentes dispositivos crear los estilos en \_sri-vue-plantilla.scss; evita estilos inline.
 - Color principal #0c4597
 
 ## Pinia: buenas prácticas
@@ -66,39 +66,39 @@ assets/
 ```ts
 // src/servicios/usuario.service.ts
 export interface Usuario {
-  id: number;
-  nombre: string;
+  id: number
+  nombre: string
 }
 
 export async function getUsuarios(api = fetch): Promise<Usuario[]> {
-  const res = await api("/api/users");
-  if (!("ok" in res) || !(res as any).ok) throw new Error("Error de red");
-  return res.json();
+  const res = await api('/api/users')
+  if (!('ok' in res) || !(res as any).ok) throw new Error('Error de red')
+  return res.json()
 }
 
 // src/composables/useDisenador.ts
-import { ref } from "vue";
-import type { Disenador } from "@/tipos/disenador";
-import { getDisenador } from "@/servicios/disenador/servicios/disenador.service";
+import { ref } from 'vue'
+import type { Disenador } from '@/tipos/disenador'
+import { getDisenador } from '@/servicios/disenador/servicios/disenador.service'
 
 export function Disenador(api = getDisenador) {
-  const disenador = ref<Disenador[]>([]);
-  const cargando = ref(false);
-  const error = ref<string | null>(null);
+  const disenador = ref<Disenador[]>([])
+  const cargando = ref(false)
+  const error = ref<string | null>(null)
 
   async function cargarDatos() {
-    cargando.value = true;
-    error.value = null;
+    cargando.value = true
+    error.value = null
     try {
-      disenador.value = await api();
+      disenador.value = await api()
     } catch (e: any) {
-      error.value = e?.message ?? "Error";
+      error.value = e?.message ?? 'Error'
     } finally {
-      cargando.value = false;
+      cargando.value = false
     }
   }
 
-  return { usuarios, cargando, error, cargarDatos };
+  return { usuarios, cargando, error, cargarDatos }
 }
 ```
 
@@ -110,45 +110,45 @@ export function Disenador(api = getDisenador) {
 
 ```ts
 // src/components/pruebas/Saludo.spec.ts
-import { mount } from "@vue/test-utils";
-import Saludo from "@/components/Saludo.vue";
+import { mount } from '@vue/test-utils'
+import Saludo from '@/components/Saludo.vue'
 
 it('Deberia emitir "clicked" al pulsar el botón', async () => {
-  const wrapper = mount(Saludo, { props: { mensaje: "Hola" } });
-  await wrapper.find("button").trigger("click");
-  expect(wrapper.emitted("clicked")).toBeTruthy();
-});
+  const wrapper = mount(Saludo, { props: { mensaje: 'Hola' } })
+  await wrapper.find('button').trigger('click')
+  expect(wrapper.emitted('clicked')).toBeTruthy()
+})
 ```
 
 ### Prueba de almacen Pinia
 
 ```ts
-// src/almacenes/pruebas/contador.spec.ts
-import { useContador } from "@/stores/contador";
+// src/stores/pruebas/contador.spec.ts
+import { useContador } from '@/stores/contador'
 
-it("Deberia incrementa el valor correctamente", () => {
-  const almacen = useContador();
-  almacen.incrementar(2);
-  expect(almacen.valor).toBe(2);
-  expect(almacen.doble).toBe(4);
-});
+it('Deberia incrementa el valor correctamente', () => {
+  const almacen = useContador()
+  almacen.incrementar(2)
+  expect(almacen.valor).toBe(2)
+  expect(almacen.doble).toBe(4)
+})
 ```
 
 ### Prueba de composable con mock
 
 ```ts
 // src/composables/pruebas/useUsuarios.spec.ts
-import { useUsuarios } from "@/composables/useUsuarios";
-import { vi } from "vitest";
+import { useUsuarios } from '@/composables/useUsuarios'
+import { vi } from 'vitest'
 
-it("Deberia cargar usuarios desde el servicio", async () => {
-  const mockApi = vi.fn().mockResolvedValue([{ id: 1, nombre: "Ada" }]);
-  const { usuarios, cargando, cargar } = useUsuarios(mockApi as any);
-  const prom = cargar();
-  expect(cargando.value).toBe(true);
-  await prom;
-  expect(usuarios.value).toHaveLength(1);
-});
+it('Deberia cargar usuarios desde el servicio', async () => {
+  const mockApi = vi.fn().mockResolvedValue([{ id: 1, nombre: 'Ada' }])
+  const { usuarios, cargando, cargar } = useUsuarios(mockApi as any)
+  const prom = cargar()
+  expect(cargando.value).toBe(true)
+  await prom
+  expect(usuarios.value).toHaveLength(1)
+})
 ```
 
 ## Accesibilidad (A11y)
@@ -178,11 +178,11 @@ it("Deberia cargar usuarios desde el servicio", async () => {
 ```vue
 <!-- src/componentes/InputNombre.vue -->
 <script setup lang="ts">
-import { ref } from "vue";
-const nombre = defineModel<string>({ local: true });
-const emit = defineEmits<{ (e: "submit", value: string): void }>();
+import { ref } from 'vue'
+const nombre = defineModel<string>({ local: true })
+const emit = defineEmits<{ (e: 'submit', value: string): void }>()
 function enviar() {
-  emit("submit", nombre.value?.trim() || "");
+  emit('submit', nombre.value?.trim() || '')
 }
 </script>
 
@@ -196,19 +196,19 @@ function enviar() {
 
 ```ts
 // src/tests/InputNombre.spec.ts
-import { mount } from "@vue/test-utils";
-import InputNombre from "@/components/InputNombre.vue";
-import InputText from "primevue/inputtext";
-import PrimeVue from "primevue/config";
+import { mount } from '@vue/test-utils'
+import InputNombre from '@/components/InputNombre.vue'
+import InputText from 'primevue/inputtext'
+import PrimeVue from 'primevue/config'
 
-it("Debería emitir submit con el valor", async () => {
+it('Debería emitir submit con el valor', async () => {
   const wrapper = mount(InputNombre, {
     global: { plugins: [[PrimeVue, {}]], components: { InputText } },
-  });
-  await wrapper.find("input").setValue("Grace");
-  await wrapper.find("button").trigger("click");
-  expect(wrapper.emitted("submit")?.[0][0]).toBe("Grace");
-});
+  })
+  await wrapper.find('input').setValue('Grace')
+  await wrapper.find('button').trigger('click')
+  expect(wrapper.emitted('submit')?.[0][0]).toBe('Grace')
+})
 ```
 
 ## Notas finales

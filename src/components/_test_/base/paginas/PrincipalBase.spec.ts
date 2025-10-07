@@ -1,16 +1,16 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 import { mount } from '@vue/test-utils';
 import { createPinia, setActivePinia } from 'pinia';
-import App from '../App.vue';
+import PrincipalBase from '@/components/base/paginas/PrincipalBase.vue'
 import PrimeVue from 'primevue/config';
 
-describe('App', () => {
+describe('PrincipalBase', () => {
   beforeEach(() => {
     setActivePinia(createPinia());
   });
 
   it('Debería renderizar el componente correctamente', () => {
-    const wrapper = mount(App, {
+    const wrapper = mount(PrincipalBase, {
       global: {
         plugins: [PrimeVue],
         stubs: {
@@ -23,11 +23,11 @@ describe('App', () => {
       }
     });
 
-    expect(wrapper.find('.app-container').exists()).toBe(true);
+    expect(wrapper.find('.PrincipalBase-container').exists()).toBe(true);
   });
 
   it('Debería tener todos los componentes principales', () => {
-    const wrapper = mount(App, {
+    const wrapper = mount(PrincipalBase, {
       global: {
         plugins: [PrimeVue],
         stubs: {

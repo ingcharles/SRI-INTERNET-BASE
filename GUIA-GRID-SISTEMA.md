@@ -15,26 +15,22 @@ Sistema de grid completo similar a Bootstrap pero con **nombres en español** y 
 
 ## 📏 Breakpoints
 
-| Nombre | Prefijo | Ancho Mínimo | Contenedor Max |
-|--------|---------|--------------|----------------|
-| Extra Small | (ninguno) | < 576px | 100% |
-| Small | `sm` | ≥ 576px | 540px |
-| Medium | `md` | ≥ 768px | 720px |
-| Large | `lg` | ≥ 992px | 960px |
-| Extra Large | `xl` | ≥ 1200px | 1140px |
-| Extra Extra Large | `xxl` | ≥ 1400px | 1320px |
+| Nombre            | Prefijo   | Ancho Mínimo | Contenedor Max |
+| ----------------- | --------- | ------------ | -------------- |
+| Extra Small       | (ninguno) | < 576px      | 100%           |
+| Small             | `sm`      | ≥ 576px      | 540px          |
+| Medium            | `md`      | ≥ 768px      | 720px          |
+| Large             | `lg`      | ≥ 992px      | 960px          |
+| Extra Large       | `xl`      | ≥ 1200px     | 1140px         |
+| Extra Extra Large | `xxl`     | ≥ 1400px     | 1320px         |
 
 ## 🏗️ Estructura Básica
 
 ```html
 <div class="contenedor">
   <div class="fila">
-    <div class="columna-6">
-      Mitad del ancho
-    </div>
-    <div class="columna-6">
-      Mitad del ancho
-    </div>
+    <div class="columna-6">Mitad del ancho</div>
+    <div class="columna-6">Mitad del ancho</div>
   </div>
 </div>
 ```
@@ -42,6 +38,7 @@ Sistema de grid completo similar a Bootstrap pero con **nombres en español** y 
 ## 📦 Contenedores
 
 ### Contenedor Fijo
+
 ```html
 <div class="contenedor">
   <!-- Ancho máximo según breakpoint -->
@@ -49,6 +46,7 @@ Sistema de grid completo similar a Bootstrap pero con **nombres en español** y 
 ```
 
 ### Contenedor Fluido
+
 ```html
 <div class="contenedor-fluido">
   <!-- Siempre 100% de ancho -->
@@ -77,6 +75,7 @@ Sistema de grid completo similar a Bootstrap pero con **nombres en español** y 
 ```
 
 ### Columna Automática
+
 ```html
 <div class="fila">
   <div class="columna">Crece automáticamente</div>
@@ -85,6 +84,7 @@ Sistema de grid completo similar a Bootstrap pero con **nombres en español** y 
 ```
 
 ### Columna Auto (Ancho del Contenido)
+
 ```html
 <div class="fila">
   <div class="columna-auto">Ancho del contenido</div>
@@ -99,15 +99,9 @@ Sistema de grid completo similar a Bootstrap pero con **nombres en español** y 
 ```html
 <div class="fila">
   <!-- 12 cols en móvil, 6 en tablet, 4 en desktop -->
-  <div class="columna-12 columna-md-6 columna-lg-4">
-    Contenido
-  </div>
-  <div class="columna-12 columna-md-6 columna-lg-4">
-    Contenido
-  </div>
-  <div class="columna-12 columna-md-6 columna-lg-4">
-    Contenido
-  </div>
+  <div class="columna-12 columna-md-6 columna-lg-4">Contenido</div>
+  <div class="columna-12 columna-md-6 columna-lg-4">Contenido</div>
+  <div class="columna-12 columna-md-6 columna-lg-4">Contenido</div>
 </div>
 ```
 
@@ -126,16 +120,12 @@ Mueve columnas a la derecha:
 ```html
 <div class="fila">
   <!-- Centrar una columna de 6 -->
-  <div class="columna-6 desplazar-3">
-    Centrado
-  </div>
+  <div class="columna-6 desplazar-3">Centrado</div>
 </div>
 
 <div class="fila">
   <!-- Desplazamiento responsive -->
-  <div class="columna-4 desplazar-2 desplazar-md-4">
-    Desplazado
-  </div>
+  <div class="columna-4 desplazar-2 desplazar-md-4">Desplazado</div>
 </div>
 ```
 
@@ -145,19 +135,14 @@ Cambia el orden visual de las columnas:
 
 ```html
 <div class="fila">
-  <div class="columna-4 orden-3">
-    Aparece tercero
-  </div>
-  <div class="columna-4 orden-1">
-    Aparece primero
-  </div>
-  <div class="columna-4 orden-2">
-    Aparece segundo
-  </div>
+  <div class="columna-4 orden-3">Aparece tercero</div>
+  <div class="columna-4 orden-1">Aparece primero</div>
+  <div class="columna-4 orden-2">Aparece segundo</div>
 </div>
 ```
 
 ### Orden Especial
+
 ```html
 <div class="orden-primero">Siempre primero</div>
 <div class="orden-ultimo">Siempre último</div>
@@ -278,12 +263,8 @@ Cambia el orden visual de las columnas:
 ```html
 <div class="contenedor">
   <div class="fila">
-    <div class="columna-12 columna-md-4">
-      Sidebar
-    </div>
-    <div class="columna-12 columna-md-8">
-      Contenido Principal
-    </div>
+    <div class="columna-12 columna-md-4">Sidebar</div>
+    <div class="columna-12 columna-md-8">Contenido Principal</div>
   </div>
 </div>
 ```
@@ -318,7 +299,7 @@ Cambia el orden visual de las columnas:
       <label>Nombre:</label>
     </div>
     <div class="columna-12 columna-md-9">
-      <input type="text" class="ancho-100">
+      <input type="text" class="ancho-100" />
     </div>
   </div>
   <div class="fila alinear-centro mb-3">
@@ -326,7 +307,7 @@ Cambia el orden visual de las columnas:
       <label>Email:</label>
     </div>
     <div class="columna-12 columna-md-9">
-      <input type="email" class="ancho-100">
+      <input type="email" class="ancho-100" />
     </div>
   </div>
 </div>
@@ -338,7 +319,7 @@ Cambia el orden visual de las columnas:
 <header class="contenedor-fluido">
   <div class="fila alinear-centro justificar-entre">
     <div class="columna-auto">
-      <img src="logo.png" alt="Logo">
+      <img src="logo.png" alt="Logo" />
     </div>
     <nav class="columna-auto">
       <div class="d-flex espacio-3">
@@ -353,30 +334,30 @@ Cambia el orden visual de las columnas:
 
 ## 🎓 Comparación con Bootstrap
 
-| Bootstrap | Sistema en Español |
-|-----------|-------------------|
-| `.container` | `.contenedor` |
-| `.container-fluid` | `.contenedor-fluido` |
-| `.row` | `.fila` |
-| `.col` | `.columna` |
-| `.col-6` | `.columna-6` |
-| `.col-md-4` | `.columna-md-4` |
-| `.offset-3` | `.desplazar-3` |
-| `.order-1` | `.orden-1` |
-| `.order-first` | `.orden-primero` |
-| `.order-last` | `.orden-ultimo` |
+| Bootstrap                 | Sistema en Español   |
+| ------------------------- | -------------------- |
+| `.container`              | `.contenedor`        |
+| `.container-fluid`        | `.contenedor-fluido` |
+| `.row`                    | `.fila`              |
+| `.col`                    | `.columna`           |
+| `.col-6`                  | `.columna-6`         |
+| `.col-md-4`               | `.columna-md-4`      |
+| `.offset-3`               | `.desplazar-3`       |
+| `.order-1`                | `.orden-1`           |
+| `.order-first`            | `.orden-primero`     |
+| `.order-last`             | `.orden-ultimo`      |
 | `.justify-content-center` | `.justificar-centro` |
-| `.align-items-center` | `.alinear-centro` |
-| `.d-flex` | `.d-flex` |
-| `.flex-row` | `.flex-fila` |
-| `.flex-column` | `.flex-columna` |
+| `.align-items-center`     | `.alinear-centro`    |
+| `.d-flex`                 | `.d-flex`            |
+| `.flex-row`               | `.flex-fila`         |
+| `.flex-column`            | `.flex-columna`      |
 
 ## 🚀 Uso en el Proyecto
 
 El sistema de grid ya está importado globalmente en `main.ts`:
 
 ```typescript
-import '@/assets/css/grid-sistema.css';
+import '@/assets/css/grid-sistema.css'
 ```
 
 Puedes usarlo en cualquier componente sin importaciones adicionales:
@@ -385,9 +366,7 @@ Puedes usarlo en cualquier componente sin importaciones adicionales:
 <template>
   <div class="contenedor">
     <div class="fila">
-      <div class="columna-md-6">
-        Contenido
-      </div>
+      <div class="columna-md-6">Contenido</div>
     </div>
   </div>
 </template>
@@ -396,6 +375,7 @@ Puedes usarlo en cualquier componente sin importaciones adicionales:
 ## 📦 Archivo CSS
 
 El sistema completo está en:
+
 ```
 src/assets/css/grid-sistema.css
 ```
@@ -403,6 +383,7 @@ src/assets/css/grid-sistema.css
 ## 🎨 Componente de Ejemplo
 
 Revisa el componente de ejemplo completo en:
+
 ```
 src/componentes/ejemplos/EjemploGrid.vue
 ```
@@ -419,6 +400,7 @@ src/componentes/ejemplos/EjemploGrid.vue
 ## 🔧 Personalización
 
 Para modificar los breakpoints o espaciados, edita:
+
 ```
 src/assets/css/grid-sistema.css
 ```
@@ -427,4 +409,4 @@ src/assets/css/grid-sistema.css
 
 - Ver ejemplos en vivo: `EjemploGrid.vue`
 - Documentación de Flexbox: [MDN Flexbox](https://developer.mozilla.org/es/docs/Web/CSS/CSS_Flexible_Box_Layout)
-- Comparación con Bootstrap: [Bootstrap Grid](https://getbootstrap.com/docs/5.3/layout/grid/)
+- Comparación con Bootstrap: [Bootstrap Grid](https://getbootstrap.com/docs/5.3/base/grid/)

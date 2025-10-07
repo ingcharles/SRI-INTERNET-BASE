@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
-import { usarAlmacenPrincipalBase } from '@/almacenes/principalBase';
+import { usarAlmacenPrincipalBase } from '@/stores/principalBase';
 import Button from 'primevue/button';
 import Menubar from 'primevue/menubar';
 import TieredMenu from 'primevue/tieredmenu';

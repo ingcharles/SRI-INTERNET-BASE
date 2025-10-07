@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { mount } from '@vue/test-utils';
-import ContenidoPrincipal from '../ContenidoPrincipal.vue';
+import ContenidoPrincipal from '@/components/base/componentes/ContenidoPrincipal.vue';
 import PrimeVue from 'primevue/config';
 import Breadcrumb from 'primevue/breadcrumb';
 
