@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { mount } from '@vue/test-utils';
-import InicioVista from '../InicioVista.vue';
+import InicioVista from '@/components/base/paginas/InicioVista.vue';
 
 describe('InicioVista', () => {
     it('Debería renderizar el componente correctamente', () => {
