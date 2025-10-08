@@ -5,15 +5,15 @@ import InputText from 'primevue/inputtext';
 import Button from 'primevue/button';
 import PanelMenu from 'primevue/panelmenu';
 import type { MenuItem } from 'primevue/menuitem';
-import type { ItemMenuAmburguesa } from '@/interfaces/menu.interface';
+import type { ItemMenuAmburguesa } from '@/interfaces/base';
 
+const textoBusqueda = ref('');
 const almacenPrincipalBase = usarAlmacenPrincipalBase();
 
 defineProps<{
   soloIconos?: boolean;
 }>();
 
-const textoBusqueda = ref('');
 
 /**
  * Convierte recursivamente los items del menú al formato de PrimeVue
@@ -71,7 +71,7 @@ function limpiarBusqueda() {
     <div v-if="!soloIconos" class="seccion-buscar">
       <div class="fila alinear-centro">
         <div class="columna-10">
-          <InputText id="txtBuscarServicios" type="search" v-model="textoBusqueda" placeholder="Buscar servicios" />
+          <InputText id="txtBusquedaServicios" type="search" v-model="textoBusqueda" placeholder="Buscar servicios" />
         </div>
         <div class="columna-2">
           <Button id="btnLimpiarBusqueda" v-if="textoBusqueda" icon="pi pi-times" class="p-button-text btn-buscar"
@@ -83,7 +83,6 @@ function limpiarBusqueda() {
 
     <!-- Menú completo con texto -->
     <PanelMenu v-if="!soloIconos" :model="itemsMenuPrime">
-
       <template #item="{ item, active }">
         <router-link v-if="item.to" v-slot="{ href, navigate }" :to="item.to" custom>
           <a v-ripple class="p-panelmenu-header-link" :href="href" @click="navigate">

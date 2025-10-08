@@ -39,7 +39,7 @@ body {
 }
 
 /* ========== ENCABEZADO ========== */
-.encabezado-app {
+.encabezado {
   background-color: var(--color-azul-principal);
   color: var(--color-blanco);
   height: 60px;
@@ -51,12 +51,12 @@ body {
   z-index: 1000;
 }
 
-.encabezado-app .contenedor-fluido {
+.encabezado .contenedor-fluido {
   height: var(--alto-100);
   padding: 0 var(--espacio-2);
 }
 
-.encabezado-app .fila {
+.encabezado .fila {
   height: var(--alto-100);
 }
 
@@ -126,7 +126,7 @@ body {
 }
 
 /* ========== MENUBAR DESKTOP ========== */
-.menu-escritorio-container {
+.contenedor-menu-escritorio {
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -144,10 +144,6 @@ body {
   text-decoration: none;
 }
 
-.menu-item-escritorio:hover {
-  background-color: rgba(255, 255, 255, 0.1) !important;
-}
-
 .menu-item-escritorio span[class*='sri'] {
   font-size: 26px !important;
 }
@@ -160,6 +156,7 @@ body {
 .p-menubar-item-content:hover span[class*='sri'] {
   color: var(--color-amarillo-claro);
 }
+
 .separador-menu {
   border-left: 1.5px solid #fff;
   height: 29px;
@@ -555,15 +552,7 @@ body {
 
 /* Móviles pequeños */
 @media (max-width: 576px) {
-  .logo-texto {
-    font-size: 22px;
-  }
-
-  .logo-subtexto {
-    font-size: 10px;
-  }
-
-  .encabezado-app .contenedor-fluido {
+  .encabezado .contenedor-fluido {
     padding: 0 var(--espacio-1);
   }
 

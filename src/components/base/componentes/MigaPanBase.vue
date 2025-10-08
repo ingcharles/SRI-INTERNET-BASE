@@ -3,18 +3,18 @@ import Breadcrumb from 'primevue/breadcrumb';
 import type { MenuItem } from 'primevue/menuitem';
 import { computed } from 'vue';
 
-const props = defineProps<{
+const propiedades = defineProps<{
   rutaActual?: string[];
 }>();
 
 const itemsMiga = computed<MenuItem[]>(() => {
-  if (!props.rutaActual || props.rutaActual.length === 0) {
+  if (!propiedades.rutaActual || propiedades.rutaActual.length === 0) {
     return [];
   }
 
-  return props.rutaActual.map((ruta, index) => ({
+  return propiedades.rutaActual.map((ruta, index) => ({
     label: ruta,
-    to: index === props.rutaActual!.length - 1 ? undefined : `/${ruta.toLowerCase()}`
+    to: index === propiedades.rutaActual!.length - 1 ? undefined : `/${ruta.toLowerCase()}`
   }));
 });
 

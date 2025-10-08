@@ -11,7 +11,6 @@ defineProps<{
     <div class="contenedor-fluido">
       <!-- Breadcrumb -->
       <MigaPanBase :ruta-actual="rutaActual" />
-
       <!-- Área de contenido -->
       <div class="fila">
         <div class="columna-12">

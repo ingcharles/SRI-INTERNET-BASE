@@ -5,23 +5,15 @@ import Button from 'primevue/button';
 import Menubar from 'primevue/menubar';
 import TieredMenu from 'primevue/tieredmenu';
 
-// Interfaz específica para nuestros items de menú
-interface ItemMenu {
-  label: string;
-  icon: string;
-  route?: string;
-  url?: string;
-  target?: string;
-  command?: () => void;
-  items?: ItemMenu[];
-}
-
+const menuPrime = ref();
 const almacenPrincipalBase = usarAlmacenPrincipalBase();
-const menu = ref();
+const emitir = defineEmits<(e: 'alternar-menu') => void>();
+const informacionUsuario = computed(() => almacenPrincipalBase.informacionUsuario);
+const itemsMenuPrime = computed(() => almacenPrincipalBase.itemsMenuPrime);
 
 const plegable = (event: Event) => {
-  if (menu.value && menu.value.toggle) {
-    menu.value.toggle(event);
+  if (menuPrime.value && menuPrime.value.toggle) {
+    menuPrime.value.toggle(event);
   }
 };
 
@@ -31,7 +23,6 @@ const propiedades = defineProps<{
   esPantallaMediana?: boolean;
 }>();
 
-const emitir = defineEmits<(e: 'alternar-menu') => void>();
 
 /**
  * Maneja el click en el botón del menú
@@ -39,57 +30,11 @@ const emitir = defineEmits<(e: 'alternar-menu') => void>();
 function manejarClickMenu() {
   emitir('alternar-menu');
 }
-const informacionUsuario = computed(() => almacenPrincipalBase.informacionUsuario);
-
-// Items del menú unificado (usado tanto en desktop como móvil)
-const itemsMenu = ref<ItemMenu[]>([
-  {
-    label: 'Perfil',
-    icon: 'sri-icon-perfil',
-    url: 'https://srienlinea.sri.gob.ec/sri-en-linea/contribuyente/perfil',
-    // target: '_blank'
-  },
-  {
-    label: 'Alertas y avisos',
-    icon: 'sri-icon-correos',
-    url: 'https://srienlinea.sri.gob.ec/sri-en-linea/SriBuzon/Contribuyente/notificaciones',
-    // target: '_blank'
-    // command: () => console.log('Alertas y avisos clicked')
-  },
-  {
-    label: 'Inicio',
-    icon: 'sri-icon-home',
-    url: 'https://srienlinea.sri.gob.ec/sri-en-linea/inicio/NAT'
-  },
-  {
-    label: 'Iniciar sesión',
-    icon: 'pi pi-sign-in',
-    route: '/login'
-  },
-  {
-    label: 'Cerrar sesión',
-    icon: 'sri-icon-cerrar-sesion',
-    command: () => console.log('Cerrar sesión clicked')
-  },
-  {
-    label: 'Accesibilidad',
-    icon: 'sri-icon-accesibilidad',
-    url: 'https://srienlinea.sri.gob.ec/sri-en-linea/accesibilidad',
-    // target: '_blank'
-  },
-  // {
-  //   label: 'Ayuda',
-  //   icon: 'sri-icon-ayuda',
-  //   url: 'https://sri.gob.ec/ayuda',
-  //   target: '_blank'
-  // }
-]);
-
 
 </script>
 
 <template>
-  <header class="encabezado-app">
+  <header class="encabezado">
     <div class="contenedor-fluido">
       <div class="fila alinear-centro">
         <!-- Sección Izquierda: Menú hamburguesa + Logo -->
@@ -106,7 +51,7 @@ const itemsMenu = ref<ItemMenu[]>([
 
         <!-- Sección Derecha: Iconos de acción -->
         <div class="columna-6 columna-md-9 columna-lg-9 encabezado-derecha">
-          <div v-if="!propiedades.esPantallaMediana" class="menu-escritorio-container">
+          <div v-if="!propiedades.esPantallaMediana" class="contenedor-menu-escritorio">
             <!-- Sección Centro: Información del usuario -->
             <div class="informacion-contribuyente mostrar-flex flex-columna alinear-fin justificar-centro">
               <span class="nombre-contribuyente">{{ informacionUsuario.identificacion }}</span>
@@ -114,7 +59,7 @@ const itemsMenu = ref<ItemMenu[]>([
             </div>
             <span class="separador-menu"></span>
             <!-- Escritorio: MenuBar solo con iconos -->
-            <Menubar :model="itemsMenu">
+            <Menubar :model="itemsMenuPrime">
               <template #item="{ item, hasSubmenu }">
                 <router-link v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>
                   <a v-ripple :href="href" @click="navigate" class="menu-item-escritorio"
@@ -139,7 +84,7 @@ const itemsMenu = ref<ItemMenu[]>([
           <div v-else class="contenedor-menu-movil">
             <Button type="button" icon="pi pi-ellipsis-v" class="tamanio-fuente" @click="plegable" aria-haspopup="true"
               aria-controls="btnCubrirMenu" />
-            <TieredMenu ref="menu" id="btnCubrirMenu" :model="itemsMenu" popup>
+            <TieredMenu ref="menu" id="btnCubrirMenu" :model="itemsMenuPrime" popup>
               <template #item="{ item, hasSubmenu }">
                 <router-link v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>
                   <a v-ripple :href="href" @click="navigate" class="menu-item-movil"

@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
 import { ref, computed } from 'vue';
-import type { ItemMenuAmburguesa, InformacionUsuario } from '@/interfaces/menu.interface';
+import type { ItemMenuAmburguesa, InformacionUsuario, ItemMenuPrime } from '@/interfaces/base';
 
 /**
  * Almacén para gestionar el estado del principal base
@@ -13,7 +13,7 @@ export const usarAlmacenPrincipalBase = defineStore('principalBase', () => {
     identificacion: '1722039953001'
   });
 
-  const itemsMenu = ref<ItemMenuAmburguesa[]>([
+  const itemsMenuAmburguesa = ref<ItemMenuAmburguesa[]>([
     {
       id: 'claves',
       etiqueta: 'CLAVES',
@@ -152,8 +152,44 @@ export const usarAlmacenPrincipalBase = defineStore('principalBase', () => {
     }
   ]);
 
+  // Items del menú unificado (usado tanto en desktop como móvil)
+const itemsMenuPrime = ref<ItemMenuPrime[]>([
+  {
+    label: 'Perfil',
+    icon: 'sri-icon-perfil',
+    url: 'https://srienlinea.sri.gob.ec/sri-en-linea/contribuyente/perfil',
+  },
+  {
+    label: 'Alertas y avisos',
+    icon: 'sri-icon-correos',
+    url: 'https://srienlinea.sri.gob.ec/sri-en-linea/SriBuzon/Contribuyente/notificaciones',
+    // target: '_blank'
+    // command: () => console.log('Alertas y avisos clicked')
+  },
+  {
+    label: 'Inicio',
+    icon: 'sri-icon-home',
+    url: 'https://srienlinea.sri.gob.ec/sri-en-linea/inicio/NAT'
+  },
+  {
+    label: 'Iniciar sesión',
+    icon: 'pi pi-sign-in',
+    route: '/login'
+  },
+  {
+    label: 'Cerrar sesión',
+    icon: 'sri-icon-cerrar-sesion',
+    command: () => console.log('Cerrar sesión clicked')
+  },
+  {
+    label: 'Accesibilidad',
+    icon: 'sri-icon-accesibilidad',
+    url: 'https://srienlinea.sri.gob.ec/sri-en-linea/accesibilidad',
+  }
+]);
+
   const menuFiltrado = computed(() => {
-    return itemsMenu.value.filter(item => item.visible);
+    return itemsMenuAmburguesa.value.filter(item => item.visible);
   });
 
   /**
@@ -188,7 +224,8 @@ export const usarAlmacenPrincipalBase = defineStore('principalBase', () => {
     menuLateralVisible,
     menuMovilVisible,
     informacionUsuario,
-    itemsMenu,
+    itemsMenuAmburguesa,
+    itemsMenuPrime,
     menuFiltrado,
     alternarMenuLateral,
     alternarMenuMovil,

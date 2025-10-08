@@ -45,7 +45,7 @@ describe('CabeceraBase', () => {
   it('Debería renderizar el componente correctamente', () => {
     const wrapper = crearContenedor();
 
-    expect(wrapper.find('.encabezado-app').exists()).toBe(true);
+    expect(wrapper.find('.encabezado').exists()).toBe(true);
     expect(wrapper.find('.logo-aplicacion').attributes('alt')).toBe('Logo SRI');
   });
 
@@ -69,7 +69,7 @@ describe('CabeceraBase', () => {
   it('Debería mostrar botones completos en pantalla grande', () => {
     const wrapper = crearContenedor({ esPantallaPequenia: false });
 
-    expect(wrapper.find('.menu-escritorio-container').exists()).toBe(true);
+    expect(wrapper.find('.contenedor-menu-escritorio').exists()).toBe(true);
   });
 
   it('Debería mostrar menú de tres puntos en pantalla pequeña', () => {

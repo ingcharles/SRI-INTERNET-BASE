@@ -6,7 +6,7 @@
  */
 
 /* Encabezado */
-.encabezado-app {
+.encabezado {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -232,7 +232,7 @@
 
 /* Responsive */
 @media (max-width: map.get($grid-breakpoints, md)) {
-  .encabezado-app {
+  .encabezado {
     .encabezado-centro {
       .informacion-contribuyente {
         .info-label {
@@ -274,7 +274,7 @@
 }
 
 @media (max-width: map.get($grid-breakpoints, sm)) {
-  .encabezado-app {
+  .encabezado {
     .encabezado-centro {
       display: none;
     }
