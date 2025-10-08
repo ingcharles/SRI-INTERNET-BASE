@@ -13,7 +13,6 @@ const menuCabecera = ref();
 // Store (Almacenes)
 const almacenPrincipalBase = usarAlmacenPrincipalBase();
 
-
 // Computed (Propiedades computadas)
 const informacionUsuario = computed(() => almacenPrincipalBase.informacionUsuario);
 const itemsMenuCabecera = computed<MenuItem[]>(() => {
@@ -30,7 +29,6 @@ const propiedades = defineProps<{
 
 // Emit (Eventos)
 const emitir = defineEmits<(e: 'alternar-menu') => void>();
-
 
 // Functions (Funciones)
 /**
@@ -121,31 +119,28 @@ const manejarClickMenu = () => emitir('alternar-menu');
 
           <!-- Móvil: MenuBar con iconos y etiquetas -->
           <div v-else class="contenedor-menu-movil">
-            <div class="card flex justify-center">
-              <Button type="button" icon="pi pi-ellipsis-v" class="tamanio-fuente" @click="plegable"
-                aria-haspopup="true" aria-controls="btnMostrarTieredMenu" />
-              <TieredMenu ref="menuCabecera" id="btnMostrarTieredMenu" :model="itemsMenuCabecera" popup>
-                <template #item="{ item, hasSubmenu }">
-                  <router-link v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>
-                    <a v-ripple :href="href" @click="navigate" class="menu-item-movil"
-                      :class="{ 'badge-notificacion': item.label === 'Alertas y avisos' }"
-                      :aria-label="String(item.label)">
-                      <span :class="item.icon" />
-                      <span class="menu-etiqueta">{{ item.label }}</span>
-                      <span v-if="hasSubmenu" class="pi pi-fw pi-angle-down menu-icono" />
-                    </a>
-                  </router-link>
-                  <a v-else v-ripple :href="item.url" :target="item.target"
-                    @click="() => (item.command as (() => void))?.()" class="menu-item-movil"
+            <Button type="button" icon="pi pi-ellipsis-v" class="tamanio-fuente" @click="plegable" aria-haspopup="true"
+              aria-controls="btnMostrarTieredMenu" />
+            <TieredMenu ref="menuCabecera" id="btnMostrarTieredMenu" :model="itemsMenuCabecera" popup>
+              <template #item="{ item, hasSubmenu }">
+                <router-link v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>
+                  <a v-ripple :href="href" @click="navigate" class="menu-item-movil"
                     :class="{ 'badge-notificacion': item.label === 'Alertas y avisos' }"
                     :aria-label="String(item.label)">
                     <span :class="item.icon" />
                     <span class="menu-etiqueta">{{ item.label }}</span>
                     <span v-if="hasSubmenu" class="pi pi-fw pi-angle-down menu-icono" />
                   </a>
-                </template>
-              </TieredMenu>
-            </div>
+                </router-link>
+                <a v-else v-ripple :href="item.url" :target="item.target"
+                  @click="() => (item.command as (() => void))?.()" class="menu-item-movil"
+                  :class="{ 'badge-notificacion': item.label === 'Alertas y avisos' }" :aria-label="String(item.label)">
+                  <span :class="item.icon" />
+                  <span class="menu-etiqueta">{{ item.label }}</span>
+                  <span v-if="hasSubmenu" class="pi pi-fw pi-angle-down menu-icono" />
+                </a>
+              </template>
+            </TieredMenu>
           </div>
         </div>
       </div>

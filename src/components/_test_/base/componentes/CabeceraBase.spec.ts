@@ -73,7 +73,7 @@ describe('CabeceraBase', () => {
   });
 
   it('Debería mostrar menú de tres puntos en pantalla pequeña', () => {
-    const wrapper = crearContenedor({ esPantallaPequenia: true });
+    const wrapper = crearContenedor({ esPantallaPequenia: true, esPantallaMediana: true });
 
     expect(wrapper.find('.contenedor-menu-movil button').exists()).toBe(true);
   });

@@ -9,7 +9,7 @@ const propiedades = defineProps<{
 }>();
 
 // Propiedades computadas
-const itemsMiga = computed<MenuItem[]>(() => {
+const itemsMigaPan = computed<MenuItem[]>(() => {
   if (!propiedades.rutaActual || propiedades.rutaActual.length === 0) {
     return [];
   }
@@ -30,7 +30,7 @@ const itemInicio: MenuItem = {
   <div v-if="rutaActual && rutaActual.length > 0" class="fila">
     <div class="columna-12">
       <div class="seccion-miga-pan">
-        <Breadcrumb :home="itemInicio" :model="itemsMiga" />
+        <Breadcrumb :home="itemInicio" :model="itemsMigaPan" />
       </div>
     </div>
   </div>

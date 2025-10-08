@@ -45,7 +45,6 @@ const clasesContenidoPrincipal = computed(() => ({
   'menu-colapsado': menuColapsado.value
 }));
 
-
 // Functions (Funciones)
 /**
  * Maneja el cambio de tamaño de la ventana
