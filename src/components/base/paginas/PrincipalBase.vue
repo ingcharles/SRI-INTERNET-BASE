@@ -5,18 +5,18 @@ import CabeceraBase from '@/components/base/componentes/CabeceraBase.vue';
 import MenuNavegacionBase from '@/components/base/componentes/MenuNavegacionBase.vue';
 import ContenidoPrincipalBase from '@/components/base/componentes/ContenidoPrincipalBase.vue';
 
-// Constantes
+// Constants (Constantes)
 const ANCHO_PANTALLA_EXTRA_PEQUENIA = 576;
 const ANCHO_PANTALLA_PEQUENIA = 768;
 const ANCHO_PANTALLA_MEDIANA = 992;
 
-// Store
+// Store (Almacenes)
 const almacenPrincipalBase = usarAlmacenPrincipalBase();
 
-// Alternativa sin @vueuse/core
+// Ref (Variable reactivas)
 const anchoPantalla = ref(window.innerWidth);
 
-// Computeds
+// Computed (Propiedades computadas)
 const esPantallaExtraPequenia = computed(() => anchoPantalla.value < ANCHO_PANTALLA_EXTRA_PEQUENIA);
 const esPantallaPequenia = computed(() => anchoPantalla.value < ANCHO_PANTALLA_PEQUENIA);
 const esPantallaMediana = computed(() => anchoPantalla.value < ANCHO_PANTALLA_MEDIANA);
@@ -24,10 +24,8 @@ const menuColapsado = computed(() => !almacenPrincipalBase.menuLateralVisible);
 
 /**
  * Determina si se deben mostrar solo iconos en el menú
- * En móviles: iconos cuando el menú móvil no está visible
- * En desktop: iconos cuando el menú lateral está colapsado
  */
-const mostrarSoloIconos = computed(() =>
+const mostrarMenuSoloIconos = computed(() =>
   esPantallaPequenia.value
     ? !almacenPrincipalBase.menuMovilVisible
     : menuColapsado.value
@@ -47,6 +45,8 @@ const clasesContenidoPrincipal = computed(() => ({
   'menu-colapsado': menuColapsado.value
 }));
 
+
+// Functions (Funciones)
 /**
  * Maneja el cambio de tamaño de la ventana
  */
@@ -57,15 +57,15 @@ const manejarRedimension = () => {
 /**
  * Alterna la visibilidad del menú según el tamaño de pantalla
  */
-const manejarToggleMenu = () => {
+const manejarPlegableMenu = () => {
   if (esPantallaPequenia.value) {
     almacenPrincipalBase.alternarMenuMovil();
   } else {
-    almacenPrincipalBase.alternarMenuLateral();
+    almacenPrincipalBase.alternarMenuEscritorio();
   }
 };
 
-// Lifecycle hooks
+// Lifecycle hooks (Métodos del ciclo de vida)
 onMounted(() => {
   window.addEventListener('resize', manejarRedimension);
 });
@@ -73,17 +73,20 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener('resize', manejarRedimension);
 });
+
 </script>
 
 <template>
   <div class="contenedor-principal">
-    <CabeceraBase :es-pantalla-extra-pequenia="esPantallaExtraPequenia" :es-pantalla-pequenia="esPantallaPequenia"
-      :es-pantalla-mediana="esPantallaMediana" @alternar-menu="manejarToggleMenu" />
 
-    <MenuNavegacionBase :solo-iconos="mostrarSoloIconos" :class="clasesMenuNavegacion" />
+    <CabeceraBase :es-pantalla-extra-pequenia="esPantallaExtraPequenia" :es-pantalla-pequenia="esPantallaPequenia"
+      :es-pantalla-mediana="esPantallaMediana" @alternar-menu="manejarPlegableMenu" />
+
+    <MenuNavegacionBase :mostrar-menu-solo-iconos="mostrarMenuSoloIconos" :class="clasesMenuNavegacion" />
 
     <ContenidoPrincipalBase :class="clasesContenidoPrincipal" :ruta-actual="['Inicio']">
       <router-view />
     </ContenidoPrincipalBase>
+
   </div>
 </template>

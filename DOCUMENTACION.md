@@ -181,7 +181,7 @@ Menú lateral con navegación y búsqueda.
 
 **Props:**
 
-- `soloIconos?: boolean` - Muestra solo iconos cuando está colapsado
+- `mostrarMenuSoloIconos?: boolean` - Muestra solo iconos cuando está colapsado
 
 ### ContenidoPrincipalBase
 
@@ -210,14 +210,14 @@ Pie de página con información legal y versión.
 
 ### Acciones
 
-- `alternarMenuLateral()` - Alterna visibilidad del menú lateral
+- `alternarMenuEscritorio()` - Alterna visibilidad del menú lateral
 - `alternarMenuMovil()` - Alterna visibilidad del menú móvil
 - `cerrarMenuMovil()` - Cierra el menú móvil
 - `actualizarInformacionUsuario(info)` - Actualiza información del usuario
 
 ### Getters
 
-- `menuFiltrado` - Items del menú visibles
+- `menuFiltradoNavegacion` - Items del menú visibles
 
 ## Accesibilidad
 

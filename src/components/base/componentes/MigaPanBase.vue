@@ -3,10 +3,12 @@ import Breadcrumb from 'primevue/breadcrumb';
 import type { MenuItem } from 'primevue/menuitem';
 import { computed } from 'vue';
 
+// Props (Propiedades que recibe)
 const propiedades = defineProps<{
   rutaActual?: string[];
 }>();
 
+// Propiedades computadas
 const itemsMiga = computed<MenuItem[]>(() => {
   if (!propiedades.rutaActual || propiedades.rutaActual.length === 0) {
     return [];

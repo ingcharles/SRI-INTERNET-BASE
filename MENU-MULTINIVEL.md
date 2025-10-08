@@ -169,7 +169,7 @@ function convertirAMenuPrime(items: ItemMenu[]): MenuItem[] {
 
 ### Comportamiento
 
-Cuando el menú está colapsado (`soloIconos = true`):
+Cuando el menú está colapsado (`mostrarMenuSoloIconos = true`):
 
 1. **Oculta el buscador** - No se muestra la barra de búsqueda
 2. **Muestra solo iconos** - Lista vertical de botones circulares

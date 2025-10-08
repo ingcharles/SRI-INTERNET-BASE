@@ -1,16 +1,16 @@
 <script setup lang="ts">
 import MigaPanBase from '@/components/base/componentes/MigaPanBase.vue';
 
-defineProps<{
-  rutaActual?: string[];
-}>();
+// Props (Propiedades que recibe)
+const propiedades = defineProps<{ rutaActual?: string[]; }>();
+
 </script>
 
 <template>
   <main class="contenido-principal">
     <div class="contenedor-fluido">
       <!-- Breadcrumb -->
-      <MigaPanBase :ruta-actual="rutaActual" />
+      <MigaPanBase :ruta-actual="propiedades.rutaActual" />
       <!-- Área de contenido -->
       <div class="fila">
         <div class="columna-12">
