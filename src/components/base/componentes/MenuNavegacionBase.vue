@@ -35,7 +35,6 @@ const itemsMenuSoloIconos = computed(() => {
 });
 
 // Functions (Funciones)
-
 /**
  * Convierte recursivamente los items del menú al formato de PrimeVue
  */
