@@ -337,7 +337,7 @@ body {
 .menu-lateral .p-panelmenu .p-panelmenu-header-link {
   padding: 0.625rem 1rem;
   border: none;
-  color: var(--color-gris-fuerte);
+  /* color: var(--color-gris-fuerte); */
   font-size: 10px;
   font-weight: 600;
   transition: background-color 0.2s;
@@ -350,6 +350,11 @@ body {
 
 .menu-lateral .p-panelmenu .p-panelmenu-header-link:focus {
   box-shadow: none;
+}
+
+.p-panelmenu-header-icon,
+.p-panelmenu-header-label {
+  color: var(--color-gris-fuerte);
 }
 
 .menu-lateral .p-panelmenu .p-panelmenu-content {
@@ -462,6 +467,12 @@ body {
   border: 0;
   font-size: 24.835px;
   color: var(--color-gris-fuerte);
+  /* background-color: initial; */
+}
+
+.lista-menu button.p-button:hover,
+.lista-menu button.p-button:enabled:hover {
+  background-color: initial !important;
 }
 
 /* ========== CONTENIDO PRINCIPAL ========== */

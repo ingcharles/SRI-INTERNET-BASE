@@ -111,6 +111,7 @@
   --btn-tamanio-fuente: 12px;
   --btn-espaciado: 10px;
   --btn-padding-x: 25px;
+  --btn-border-radius: 5px;
 
   /* Espaciados */
   --y-antes-titulo: 20px;
@@ -144,4 +145,7 @@
   /* Ancho / Alto */
   --ancho-100: 100%;
   --alto-100: 100%;
+
+  /*** tabs ***/
+  --p-tabs-tab-padding: 0.6rem;
 }

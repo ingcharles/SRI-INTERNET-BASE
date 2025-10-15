@@ -9,14 +9,10 @@
 .contenedor,
 .contenedor-fluido {
   width: 100%;
-  padding-right: var(--espaciado-rejilla);
-  padding-left: var(--espaciado-rejilla);
+  padding: var(--espaciado-rejilla);
   margin-right: auto;
   margin-left: auto;
-}
-
-.contenedor {
-  max-width: 100%;
+  font-size: 14px;
 }
 
 /* PUNTOS DE QUIEBRE (BREAKPOINT) SM (576px) */
@@ -1261,6 +1257,30 @@
 .alinear-self-estirar {
   align-self: stretch;
 }
+/* ==========  FLEX ========== */
+.mostrar-flex {
+  display: flex;
+}
+
+.mostrar-flex-inline {
+  display: inline-flex;
+}
+
+.mostrar-bloque {
+  display: block;
+}
+
+.mostrar-bloque-inline {
+  display: inline-block;
+}
+
+.mostrar-inline {
+  display: inline;
+}
+
+.ocultar-elemento {
+  display: none;
+}
 
 /* ========== DIRECCIÓN DE FLEX ========== */
 .flex-fila {
@@ -1386,31 +1406,6 @@
 
 .espacio-columna-5 {
   column-gap: var(--espacio-5);
-}
-
-/* ========== VISUALIZACIÓN ========== */
-.mostrar-flex {
-  display: flex;
-}
-
-.mostrar-flex-inline {
-  display: inline-flex;
-}
-
-.mostrar-bloque {
-  display: block;
-}
-
-.mostrar-bloque-inline {
-  display: inline-block;
-}
-
-.mostrar-inline {
-  display: inline;
-}
-
-.ocultar-elemento {
-  display: none;
 }
 
 /* ========== OCULTAR/MOSTRAR RESPONSIVE ========== */

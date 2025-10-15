@@ -1,0 +1,161 @@
+{
+    "comun": {
+        "si": "Sí",
+        "no": "No",
+        "aceptar": "Aceptar",
+        "cancelar": "Cancelar",
+        "guardar": "Guardar",
+        "editar": "Editar",
+        "eliminar": "Eliminar",
+        "buscar": "Buscar",
+        "filtrar": "Filtrar",
+        "limpiar": "Limpiar",
+        "cerrar": "Cerrar",
+        "cargando": "Cargando...",
+        "error": "Error",
+        "exito": "Éxito",
+        "advertencia": "Advertencia",
+        "informacion": "Información"
+    },
+    "navegacion": {
+        "inicio": "Inicio",
+        "menu": "Menú",
+        "cerrarSesion": "Cerrar sesión",
+        "perfil": "Perfil",
+        "configuracion": "Configuración"
+    },
+    "formularios": {
+        "obligatorio": "Este campo es obligatorio",
+        "emailInvalido": "Ingrese un email válido",
+        "contrasenaInvalida": "La contraseña debe tener al menos 6 caracteres",
+        "contrasenasNoCoinciden": "Las contraseñas no coinciden",
+        "enviar": "Enviar",
+        "restablecer": "Restablecer"
+    },
+    "mensajes": {
+        "bienvenida": "Bienvenido al Sistema SRI",
+        "sesionExpirada": "Su sesión ha expirado",
+        "sinDatos": "No hay datos disponibles",
+        "confirmarEliminar": "¿Está seguro que desea eliminar este elemento?",
+        "operacionExitosa": "Operación realizada con éxito",
+        "errorOperacion": "Error al realizar la operación"
+    },
+    "sri": {
+        "titulo": "Servicio de Rentas Internas",
+        "subtitulo": "República del Ecuador",
+        "servicios": "Servicios",
+        "contribuyente": "Contribuyente",
+        "declaracion": "Declaración",
+        "pago": "Pago",
+        "consulta": "Consulta"
+    },
+    "cabecera": {
+        "menu_tooltip": "Menú: clic para mostrar",
+        "logo_texto": "Logo SRI Contigo",
+        "inicio": "Inicio",
+        "cerrar_sesion": "Cerrar Sesión"
+    },
+    "migas": {
+        "aria-label": "Migas de pan"
+    },
+    "menu": {
+        "buscar": {
+            "validacion": "Ingrese al menos tres caracteres",
+            "placeholder": "Buscar servicios",
+            "tooltip": "Limpiar búsqueda",
+            "aria": "Buscar menú"
+        }
+    },
+    "pagina_error": {
+        "403_titulo": "Acceso no autorizado",
+        "403_mensaje": "Consulte con el administrador del Sistema.",
+        "404_titulo": "Página no encontrada",
+        "404_mensaje": "404"
+    },
+    "mensaje": {
+        "requerido": "Campo obligatorio"
+    },
+    "catalogoA": {
+        "titulo": "Ejemplos de componentes",
+        "subtitulo": "Aplicación de estilos",
+        "instrucciones": "Página de ejemplo",
+        "seccion_a": {
+            "ciudades": "Ciudades:",
+            "tooltip_ciudades": "Ciudades del Ecuador",
+            "ciudades_editable": "Ciudades editable:",
+            "datos": "Datos:",
+            "informacion_adicional": "Información adicional",
+            "informacion": "Ingrese un texto",
+            "fecha": "Fecha:",
+            "tooltip_fecha": "Ingrese la fecha:"
+        },
+        "seccion_b": {
+            "titulo_fielset": "Header",
+            "titulo": "Ejemplo general",
+            "subtitulo": "Administración de Ejemplo",
+            "instrucciones": "Ingrese los datos solicitados",
+            "nombre": "Nombre:",
+            "tooltip_nombre": "Ingrese Nombre",
+            "fecha": "Fecha vigente:",
+            "tooltip_fecha": "Ingrese la fecha de vigencia",
+            "boton_guardar": "Guardar",
+            "boton_cancelar": "Cancelar"
+        },
+        "seccion_c": {
+            "titulo_fielset": "Header"
+        },
+        "formato_fecha": "dd/mm/yyyy",
+        "mensaje_seleccione": "Seleccione ...",
+        "titulo_fielset_regular": "Regular",
+        "titulo_fielset_togeabble": "Toggleable"
+    },
+    "catalogoB": {
+        "titulo": "Ejemplos de componentes Catálogo B",
+        "subtitulo": "Aplicación de estilos Catálogo B",
+        "instrucciones": "Prueba de concepto",
+        "botones": {
+            "exito": "Éxito",
+            "info": "Informacion",
+            "advertencia": "Advertencia",
+            "ayuda": "Ayuda",
+            "peligro": "Peligro",
+            "anterior": "Anterior",
+            "siguiente": "Siguiente",
+            "tooltipBotonAgregar": "Agregar elemento"
+        },
+        "cabecera1": "Pestaña I",
+        "cabecera2": "Pestaña II",
+        "cabecera3": "Pestaña III",
+        "cabecera4": "Pestaña IV",
+        "contenido1": "Contenido 1",
+        "contenido2": "Contenido 2",
+        "contenido3": "Contenido 3",
+        "contenido4": "Contenido 4"
+    },
+    "tipoParametro": {
+        "crear": {
+            "titulo": "Tipo de Parametro",
+            "subtitulo": "Administración de Tipo de Parametro",
+            "instrucciones": "Ingrese los datos solicitados",
+            "nombre": "Nombre:",
+            "descripcion": "Descripción:",
+            "placeholder_nombre": "Ingrese el nombre",
+            "placeholder_descripcion": "Ingrese la descripción",
+            "boton_guardar": "Guardar",
+            "boton_cancelar": "Cancelar",
+            "mensaje_nombre_max_caracteres": "Nombre: el número máximo de caracteres permitidos es de 65.",
+            "mensaje_nombre_min_caracteres": "Nombre: el número mínimo de caracteres permitidos es de 10.",
+            "mensaje_nombre_solo_letras": "Nombre: solo se permite ingresar letras.",
+            "mensaje_descripcion_min_caracteres": "Descripción: el número mínimo de caracteres permitidos es de 50.",
+            "mensaje_descripcion_max_caracteres": "Descripción: el número máximo de caracteres permitidos es de 200.",
+            "mensaje_solo_letras_numeros": "Descripción: solo se permite ingresar letras y números"
+        },
+        "consultar": {
+            "subtitulo": "Consultar Tipo Parámetro por Estado",
+            "instrucciones": "Ingrese el estado ACT o INA",
+            "resumen": "Detalle de tipo parametros - ",
+            "resumen2": " registros",
+            "sinresultados": " No se encontraron resultados"
+        }
+    }
+}

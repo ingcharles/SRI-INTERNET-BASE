@@ -1,0 +1,154 @@
+{
+    "comun": {
+        "si": "Yes",
+        "no": "No",
+        "aceptar": "OK",
+        "cancelar": "Cancel",
+        "guardar": "Save",
+        "editar": "Edit",
+        "eliminar": "Delete",
+        "buscar": "Search",
+        "filtrar": "Filter",
+        "limpiar": "Clear",
+        "cerrar": "Close",
+        "cargando": "Loading...",
+        "error": "Error",
+        "exito": "Success",
+        "advertencia": "Warning",
+        "informacion": "Information"
+    },
+    "navegacion": {
+        "inicio": "Home",
+        "menu": "Menu",
+        "cerrarSesion": "Logout",
+        "perfil": "Profile",
+        "configuracion": "Settings"
+    },
+    "formularios": {
+        "obligatorio": "This field is required",
+        "emailInvalido": "Please enter a valid email",
+        "contrasenaInvalida": "Password must be at least 6 characters",
+        "contrasenasNoCoinciden": "Passwords do not match",
+        "enviar": "Submit",
+        "restablecer": "Reset"
+    },
+    "mensajes": {
+        "bienvenida": "Welcome to SRI System",
+        "sesionExpirada": "Your session has expired",
+        "sinDatos": "No data available",
+        "confirmarEliminar": "Are you sure you want to delete this item?",
+        "operacionExitosa": "Operation completed successfully",
+        "errorOperacion": "Error performing operation"
+    },
+    "sri": {
+        "titulo": "Internal Revenue Service",
+        "subtitulo": "Republic of Ecuador",
+        "servicios": "Services",
+        "contribuyente": "Taxpayer",
+        "declaracion": "Declaration",
+        "pago": "Payment",
+        "consulta": "Consultation"
+    },
+    "cabecera": {
+        "menu_tooltip": "Navigation: clic to show",
+        "logo_texto": "SRI With You Logo",
+        "inicio": "Home",
+        "cerrar_sesion": "Logout Session"
+    },
+    "migas": {
+        "aria-label": "Breadcrumbs"
+    },
+    "menu": {
+        "buscar": {
+            "validacion": "Write at least three characters",
+            "placeholder": "Search services",
+            "tooltip": "Clean",
+            "aria": "Search menu"
+        }
+    },
+    "pagina_error": {
+        "403_titulo": "Unauthorized access",
+        "403_mensaje": "Consult with the system administrator.",
+        "404_titulo": "Page not found",
+        "404_mensaje": "404"
+    },
+    "mensaje": {
+        "requerido": "Mandatory field"
+    },
+    "catalogoA": {
+        "titulo": "Components Examples",
+        "subtitulo": "Applying styles",
+        "instrucciones": "Example page",
+        "seccion_a": {
+            "ciudades": "Cities:",
+            "tooltip_ciudades": "Ecuador Cities",
+            "ciudades_editable": "Editable cities:",
+            "datos": "Data:",
+            "informacion_adicional": "Aditional information",
+            "informacion": "Enter a text",
+            "fecha": "Date:",
+            "tooltip_fecha": "Enter a date :"
+        },
+        "seccion_b": {
+            "titulo_fielset": "Header",
+            "titulo": "General example",
+            "subtitulo": "Management example",
+            "instrucciones": "Enter data",
+            "nombre": "Name:",
+            "tooltip_nombre": "Enter name",
+            "fecha": "Date:",
+            "tooltip_fecha": "Enter date",
+            "boton_guardar": "Save",
+            "boton_cancelar": "Cancel"
+        },
+        "seccion_c": {
+            "titulo_fielset": "Header"
+        },
+        "formato_fecha": "dd/mm/yyyy",
+        "mensaje_seleccione": "Choose ...",
+        "titulo_fielset_regular": "Regular",
+        "titulo_fielset_togeabble": "Toggleable"
+    },
+    "catalogoB": {
+        "titulo": "Components Examples Page B",
+        "subtitulo": "Applying styles page B",
+        "instrucciones": "Example page",
+        "botones": {
+            "exito": "Success",
+            "info": "Info",
+            "advertencia": "Warning",
+            "ayuda": "Help",
+            "peligro": "Danger",
+            "anterior": "Before",
+            "siguiente": "Next",
+            "tooltipBotonAgregar": "Add element"
+        },
+        "cabecera1": "Header I",
+        "cabecera2": "Header II",
+        "cabecera3": "Header III",
+        "cabecera4": "Header IV",
+        "contenido1": "Content 1",
+        "contenido2": "Content 2",
+        "contenido3": "Content 3",
+        "contenido4": "Content 4"
+    },
+    "tipoParametro": {
+        "crear": {
+            "titulo": "Parameter Type",
+            "subtitulo": "Parameter Type Management",
+            "instrucciones": "Enter the requested data",
+            "nombre": "Name:",
+            "descripcion": "Description:",
+            "placeholder_nombre": "Enter name",
+            "placeholder_descripcion": "Enter description",
+            "boton_guardar": "Save",
+            "boton_cancelar": "Cancel"
+        },
+        "consultar": {
+            "subtitulo": "Consultar Tipo Parámetro por Estado",
+            "instrucciones": "Ingrese el estado ACT o INA",
+            "resumen": "Detalle de tipo parametros - ",
+            "resumen2": " resgistros obtenidos."
+        }
+    }
+}

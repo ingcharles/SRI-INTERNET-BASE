@@ -3,6 +3,7 @@ import { createPinia } from 'pinia'
 import PrimeVue from 'primevue/config'
 import router from './router'
 import App from './App.vue'
+import i18n from './locales'
 
 // Importar estilos de PrimeVue
 import 'primeicons/primeicons.css'
@@ -30,13 +31,14 @@ import { fas } from '@fortawesome/free-solid-svg-icons'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { far } from '@fortawesome/free-regular-svg-icons'
 import Tooltip from 'primevue/tooltip'
-
+import Aura from '@primeuix/themes/aura'
 library.add(fas, far, fab)
 
 const app = createApp(App)
 
 app.use(createPinia())
 app.use(router)
+app.use(i18n)
 app.use(PrimeVue, {
   theme: {
     // preset: Aura,
