@@ -31,6 +31,11 @@ const routes: Array<RouteRecordRaw> = [
     name: 'catalogoB',
     component: () => import('@/components/base/paginas/CatalogoB.vue'),
   },
+  {
+    path: '/catalogoA',
+    name: 'catalogoA',
+    component: () => import('@/components/base/paginas/CatalogoA.vue'),
+  },
 ]
 
 const router = createRouter({
