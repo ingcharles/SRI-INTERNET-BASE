@@ -14,29 +14,9 @@ Este proyecto en español es una plantilla base completo con Vue 3, Pinia, TypeS
 - Node >=22.12.0 LTS
 - Vite 7.0.6, Vue 3.5.22, TypeScript 5.8.0
 - Pinia 3.0.3
-- PrimeVue 4.1.1, PrimeIcons 7.0.0, PrimeFlex 3.3.1
+- PrimeVue 4.1.1, PrimeIcons 7.0.0
 - Vitest 3.2.4, Vue Test Utils 2.4.6
 - ESLint + Prettier (reglas de TypeScript y Vue)
-
-## Estructura de carpetas sugerida
-
-```src/
-  app/ # App.vue, main.ts, boot files
-  componentes/  # Presentacionales y reutilizables
-  vistas/          # Vistas de router
-  enumeraciones/          # Vistas de router
-  constantes/          # Vistas de router
-  interfaces/          # Tipo interfaces
-  almacenes/ # Pinia stores
-  composables/ # Lógica reutilizable (Composition API)
-  servicios/disenador/      # API clients y adaptadores
-  enrutador/ # Configuración de rutas
-  styles/ # CSS global, variables y tema
-  tipos/ # Tipos y contratos TS
-  utilidades/ # Utilidades puras
-  pruebas/ # Config y helpers de test
-assets/
-```
 
 ## Principios de código
 
@@ -53,7 +33,7 @@ assets/
 ## Uso estilos u componentes
 
 - Utilizar componentes de la libreria primeVue.
-- Estilos CSS responsivos para diferentes dispositivos crear los estilos en \_sri-vue-plantilla.scss; evita estilos inline.
+- Estilos CSS responsivos para diferentes dispositivos crear los estilos en (_sri-vue-responsivo_v2.css,_sri-vue-plantilla_v2.css); evita estilos inline.
 - Color principal #0c4597
 
 ## Pinia: buenas prácticas

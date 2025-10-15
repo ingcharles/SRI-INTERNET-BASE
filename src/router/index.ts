@@ -27,6 +27,11 @@ const routes: Array<RouteRecordRaw> = [
     redirect: '/',
   },
   {
+    path: '/ejemploGrid',
+    name: 'ejemploGrid',
+    component: () => import('@/components/ejemplos/EjemploGrid.vue'),
+  },
+  {
     path: '/catalogoB',
     name: 'catalogoB',
     component: () => import('@/components/base/paginas/CatalogoB.vue'),
