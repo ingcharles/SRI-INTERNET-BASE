@@ -467,7 +467,7 @@ body {
   border: 0;
   font-size: 24.835px;
   color: var(--color-gris-fuerte);
-  /* background-color: initial; */
+  background-color: initial;
 }
 
 .lista-menu button.p-button:hover,

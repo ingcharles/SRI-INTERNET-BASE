@@ -14,7 +14,9 @@
   margin-left: auto;
   font-size: 14px;
 }
-
+.fila {
+  margin-bottom: 1rem;
+}
 /* PUNTOS DE QUIEBRE (BREAKPOINT) SM (576px) */
 @media (min-width: 576px) {
   .contenedor {
@@ -63,8 +65,8 @@
   margin-left: 0;
 }
 
-.fila.sin-espaciado>.columna,
-.fila.sin-espaciado>[class*='columna-'] {
+.fila.sin-espaciado > .columna,
+.fila.sin-espaciado > [class*='columna-'] {
   padding-right: 0;
   padding-left: 0;
 }

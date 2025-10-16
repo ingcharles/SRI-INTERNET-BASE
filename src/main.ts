@@ -18,6 +18,7 @@ import '@/assets/css/_sri_vue_responsivo_v2.css'
 // Importar fuentes e iconos
 import '@/assets/iconos/sri-icon/sri-icono-fuentes.min.css'
 import '@/assets/iconos/sri-menu-icon/sri-menu-icon-fuentes.min.css'
+import '@/assets/iconos/sri-app-icon/sri-app-icon-fuentes.min.css'
 import '@/assets/iconos/fontawesome/font-awesome.min.css'
 
 // Importar estilos personalizados con CSS nativo

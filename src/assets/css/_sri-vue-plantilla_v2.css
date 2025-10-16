@@ -2,17 +2,14 @@
  * Estilos para los componentes del sistema SRI
  * Usa el sistema de componentes.css en español
  */
+
 .contenido-form {
   font-size: (--tamanio-fuente-campo);
   padding: 15px;
   display: flex;
   align-items: center;
   flex-direction: column;
-}
-
-.formulario {
-  display: flex;
-  flex-direction: column;
+  color: #434a54;
 }
 
 .titulo h1,
@@ -74,8 +71,87 @@ h6 {
   text-align: left;
 }
 
-/* Input  - Textarea*/
+.p-component {
+  font-family: var(--font-family);
+  font-feature-settings: var(--font-feature-settings, normal);
+  font-size: 1rem;
+  font-weight: normal;
+}
+.negrilla,
+label {
+  font-weight: 600;
+}
 
+.linea {
+  border-top: 1px solid var(--color-gris-neutro);
+  height: 2px;
+  width: 100%;
+  padding: 5px;
+  margin: 20px auto 0 auto;
+}
+
+/******************* Mensajes y notificaciones *************************/
+
+.p-message {
+  margin-top: 20px;
+  border-radius: 0;
+  outline-style: initial;
+  .p-message-text {
+    color: var(--color-blanco);
+    font-size: var(--tamanio-fuente-alerta);
+    margin-bottom: 0px;
+    font-weight: 600;
+    text-align: left;
+  }
+  .p-message-wrapper {
+    padding: 0.5rem 1rem;
+  }
+  &.p-message-error,
+  &.p-message-warn,
+  &.p-message-success,
+  &.p-message-info {
+    border: none;
+    .p-message-wrapper,
+    .p-message-icon {
+      color: var(--color-blanco);
+      padding: 1rem 1rem;
+      font-size: 22px;
+    }
+  }
+  &.p-message-error {
+    background-color: var(--color-coral-fuerte);
+  }
+  &.p-message-warn {
+    background-color: var(--color-amarillo-claro);
+    .p-message-text {
+      color: var(--color-gris-fuerte);
+    }
+    .p-message-icon {
+      color: var(--color-gris-fuerte);
+    }
+  }
+  &.p-message-success {
+    background-color: var(--color-verde-fuerte);
+    .pi-check:before {
+      font-family: 'sri-icon', Arial, Helvetica, sans-serif;
+      content: '\e92a';
+    }
+  }
+  &.p-message-info {
+    background-color: var(--color-azul-informacion);
+  }
+}
+
+.pi-exclamation-triangle:before {
+  font-family: 'sri-icon', Arial, Helvetica, sans-serif;
+  content: '\e90c';
+}
+
+.p-inlinemessage.p-inlinemessage-error {
+  color: var(--color-coral-fuerte);
+}
+
+/* Input  - Textarea*/
 input,
 .p-inputtext {
   height: 25px;
@@ -84,7 +160,7 @@ input,
   border-radius: 0;
   color: var(--color-gris-fuerte);
   width: 100%;
-  /* width: 10rem; */
+  font-size: 1rem;
 }
 
 textarea {
@@ -93,7 +169,7 @@ textarea {
   border-radius: 0;
   color: var(--color-gris-fuerte);
   min-height: 75px !important;
-  min-width: 300px !important;
+  width: 100%;
   resize: none !important;
 }
 
@@ -102,8 +178,8 @@ input:focus-visible,
   outline: 0 none;
 }
 
-input:active,
-input:focus,
+/* input:active,
+input:focus, */
 .p-inputtext:active,
 .p-inputtext:focus,
 .p-inputtext:enabled:focus,
@@ -129,6 +205,69 @@ textarea::placeholder,
 
 input.p-inputtext.p-component .p-disabled:hover {
   border-bottom: none;
+}
+
+/********************* paneles de dialo, modales*/
+.p-dialog {
+  border-radius: 0;
+}
+
+.p-dialog-footer .centrar-botones {
+  display: inherit;
+}
+
+.p-dialog .p-dialog-header {
+  padding: 20px 20px 20px 20px;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.p-dialog .p-dialog-content {
+  padding: 0 20px 20px 20px;
+  overflow-y: inherit;
+}
+
+.p-dialog .p-dialog-content [x='400'] {
+  display: grid;
+  width: 360px;
+  grid-template-columns: 100px 160px 100px;
+}
+
+.p-dialog .p-dialog-content [x='450'] {
+  display: grid;
+  width: 410px;
+  grid-template-columns: 100px 160px 150px;
+}
+
+.p-dialog .p-dialog-content [x='500'] {
+  display: grid;
+  width: 460px;
+  grid-template-columns: 140px 160px 160px;
+}
+
+.p-dialog .p-dialog-content [x='600'] {
+  display: grid;
+  width: 560px;
+  /*20px a cada lado de padding*/
+  grid-template-columns: 160px 220px 160px;
+}
+
+.p-dialog .p-dialog-content [x='700'] {
+  display: grid;
+  width: 660px;
+  /*20px a cada lado de padding*/
+  grid-template-columns: 220px 240px 180px;
+}
+
+.p-dialog .p-dialog-content [x='800'] {
+  display: grid;
+  width: 760px;
+  grid-template-columns: 220px 340px 200px;
+}
+
+.icono-info {
+  font-size: 22px;
+  color: var(--color-azul-fuerte);
 }
 
 /******** tooltip primevue ***********/
@@ -172,16 +311,16 @@ button.p-button:enabled:active {
 
 /********** boton secundario (cancel) **************/
 button.p-button.p-button-secondary,
-button.p-buttonset.p-button-secondary>button.p-button,
-button.p-splitbutton.p-button-secondary>button.p-button {
+button.p-buttonset.p-button-secondary > button.p-button,
+button.p-splitbutton.p-button-secondary > button.p-button {
   background-color: var(--btn-secondary);
   border-color: var(--color-gris-claro);
   color: var(--color-gris-fuerte);
 }
 
 button.p-button.p-button-secondary:enabled:hover,
-button.p-buttonset.p-button-secondary>button.p-button:enabled:hover,
-button.p-splitbutton.p-button-secondary>button.p-button:enabled:hover {
+button.p-buttonset.p-button-secondary > button.p-button:enabled:hover,
+button.p-splitbutton.p-button-secondary > button.p-button:enabled:hover {
   background-color: var(--btn-secondary-hover);
   border-color: var(--color-gris-claro);
   color: var(--color-gris-fuerte);
@@ -189,8 +328,8 @@ button.p-splitbutton.p-button-secondary>button.p-button:enabled:hover {
 
 button.p-button.p-button-secondary:active,
 button.p-button.p-button-secondary:enabled:active,
-button.p-buttonset.p-button-secondary>button.p-button:enabled:active,
-button.p-splitbutton.p-button-secondary>button.p-button:enabled:active {
+button.p-buttonset.p-button-secondary > button.p-button:enabled:active,
+button.p-splitbutton.p-button-secondary > button.p-button:enabled:active {
   background-color: var(--btn-secondary-activo);
   border-color: var(--color-gris-claro);
   color: var(--color-gris-fuerte);
@@ -198,8 +337,8 @@ button.p-splitbutton.p-button-secondary>button.p-button:enabled:active {
 
 /********** boton exito **************/
 button.p-button.p-button-success,
-button.p-buttonset.p-button-success>button.p-button,
-button.p-splitbutton.p-button-success>button.p-button {
+button.p-buttonset.p-button-success > button.p-button,
+button.p-splitbutton.p-button-success > button.p-button {
   background-color: var(--btn-success);
   border-color: var(--btn-success);
   color: var(--btn-success-fuente-color);
@@ -207,24 +346,24 @@ button.p-splitbutton.p-button-success>button.p-button {
 
 button.p-button.p-button-success:hover,
 button.p-button.p-button-success:enabled:hover,
-button.p-buttonset.p-button-success>button.p-button:enabled:hover,
-button.p-splitbutton.p-button-success>button.p-button:enabled:hover {
+button.p-buttonset.p-button-success > button.p-button:enabled:hover,
+button.p-splitbutton.p-button-success > button.p-button:enabled:hover {
   background-color: var(--btn-success-hover);
   border-color: var(--btn-success-hover);
 }
 
 button.p-button.p-button-success:active,
 button.p-button.p-button-success:enabled:active,
-button.p-buttonset.p-button-success>button.p-button:active,
-button.p-splitbutton.p-button-success>button.p-button:active {
+button.p-buttonset.p-button-success > button.p-button:active,
+button.p-splitbutton.p-button-success > button.p-button:active {
   background-color: var(--btn-success-activo) !important;
   border-color: var(--btn-success-activo) !important;
 }
 
 /********** boton warning **************/
 button.p-button.p-button-warning,
-button.p-buttonset.p-button-warning>button.p-button,
-button.p-splitbutton.p-button-warning>button.p-button {
+button.p-buttonset.p-button-warning > button.p-button,
+button.p-splitbutton.p-button-warning > button.p-button {
   background-color: var(--btn-warning);
   border-color: var(--btn-warning);
   color: var(--btn-warning-fuente-color);
@@ -232,8 +371,8 @@ button.p-splitbutton.p-button-warning>button.p-button {
 
 button.p-button.p-button-warning:hover,
 button.p-button.p-button-warning:enabled:hover,
-button.p-buttonset.p-button-warning>button.p-button:enabled:hover,
-button.p-splitbutton.p-button-warning>button.p-button:enabled:hover {
+button.p-buttonset.p-button-warning > button.p-button:enabled:hover,
+button.p-splitbutton.p-button-warning > button.p-button:enabled:hover {
   background: var(--btn-warning-hover);
   color: var(--btn-warning-fuente-color);
   border-color: var(--btn-warning-hover);
@@ -241,8 +380,8 @@ button.p-splitbutton.p-button-warning>button.p-button:enabled:hover {
 
 button.p-button.p-button-warning:active,
 button.p-button.p-button-warning:enabled:active,
-button.p-buttonset.p-button-warning>button.p-button:enabled:active,
-button.p-splitbutton.p-button-warning>button.p-button:enabled:active {
+button.p-buttonset.p-button-warning > button.p-button:enabled:active,
+button.p-splitbutton.p-button-warning > button.p-button:enabled:active {
   background: var(--btn-warning-activo);
   color: var(--btn-warning-fuente-color);
   border-color: var(--btn-warning-activo);
@@ -250,48 +389,48 @@ button.p-splitbutton.p-button-warning>button.p-button:enabled:active {
 
 /********** boton info **************/
 button.p-button.p-button-info,
-button.p-buttonset.p-button-info>button.p-button,
-button.p-splitbutton.p-button-info>button.p-button {
+button.p-buttonset.p-button-info > button.p-button,
+button.p-splitbutton.p-button-info > button.p-button {
   background: var(--btn-info);
   border-color: var(--btn-info);
 }
 
 button.p-button.p-button-info:hover,
 button.p-button.p-button-info:enabled:hover,
-button.p-buttonset.p-button-info>button.p-button:enabled:hover,
-button.p-splitbutton.p-button-info>button.p-button:enabled:hover {
+button.p-buttonset.p-button-info > button.p-button:enabled:hover,
+button.p-splitbutton.p-button-info > button.p-button:enabled:hover {
   background: var(--btn-info-hover);
   border-color: var(--btn-info-hover);
 }
 
 button.p-button.p-button-info:active,
 button.p-button.p-button-info:enabled:active,
-button.p-buttonset.p-button-info>button.p-button:enabled:active,
-button.p-splitbutton.p-button-info>button.p-button:enabled:active {
+button.p-buttonset.p-button-info > button.p-button:enabled:active,
+button.p-splitbutton.p-button-info > button.p-button:enabled:active {
   background: var(--btn-info-activo);
   border-color: var(--btn-info-activo);
 }
 
 /********** boton help **************/
 button.p-button.p-button-help,
-button.p-buttonset.p-button-help>button.p-button,
-button.p-splitbutton.p-button-help>button.p-button {
+button.p-buttonset.p-button-help > button.p-button,
+button.p-splitbutton.p-button-help > button.p-button {
   background: var(--btn-celeste);
   border-color: var(--btn-celeste);
   color: var(--btn-celeste-fuente);
 }
 
 button.p-button.p-button-help:enabled:hover,
-button.p-buttonset.p-button-help>button.p-button:enabled:hover,
-button.p-splitbutton.p-button-help>button.p-button:enabled:hover {
+button.p-buttonset.p-button-help > button.p-button:enabled:hover,
+button.p-splitbutton.p-button-help > button.p-button:enabled:hover {
   background: var(--btn-celeste-hover);
   color: var(--btn-celeste-fuente);
   border-color: var(--btn-celeste-hover);
 }
 
 button.p-button.p-button-help:enabled:active,
-button.p-buttonset.p-button-help>button.p-button:enabled:active,
-button.p-splitbutton.p-button-help>button.p-button:enabled:active {
+button.p-buttonset.p-button-help > button.p-button:enabled:active,
+button.p-splitbutton.p-button-help > button.p-button:enabled:active {
   background: var(--btn-celeste-activo);
   color: var(--btn-celeste-fuente);
   border-color: var(--btn-celeste-activo);
@@ -323,25 +462,29 @@ span.pi.pi-plus.p-button-icon:before {
   padding: 0.5rem;
   align-items: flex-start;
   display: flex;
+  font-weight: 600;
+}
+.p-fieldset-legend-label {
+  font-weight: 600;
 }
 
 .p-fieldset.p-fieldset-toggleable .p-fieldset-legend {
   transition: none;
 }
 
-.p-fieldset.p-fieldset-toggleable .p-fieldset-legend a .p-fieldset-toggler {
-  margin-top: -5px;
+.p-fieldset-content {
+  padding: var(--espaciado-rejilla);
 }
 
-.p-fieldset.p-fieldset-toggleable .p-fieldset-legend a {
+.p-fieldset.p-fieldset-toggleable .p-fieldset-legend button {
   justify-content: left;
   color: var(--color-blanco);
   font-size: 14px;
   padding: 0.5rem;
 }
 
-.p-fieldset-legend>a,
-.p-fieldset-legend>span {
+.p-fieldset-legend > button,
+.p-fieldset-legend > span {
   justify-content: left;
   color: var(--color-blanco);
   font-size: 14px;
@@ -351,7 +494,7 @@ span.pi.pi-plus.p-button-icon:before {
   background-color: var(--color-azul-principal);
 }
 
-.p-fieldset.p-fieldset-toggleable .p-fieldset-legend a:hover {
+.p-fieldset.p-fieldset-toggleable .p-fieldset-legend button:hover {
   color: var(--color-gris-medio);
   background-color: var(--color-celeste);
   border: 1px solid var(--color-gris-neutro);
@@ -406,73 +549,31 @@ span.p-fieldset-toggler.pi.pi-minus:before {
   border-radius: 0;
   color: var(--color-gris-fuerte);
   border-color: var(--color-amarillo-claro);
-  /* padding: 0.6rem;
-  border-right: 2px solid var(--color-gris-claro);*/
 }
-
-/************** tabview ***/
-/* .p-tabview .p-tabview-nav {
-  border: 2px solid var(--color-gris-claro);
-  justify-content: space-between;
-}
-.p-tabview .p-tabview-nav li {
-  width: 100%;
-}
-
-.p-tabview .p-tabview-nav li .p-tabview-nav-link {
-  padding: 0.6rem;
-  border-right: 2px solid var(--color-gris-claro);
-}
-.p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
-  background: var(--color-amarillo-claro);
-  border-radius: 0;
-  color: var(--color-gris-fuerte);
-  border-color: var(--color-amarillo-claro);
-} */
-
-/** estado hover de tabview*/
-/* .p-tabview .p-tabview-nav li:not(.p-highlight):not(.p-disabled):hover .p-tabview-nav-link {
-  background-color: var(--color-celeste);
-  border-radius: 0;
-  border-bottom: 1.5px solid var(--color-cyan-claro);
-  border-right: 2px solid var(--color-gris-claro);
-} */
-/**borde celeste*/
-/* .p-tabview .p-tabview-nav li .p-tabview-nav-link:not(.p-disabled):focus {
-  box-shadow: none;
-}
-.p-tabview-panel {
-  color: var(--color-gris-fuerte);
-  text-align: left;
-}
-.p-tabview .p-tabview-panels {
-  border: 2px solid;
-  border-color: transparent var(--color-gris-claro) var(--color-gris-claro) var(--color-gris-claro);
-} */
 
 /* *************  TABLAS **************************/
 .p-datatable table {
   border: solid 1px var(--color-gris-neutro);
 }
 
-.p-datatable .p-datatable-thead>tr>th {
+.p-datatable .p-datatable-thead > tr > th {
   background-color: var(--color-azul-principal);
   color: var(--color-blanco);
   font-size: var(--tamanio-fuente-tabla);
   text-align: center;
 }
 
-.p-datatable .p-datatable-tbody>tr>td {
+.p-datatable .p-datatable-tbody > tr > td {
   border: solid 1px var(--color-gris-neutro);
   padding: 5px 10px;
   font-size: 14px;
 }
 
-.p-datatable .p-datatable-tbody>tr:nth-child(even) {
+.p-datatable .p-datatable-tbody > tr:nth-child(even) {
   background: var(--color-gris-claro);
 }
 
-.p-datatable .p-datatable-tbody>tr:hover {
+.p-datatable .p-datatable-tbody > tr:hover {
   background: var(--color-turqueza-claro);
   cursor: pointer;
 }
@@ -514,19 +615,22 @@ span.p-fieldset-toggler.pi.pi-minus:before {
   color: var(--color-blanco);
 }
 
-.p-datatable button.p-button.p-component.p-button-icon-only.p-button-rounded.p-button-secondary.p-button-text.color-rojo {
+.p-datatable
+  button.p-button.p-component.p-button-icon-only.p-button-rounded.p-button-secondary.p-button-text.color-rojo {
   color: var(--color-coral-fuerte);
   background-color: transparent;
   border-color: transparent;
 }
 
-.p-datatable button.p-button.p-component.p-button-icon-only.p-button-rounded.p-button-secondary.p-button-text.color-amarillo {
+.p-datatable
+  button.p-button.p-component.p-button-icon-only.p-button-rounded.p-button-secondary.p-button-text.color-amarillo {
   color: var(--color-naranja-claro);
   background-color: transparent;
   border-color: transparent;
 }
 
-.p-datatable button.p-button.p-component.p-button-icon-only.p-button-rounded.p-button-secondary.p-button-text.color-verde {
+.p-datatable
+  button.p-button.p-component.p-button-icon-only.p-button-rounded.p-button-secondary.p-button-text.color-verde {
   color: var(--color-verde-fuerte);
   background-color: transparent;
   border-color: transparent;
@@ -555,8 +659,7 @@ button.p-button.p-component.p-button-icon-only.p-button-rounded.p-button-seconda
   cursor: pointer;
   position: relative;
   user-select: none;
-  /* border: solid 0.5px var(--color-gris-neutro); */
-  /* background: var(--p-select-background); */
+  width: 100%;
 }
 
 .p-select-dropdown {
@@ -564,29 +667,19 @@ button.p-button.p-component.p-button-icon-only.p-button-rounded.p-button-seconda
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  background: transparent;
-  border: solid 0.5px var(--color-gris-neutro);
-  /* color: var(--p-select-dropdown-color); */
-  /* width: var(--p-select-dropdown-width); */
-  /* border-top-right-radius: var(--p-select-border-radius); */
-  /* border-bottom-right-radius: var(--p-select-border-radius); */
+  background: var(--color-azul-principal);
+  border-left: 0 none;
+  color: var(--color-blanco);
+  width: 2.5rem;
 }
 
-/* .p-select-option.p-select-option-selected.p-focus {
-  background: var(--color-azul-principal);
-  color: var(--color-blanco);
-} */
 .p-select-option.p-focus {
-  background: var(--color-azul-principal);
-  color: var(--color-blanco);
+  background: var(--color-gris-claro);
 }
 
-/* .p-select-option.p-select-option-selected {
-  background: var(--color-azul-principal);
-  color: var(--color-blanco);
-} */
-
-
+.p-select-option.p-select-option-selected {
+  background: #e3f2fd;
+}
 
 .p-select-option {
   cursor: pointer;
@@ -596,76 +689,55 @@ button.p-button.p-component.p-button-icon-only.p-button-rounded.p-button-seconda
   overflow: hidden;
   display: flex;
   align-items: center;
-  /* padding: var(--p-select-option-padding); */
-  border: 0 none;
-  /* color: var(--p-select-option-color); */
-  background: var(--color-blanco);
-  /* transition: background 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s, outline-color 0.2s; */
-  /* border-radius: var(--p-select-option-border-radius); */
-}
-
-/* span.p-select-trigger-icon.pi.pi-chevron-down {
-  margin-top: -2px;
-  color: var(--color-gris-neutro);
-} */
-
-/* .p-select.p-component.p-inputwrapper {
-width: 100%;
-}
-
-span.p-select-trigger-icon.pi.pi-chevron-down {
-  margin-top: -2px;
-  color: var(--color-gris-neutro);
-}
-
-.p-select .p-select-option.p-placeholder {
   color: var(--color-gris-fuerte);
+  background: var(--color-blanco);
 }
 
-.p-select:not(.p-disabled).p-focus {
-  border: solid 2px var(--color-gris-neutro);
-  box-shadow: none;
-}
-
-.p-select:not(.p-disabled):hover {
-  border: solid 1px var(--color-gris-neutro);
-}
-
-.p-select {
-  border-radius: 0;
-
-  .p-select-trigger:hover {
-    background-color: var(--color-celeste);
-    border-left: solid 1px var(--color-gris-claro);
-  }
-}
-
-.p-paginator-bottom .p-select.p-component.p-inputwrapper {
-  width: 50px;
-  height: auto;
-  border-top: none;
-}
-
-.p-paginator-bottom .p-select-trigger {
-  background-color: var(--color-azul-principal) !important;
-  text-decoration-color: var(--color-blanco);
-}
-
-.p-paginator-bottom svg.p-icon.p-select-trigger-icon {
-  color: var(--color-blanco);
-}
-
-.p-paginator-bottom span.p-select-option.p-inputtext {
-  width: 30px;
-  display: flex;
-  color: white !important;
-  font-size: 14px;
-  font-weight: bold;
-  padding: 5px 20px 10px 5px;
+.p-datepicker-panel:not(.p-datepicker-inline) .p-datepicker-header {
   background-color: #0c4597;
 }
+.p-datepicker-panel .p-datepicker-header {
+  /* padding: 0.5rem; */
+  color: #495057;
+  background: #ffffff;
+  font-weight: 600;
+  margin: 0;
+  border-bottom: 1px solid #dee2e6;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+}
 
-*/
+.p-datepicker-panel .p-datepicker-header .p-datepicker-title .p-datepicker-select-year,
+.p-datepicker-panel .p-datepicker-header .p-datepicker-title .p-datepicker-select-month,
+.p-datepicker-panel .p-datepicker-header .p-datepicker-title .p-datepicker-decade {
+  color: #fff;
+  font-size: 12px;
+}
+
+.p-datepicker-panel .p-datepicker-header .p-datepicker-prev-button,
+.p-datepicker-panel .p-datepicker-header .p-datepicker-next-button {
+  width: 2rem;
+  height: 2rem;
+  color: #6c757d;
+  border: 0 none;
+  background: transparent;
+  border-radius: 50%;
+  transition:
+    background-color 0.2s,
+    color 0.2s,
+    box-shadow 0.2s;
+  outline-color: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+.p-datepicker-panel .p-datepicker-header .p-datepicker-prev-button:enabled:hover,
+.p-datepicker-panel .p-datepicker-header .p-datepicker-next-button:enabled:hover {
+  border-color: transparent;
+  background-color: #6598d1;
+  color: #434a54;
+}
+
 .ancho-100 {
   width: var(--ancho-100);
 }
@@ -676,6 +748,10 @@ span.p-select-trigger-icon.pi.pi-chevron-down {
 
 .texto-izquierda {
   text-align: left;
+}
+
+.relleno-0 {
+  padding: 0;
 }
 
 .relleno-10 {
@@ -698,12 +774,6 @@ span.p-select-trigger-icon.pi.pi-chevron-down {
   align-items: center;
   text-decoration: none;
   cursor: pointer;
-  /* transition:
-    background 0.2s,
-    color 0.2s,
-    border-color 0.2s,
-    outline-color 0.2s,
-    box-shadow 0.2s; */
   border-radius: 0px;
   outline-color: transparent;
   background: transparent;
@@ -725,10 +795,7 @@ span.p-select-trigger-icon.pi.pi-chevron-down {
   border: 1px solid #aab2bd;
   background: transparent;
   flex: 1 1 0;
-  /* background: var(--p-stepper-separator-background); */
   width: 100%;
-  /* height: var(--p-stepper-separator-size); */
-  /* transition: background var(--p-stepper-transition-duration), color var(--p-stepper-transition-duration), border-color var(--p-stepper-transition-duration), box-shadow var(--p-stepper-transition-duration), outline-color var(--p-stepper-transition-duration); */
 }
 
 .p-step:has(~ .p-step-active) .p-stepper-separator {
@@ -749,24 +816,13 @@ span.p-select-trigger-icon.pi.pi-chevron-down {
 }
 
 .p-step-active .p-step-title {
-  /* color: #434a54; */
   font-weight: 600;
   font-weight: 18px;
 }
 
-/* .p-step .p-step-active .p-step-number:hover {
-  background: var(--color-turqueza-claro);
-  border-color: 1px solid #e9ecef;
-  color: var(--color-gris-fuerte);
-}
-*/
 .p-step.p-step-active .p-step-number {
   background: var(--color-amarillo-claro);
 }
-
-/* .p-step.p-step-active .p-step-number {
-  background: var(--color-amarillo-claro);
-} */
 
 .p-step:not(.p-step-active) .p-step-number:hover {
   background: var(--color-turqueza-claro);
@@ -774,16 +830,6 @@ span.p-select-trigger-icon.pi.pi-chevron-down {
   color: var(--color-gris-fuerte);
 }
 
-/* .p-step .p-stepper-separator {
-  content: ' ';
-  border-top: 1px solid #dee2e6;
-  width: 100%;
-  top: 50%;
-  left: 0;
-  display: block;
-  position: absolute;
-  margin-top: -1rem;
-} */
 .p-step-number {
   color: #434a54;
   display: flex;
@@ -801,170 +847,71 @@ span.p-select-trigger-icon.pi.pi-chevron-down {
   font-weight: bold;
 }
 
-/**********************STEP******************************/
-/* .p-steps .p-steps-item .p-menuitem-link {
-  font-size: 1rem;
-  margin-left: 2px;
-  padding: 3px 8px;
-  background-color: var(--color-blanco);
-  transition: none;
-  font-weight: bold;
-}
-
-.p-steps .p-steps-item .p-menuitem-link .p-steps-number {
-  background-color: var(--color-turqueza-claro);
-  color: var(--color-gris-fuerte);
-}
-
-.p-steps .p-steps-item.p-highlight .p-steps-title {
-  white-space: normal;
-  font-size: 18px;
-  display: block;
-  margin: 0;
-}
-
-.p-steps .p-steps-item:before {
-  border: 1px solid var(--color-gris-neutro);
-  height: 5px;
-}
-
-.p-steps .p-steps-item .p-menuitem-link:not(.p-disabled):focus {
-  outline: 0 none;
-  outline-offset: 0;
-}
-
-.p-steps .p-steps-item .p-menuitem-link .p-steps-number:hover {
-  background-color: var(--color-turqueza-claro);
-  background-color: var(--color-amarillo-claro);
-}
-
-.p-steps a.p-menuitem-link.router-link-active.router-link-active-exact {
-  background-color: var(--color-azul-fuerte);
-  height: 10px;
-  width: 100px;
-  border-radius: 0;
-  margin-top: 10px;
-}
-
-.p-steps .p-steps-item.p-highlight .p-steps-number,
-span.p-steps-number {
-  z-index: 100;
-  position: relative;
-} */
-
-/* .p-steps .p-steps-item.p-highlight .p-steps-title {
-  z-index: 200;
-  position: absolute;
-} */
-
-/* body .ui-steps .ui-steps-item.ui-state-disabled {
-  border: solid 1px #aab2bd;
-}
-
-body .ui-steps .ui-steps-item.ui-state-highlight {
-  border: solid 1px #4077ba;
-  background-color: #4077ba !important;
-} */
-
-
-.linea {
-  border-top: 1px solid var(--color-gris-neutro);
-  height: 2px;
-  width: 100%;
-  padding: 5px;
-  margin: 20px auto 0 auto;
-}
-
 /*******DatePicker**********/
 .p-datepicker {
   width: 100%;
 }
-
-.p-datepicker table th,
-.p-datepicker table td {
-  padding: 0;
-}
-
-.p-datepicker .p-datepicker-header {
-  padding: 0;
-  border-radius: 0;
-}
-
-.p-datepicker table {
-  font-size: 12px;
-  margin: 0;
-}
-
-.p-datepicker table td>span {
-  width: auto;
-  height: 2rem;
-}
-
-.p-datepicker:not(.p-datepicker-inline) .p-datepicker-header {
-  background-color: var(--color-azul-principal);
-}
-
-.p-datepicker .p-datepicker-header .p-datepicker-title .p-datepicker-year,
-.p-datepicker .p-datepicker-header .p-datepicker-title .p-datepicker-month {
-  color: var(--color-blanco);
-  font-size: 12px;
-}
-
-span.p-yearpicker-year {
-  font-size: 14px;
-}
-
-span.p-datepicker-prev-icon.pi.pi-chevron-left:before {
-  color: var(--color-blanco);
-  content: '\25C0';
-}
-
-span.p-datepicker-next-icon.pi.pi-chevron-right:before {
-  color: var(--color-blanco);
-  content: '\25b6';
-}
-
 .p-datepicker-calendar thead {
   background-color: var(--color-gris-claro);
 }
-
-.p-datepicker .p-datepicker-header .p-datepicker-prev:enabled:hover,
-.p-datepicker .p-datepicker-header .p-datepicker-next:enabled:hover {
-  border-color: transparent;
-  background-color: var(--color-azul-claro);
-  color: var(--color-gris-fuerte);
-}
-
-.p-datepicker table td>span.p-highlight {
-  background: var(--color-celeste);
-}
-
-.p-datepicker:not(.p-disabled) table td span:not(.p-highlight):not(.p-disabled):hover {
-  background: var(--color-turqueza-claro);
-}
-
-span.p-datepicker-prev-icon.pi.pi-chevron-left {
-  margin-top: -5px;
-}
-
-span.p-datepicker-decade {
-  color: var(--color-blanco);
+.p-datepicker-day-view {
   font-size: 12px;
-  padding: 3px;
 }
 
-.p-datepicker .p-monthpicker {
-  font-size: 12px;
-  margin: 0px;
+.p-datepicker-day {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  transition:
+    background 0.2s,
+    color 0.2s,
+    border-color 0.2s,
+    box-shadow 0.2s,
+    outline-color 0.2s;
+  border: 1px solid transparent;
+  outline-color: transparent;
+}
+.p-datepicker-day-selected {
+  background: #a6d5fa;
 }
 
-.p-datepicker .p-datepicker-header .p-datepicker-title {
-  white-space: nowrap;
+.p-datepicker-day:not(.p-datepicker-day-selected):not(.p-disabled):hover {
+  background: #daeef6;
 }
 
-span.p-datepicker-decade:hover,
-.p-datepicker .p-datepicker-header .p-datepicker-title .p-datepicker-year:enabled:hover,
-.p-datepicker .p-datepicker-header .p-datepicker-title .p-datepicker-month:enabled:hover {
+.p-datepicker-panel {
+  width: auto;
+  background: var(--color-blanco);
+  border: 1px solid var(--color-gris-claro);
+  border-radius: 6px;
+  box-shadow:
+    0px 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0px 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+
+.p-datepicker-dropdown {
+  cursor: pointer;
+  display: inline-flex;
+  user-select: none;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  width: 3.5rem;
+  background: var(--color-azul-principal);
+  border-left: 0 none;
   color: var(--color-blanco);
-  background-color: var(--color-azul-claro);
+  transition:
+    background 0.2s,
+    color 0.2s,
+    border-color 0.2s,
+    outline-color 0.2s;
+  outline-color: transparent;
 }

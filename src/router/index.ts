@@ -41,6 +41,11 @@ const routes: Array<RouteRecordRaw> = [
     name: 'catalogoA',
     component: () => import('@/components/base/paginas/CatalogoA.vue'),
   },
+  {
+    path: '/tipoParametro',
+    name: 'tipoParametro',
+    component: () => import('@/components/base/paginas/TipoParametro.vue'),
+  },
 ]
 
 const router = createRouter({
