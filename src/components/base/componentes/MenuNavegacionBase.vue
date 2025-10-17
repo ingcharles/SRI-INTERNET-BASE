@@ -18,9 +18,9 @@ const itemsMenuCabecera = computed<MenuItem[]>(() => {
   const items = almacenPrincipalBase.menuFiltradoNavegacion;
 
   if (textoBusqueda.value) {
-    const busqueda = textoBusqueda.value;
+    const busqueda = textoBusqueda.value.toLowerCase();
     const itemsFiltrados = items.filter((item: MenuItem) =>
-      item.etiqueta.includes(busqueda)
+      item.etiqueta.toLowerCase().includes(busqueda)
     );
     return convertirAMenuPrime(itemsFiltrados);
   }
@@ -36,8 +36,10 @@ const itemsMenuSoloIconos = computed(() => {
 
 // Emit (Eventos)
 const emitir = defineEmits<(e: 'alternar-menu') => void>();
+const manejarClickMenu = () => emitir('alternar-menu');
 
 // Functions (Funciones)
+
 /**
  * Convierte recursivamente los items del menú al formato de PrimeVue
  */
@@ -60,18 +62,6 @@ const convertirAMenuPrime = (items: ItemMenuNavegacion[], nivel = 0): MenuItem[]
 }
 
 
-/**
- * Limpia el texto de búsqueda
- */
-function limpiarBusqueda() {
-  textoBusqueda.value = '';
-}
-
-/**
- * Maneja el click en el menú lateral para alternar su estado
- */
-const manejarClickMenu = () => emitir('alternar-menu');
-
 </script>
 
 <template>
@@ -80,15 +70,15 @@ const manejarClickMenu = () => emitir('alternar-menu');
     <div v-if="!propiedades.mostrarMenuSoloIconos" class="seccion-buscar">
       <div class="fila alinear-centro">
         <div class="columna-2 relleno-0">
-          <Button id="btnBuscar" icon="pi pi-search" class="p-button-text btn-buscar" @click="manejarClickMenu"
-            size="small" />
+          <Button id="btnBuscar" icon="pi pi-search" class="p-button-text btn-buscar" size="small"
+            @click="manejarClickMenu" />
         </div>
         <div class="columna-8">
           <InputText id="txtBusquedaServicios" type="search" v-model="textoBusqueda" placeholder="Buscar servicios" />
         </div>
         <div class="columna-2 relleno-0">
           <Button id="btnLimpiarBusqueda" icon="pi pi-times" class="p-button-text btn-buscar" size="small"
-            @click="limpiarBusqueda" aria-label="Limpiar búsqueda" />
+            @click="manejarClickMenu" aria-label="Limpiar búsqueda" />
         </div>
       </div>
     </div>
