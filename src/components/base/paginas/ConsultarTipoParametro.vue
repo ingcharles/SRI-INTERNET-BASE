@@ -47,7 +47,7 @@
               @click="resetearDatos()" />
           </div>
 
-          <div class="fila" v-if="tiposParametros">
+          <div class="fila" v-if="tiposParametros.length > 0">
             <div class="columna-12">
               <div class="resumenDataTable">
                 {{ t('tipoParametro.consultar.resumen') }}{{ tiposParametros.length }} {{
@@ -210,7 +210,7 @@ const { t } = useI18n()
 
 // Estado reactivo
 const mensajes = ref<string[]>([])
-const tiposParametros = ref<TipoParametro[] | null>(null)
+const tiposParametros = ref<TipoParametro[]>([])
 const mensajePantalla = ref<string>('')
 const campoObligatorio = ref<boolean>(false)
 const estados = ref<Estado[]>([
@@ -275,7 +275,6 @@ const obtenerTokenUsuarioLogueado = (): string => {
  * Obtiene los tipos de parámetros por estado
  */
 const obtenerTiposParametrosPorEstado = async (): Promise<void> => {
-  let listaTiposParametros
   mensajePantalla.value = ''
   const token = obtenerTokenUsuarioLogueado()
 
@@ -288,21 +287,23 @@ const obtenerTiposParametrosPorEstado = async (): Promise<void> => {
 
   try {
     const response = await obtenerListaTipoParametroPorEstado(estadoSeleccionado.value, token)
-    listaTiposParametros = response
+
+    // Validar que la respuesta sea un array válido
+    if (Array.isArray(response)) {
+      tiposParametros.value = response
+      if (tiposParametros.value.length === 0) {
+        severidadMensaje.value = 'info'
+        mensajePantalla.value = 'La búsqueda realizada no ha generado ningún resultado'
+      }
+    } else {
+      tiposParametros.value = []
+      severidadMensaje.value = 'error'
+      mensajePantalla.value = 'Error: La respuesta del servidor no es válida'
+    }
   } catch (error) {
+    tiposParametros.value = []
     severidadMensaje.value = 'error'
     mensajePantalla.value = `Se ha producido un error al tratar de obtener los tipos parámetro con el siguiente error: ${error}`
-    return
-  }
-
-  tiposParametros.value = listaTiposParametros
-  if (
-    tiposParametros.value == null ||
-    tiposParametros.value === undefined ||
-    tiposParametros.value.length === 0
-  ) {
-    severidadMensaje.value = 'info'
-    mensajePantalla.value = 'La búsqueda realizada no ha generado ningún resultado'
   }
 }
 
@@ -340,7 +341,7 @@ const confirmarEliminarTipoParametro = (tipoParametro: TipoParametro): void => {
  * Resetea los datos del formulario de búsqueda
  */
 const resetearDatos = (): void => {
-  tiposParametros.value = null
+  tiposParametros.value = []
   mensajePantalla.value = ''
   estadoSeleccionado.value = 'ACT'
   campoObligatorio.value = false
@@ -431,7 +432,7 @@ const actualizarTipoParametroHandler = async (): Promise<void> => {
     } catch (error) {
       resetearValoresActualizacion()
       severidadMensaje.value = 'error'
-      const errorMessage = error instanceof Error && error.cause ? (error.cause as Error).message : String(error)
+      const errorMessage = error instanceof Error ? error.message : String(error)
       mensajePantalla.value = `Error al tratar de actualizar el tipo parametro, causa: ${errorMessage}`
     }
   }

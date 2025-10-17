@@ -151,11 +151,11 @@
   --p-tabs-tab-padding: 0.6rem;
 
   /*** radio button ******/
-  --rbn-color-normal: --color-gris-neutro;
-  --rbn-color-normal-background: --color-blanco;
-  --btn-color-seleccionado: --color-azul-fuerte;
-  --btn-color-desabilitado: --color-gris-neutro;
-  --btn-color-desabilitado-background: --color-gris-claro;
+  --rbn-color-normal: var(--color-gris-neutro);
+  --rbn-color-normal-background: var(--color-blanco);
+  --btn-color-seleccionado: var(--color-azul-fuerte);
+  --btn-color-desabilitado: var(--color-gris-neutro);
+  --btn-color-desabilitado-background: var(--color-gris-claro);
 
   /*** tamanio iconos ******/
   --icono-size-informacion: 39px;
