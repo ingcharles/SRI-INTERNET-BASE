@@ -34,6 +34,9 @@ const itemsMenuSoloIconos = computed(() => {
   return almacenPrincipalBase.menuFiltradoNavegacion.filter(item => item.icono);
 });
 
+// Emit (Eventos)
+const emitir = defineEmits<(e: 'alternar-menu') => void>();
+
 // Functions (Funciones)
 /**
  * Convierte recursivamente los items del menú al formato de PrimeVue
@@ -62,6 +65,11 @@ const convertirAMenuPrime = (items: ItemMenuNavegacion[], nivel = 0): MenuItem[]
 function limpiarBusqueda() {
   textoBusqueda.value = '';
 }
+
+/**
+ * Maneja el click en el menú lateral para alternar su estado
+ */
+const manejarClickMenu = () => emitir('alternar-menu');
 
 </script>
 
@@ -104,11 +112,11 @@ function limpiarBusqueda() {
         </a>
 
       </template>
-
     </PanelMenu>
+    <!-- </PanelMenu> -->
 
     <!-- Solo iconos cuando está colapsado -->
-    <div v-else class="lista-menu">
+    <div v-else class="lista-menu" @click="manejarClickMenu">
       <div class="mostrar-flex flex-columna alinear-centro espacio-2">
         <Button v-for="item in itemsMenuSoloIconos" :key="item.id" :icon="item.icono" :aria-label="item.etiqueta"
           :title="item.etiqueta" />

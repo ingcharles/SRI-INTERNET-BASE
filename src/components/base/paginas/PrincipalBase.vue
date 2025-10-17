@@ -81,7 +81,8 @@ onUnmounted(() => {
     <CabeceraBase :es-pantalla-extra-pequenia="esPantallaExtraPequenia" :es-pantalla-pequenia="esPantallaPequenia"
       :es-pantalla-mediana="esPantallaMediana" @alternar-menu="manejarPlegableMenu" />
 
-    <MenuNavegacionBase :mostrar-menu-solo-iconos="mostrarMenuSoloIconos" :class="clasesMenuNavegacion" />
+    <MenuNavegacionBase :mostrar-menu-solo-iconos="mostrarMenuSoloIconos" :class="clasesMenuNavegacion"
+      @alternar-menu="manejarPlegableMenu" />
 
     <ContenidoPrincipalBase :class="clasesContenidoPrincipal" :ruta-actual="['Inicio']">
       <router-view />
