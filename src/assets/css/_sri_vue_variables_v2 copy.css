@@ -158,13 +158,5 @@
   --btn-color-desabilitado: var(--color-gris-neutro);
   --btn-color-desabilitado-background: var(--color-gris-claro);
 
-  /*** tamanio iconos ******/
-  --icono-size-informacion: 39px;
-  --icono-size-confirmacion-ventana: 137px;
-  --icono-size-modal: 60px;
-  --icono-size-alerta: 25px;
-  --icono-size-tabla: 20px;
-  --icono-size-formulario: 20px;
-  --icono-size-datable-paginator-bottom: 25px;
-  --icono-size-datable-paginator-dropdown: 15px;
+
 }

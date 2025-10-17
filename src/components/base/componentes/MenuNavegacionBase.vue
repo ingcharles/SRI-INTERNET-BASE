@@ -31,7 +31,7 @@ const itemsMenuCabecera = computed<MenuItem[]>(() => {
 // Props (Propiedades que recibe)
 const propiedades = defineProps<{ mostrarMenuSoloIconos?: boolean; }>();
 const itemsMenuSoloIconos = computed(() => {
-  return almacenPrincipalBase.menuFiltradoNavegacion.filter(item => item.icono);
+  return almacenPrincipalBase.menuFiltradoNavegacion.filter((item: MenuItem) => item.icono);
 });
 
 // Emit (Eventos)
@@ -44,6 +44,7 @@ const emitir = defineEmits<(e: 'alternar-menu') => void>();
 const convertirAMenuPrime = (items: ItemMenuNavegacion[], nivel = 0): MenuItem[] => {
   return items.map(item => {
     const menuItem: MenuItem & { level: number } = {
+      id: item.id,
       label: item.etiqueta,
       icon: item.icono,
       route: item.ruta,
@@ -117,7 +118,8 @@ const manejarClickMenu = () => emitir('alternar-menu');
 
     <!-- Solo iconos cuando está colapsado -->
     <div v-else class="lista-menu" @click="manejarClickMenu">
-      <div class="mostrar-flex flex-columna alinear-centro espacio-2">
+      <div class="mostrar-flex flex-columna alinear-centro">
+        <Button :key="0" :icon="'fa fa-search'" :aria-label="'item.etiqueta'" :title="'item.etiqueta'" />
         <Button v-for="item in itemsMenuSoloIconos" :key="item.id" :icon="item.icono" :aria-label="item.etiqueta"
           :title="item.etiqueta" />
       </div>

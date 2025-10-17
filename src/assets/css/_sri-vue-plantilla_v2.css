@@ -716,13 +716,13 @@ span.p-fieldset-toggler.pi.pi-minus:before {
 }
 
 .p-datatable-paginator-bottom .p-paginator svg.p-icon {
-  width: var(--icono-size-datable-paginator-bottom);
-  height: var(--icono-size-datable-paginator-bottom);
+  width: var(--tamanio-icono-datable-paginator-bottom);
+  height: var(--tamanio-icono-datable-paginator-bottom);
 }
 
 .p-datatable-paginator-bottom .p-select .p-select-dropdown svg.p-icon {
-  width: var(--icono-size-datable-paginator-dropdown);
-  height: var(--icono-size-datable-paginator-dropdown);
+  width: var(--tamanio-icono-datable-paginator-dropdown);
+  height: var(--tamanio-icono-datable-paginator-dropdown);
 }
 
 .p-select-overlay {

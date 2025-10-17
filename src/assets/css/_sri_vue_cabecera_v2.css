@@ -88,7 +88,7 @@ body {
 
 .encabezado {
 
-  &.button.p-button:hover,
+  button.p-button:hover,
   button.p-button:enabled:hover {
     background-color: inherit !important;
     border-color: inherit !important;
@@ -351,7 +351,7 @@ body {
 .menu-lateral .p-panelmenu .p-panelmenu-header-link {
   padding: 0.625rem 1rem;
   border: none;
-  /* color: var(--color-gris-fuerte); */
+  color: var(--color-gris-fuerte);
   font-size: 10px;
   font-weight: 600;
   transition: background-color 0.2s;
@@ -475,13 +475,14 @@ body {
   padding: 0.5rem 0;
 }
 
-.lista-menu .p-button {
-  padding-top: 0;
-  padding-bottom: 0;
-  border: 0;
-  font-size: 24.835px;
-  color: var(--color-gris-fuerte);
-  background-color: initial;
+.lista-menu {
+  .p-button {
+    border: 0;
+    font-size: 24.835px;
+    color: var(--color-gris-fuerte);
+    background-color: initial;
+    margin: 1px 0 1px 0;
+  }
 }
 
 .lista-menu button.p-button:hover,
