@@ -32,7 +32,7 @@ interface TituloActualizacion {
 
 // Configuración de la API
 const obtenerTipoParametroApi = axios.create({
-  baseURL: import.meta.env.VUE_APP_API_BASE,
+  baseURL: import.meta.env.VITE_API_BASE,
 })
 
 /**
@@ -72,12 +72,22 @@ export const obtenerListaTipoParametroPorEstado = async (
   let listaTipoParametro: TipoParametro[] | null = null
   const url = `/findByEstado/${estado}`
 
+  // Logs para debugging
+  console.log('=== DEBUG obtenerListaTipoParametroPorEstado ===')
+  console.log('VITE_API_BASE:', import.meta.env.VITE_API_BASE)
+  console.log('Todas las variables de entorno:', import.meta.env)
+  console.log('URL completa:', `${import.meta.env.VITE_API_BASE}${url}`)
+  console.log('Estado:', estado)
+  console.log('Token:', token ? 'Token presente' : 'Token ausente')
+  console.log('===========================================')
+
   try {
     const response: AxiosResponse<TipoParametro[]> = await obtenerTipoParametroApi.get(url, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
     })
+    console.log('Respuesta exitosa:', response.data)
     listaTipoParametro = response.data
   } catch (error) {
     console.error('Error al realizar la consulta:', error)
@@ -101,7 +111,7 @@ export const crearTipoParametro = async (
 
   try {
     const response: AxiosResponse<TipoParametro> = await axios.post(
-      import.meta.env.VUE_APP_API_BASE || '',
+      import.meta.env.VITE_API_BASE || '',
       tipoParametroJson,
       {
         headers: {
