@@ -72,15 +72,6 @@ export const obtenerListaTipoParametroPorEstado = async (
   let listaTipoParametro: TipoParametro[] | null = null
   const url = `/findByEstado/${estado}`
 
-  // Logs para debugging
-  console.log('=== DEBUG obtenerListaTipoParametroPorEstado ===')
-  console.log('VITE_API_BASE:', import.meta.env.VITE_API_BASE)
-  console.log('Todas las variables de entorno:', import.meta.env)
-  console.log('URL completa:', `${import.meta.env.VITE_API_BASE}${url}`)
-  console.log('Estado:', estado)
-  console.log('Token:', token ? 'Token presente' : 'Token ausente')
-  console.log('===========================================')
-
   try {
     const response: AxiosResponse<TipoParametro[]> = await obtenerTipoParametroApi.get(url, {
       headers: {

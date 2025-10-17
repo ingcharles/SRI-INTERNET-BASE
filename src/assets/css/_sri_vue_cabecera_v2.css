@@ -13,6 +13,7 @@
     url('../fonts/Roboto/Roboto-Regular.woff2') format('woff2'),
     url('../fonts/Roboto/Roboto-Regular.woff') format('woff');
 }
+
 /* ========== html, body ========== */
 
 * {
@@ -20,7 +21,7 @@
   margin: 0;
   border: none;
   scrollbar-width: thin;
-  scrollbar-color: var(--color-azul-fuerte) var(--color-blanco);
+  scrollbar-color: var(--color-azul-principal) var(--color-blanco);
 }
 
 body {
@@ -83,6 +84,15 @@ body {
   display: inline-block;
   margin-left: 25px;
   height: 25px;
+}
+
+.encabezado {
+
+  &.button.p-button:hover,
+  button.p-button:enabled:hover {
+    background-color: inherit !important;
+    border-color: inherit !important;
+  }
 }
 
 /* Sección centro del encabezado */
@@ -221,6 +231,7 @@ body {
 .contenedor-menu-movil .p-button-icon {
   font-size: var(--tamanio-fuente-32);
 }
+
 /* ========== BADGE DE NOTIFICACIONES ========== */
 .badge-notificacion {
   position: relative;
@@ -298,6 +309,7 @@ body {
 .btn-buscar:hover {
   background-color: var(--color-gris-tenue) !important;
 }
+
 .menu-lateral .p-panelmenu .p-panelmenu-item-link {
   padding: 0.625em 1em;
   min-height: 40px;
@@ -322,9 +334,11 @@ body {
   margin-left: 20px;
   font-weight: normal;
 }
+
 .menu-lateral .p-panelmenu .p-panelmenu-header-label:hover {
   text-decoration: underline;
 }
+
 .p-panelmenu-header-icon {
   font-size: var(--tamanio-fuente-25) !important;
 }
@@ -510,9 +524,11 @@ body {
 .color-gris-fuerte {
   color: var(--color-gris-fuerte) !important;
 }
+
 .color-gris-neutro {
   color: var(--color-gris-neutro) !important;
 }
+
 .color-gris-medio {
   color: var(--color-gris-medio) !important;
 }
@@ -526,6 +542,7 @@ body {
 
 /* Tablets */
 @media (max-width: 992px) {
+
   .nombre-contribuyente,
   .id-contribuyente {
     font-size: 12px;

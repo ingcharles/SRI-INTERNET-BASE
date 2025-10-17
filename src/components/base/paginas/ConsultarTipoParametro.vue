@@ -302,7 +302,7 @@ const obtenerTiposParametrosPorEstado = async (): Promise<void> => {
     }
   } catch (error) {
     tiposParametros.value = []
-    severidadMensaje.value = 'error'
+    severidadMensaje.value = 'info'
     mensajePantalla.value = `Se ha producido un error al tratar de obtener los tipos parámetro con el siguiente error: ${error}`
   }
 }

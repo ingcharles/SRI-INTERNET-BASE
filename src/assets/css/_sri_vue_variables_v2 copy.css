@@ -8,10 +8,10 @@
 
 :root {
   /* Colores principales */
-  --color-azul-principal: #0000A4;
+  --color-azul-principal: #0c4597;
   --color-rojo-logo: #e2231a;
-  --color-azul-claro: #6688cc;
-  --color-azul-informacion: #4077ba;
+  --color-azul-fuerte: #4077ba;
+  --color-azul-claro: #6598d1;
 
 
   /* Colores grises */
@@ -154,7 +154,7 @@
   /*** radio button ******/
   --rbn-color-normal: var(--color-gris-neutro);
   --rbn-color-normal-background: var(--color-blanco);
-  --btn-color-seleccionado: var(--color-azul-principal);
+  --btn-color-seleccionado: var(--color-azul-fuerte);
   --btn-color-desabilitado: var(--color-gris-neutro);
   --btn-color-desabilitado-background: var(--color-gris-claro);
 

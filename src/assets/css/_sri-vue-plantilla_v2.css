@@ -212,7 +212,7 @@ textarea::placeholder,
 .p-inputtext:enabled:hover {
   font-style: italic;
   margin-block: auto;
-  border-color: var(--color-azul-fuerte);
+  border-color: var(--color-azul-principal);
 }
 
 input.p-inputtext.p-component .p-disabled:hover {
@@ -279,7 +279,7 @@ input.p-inputtext.p-component .p-disabled:hover {
 
 .icono-info {
   font-size: 22px;
-  color: var(--color-azul-fuerte);
+  color: var(--color-azul-principal);
 }
 
 /******** tooltip primevue ***********/
@@ -686,20 +686,23 @@ span.p-fieldset-toggler.pi.pi-minus:before {
 .p-datatable-paginator-bottom .p-select:not(.p-disabled).p-focus,
 .p-datatable-paginator-bottom .p-select:not(.p-disabled):hover,
 .p-datatable-paginator-bottom .p-select:hover {
-  background-color: transparent;
+  /* background-color: transparent;
   border-radius: 0px;
-  border: 2px solid var(--color-blanco);
+  border: 2px solid var(--color-blanco); */
+  width: initial;
 }
 
 .p-datatable-paginator-bottom .p-select .p-select-label {
   color: var(--color-blanco);
   font-size: var(--tamanio-fuente-paginador);
+  border: 0.5px solid var(--color-gris-neutro);
   font-weight: 600;
+  padding: 5px;
 }
 
 .p-datatable-paginator-bottom .p-select .p-select-dropdown {
   color: var(--color-blanco);
-  margin: -10px -5px 0 -15px;
+  /* margin: -10px -5px 0 -15px; */
 }
 
 .p-datatable-paginator-bottom .p-paginator .p-paginator-first,
@@ -929,8 +932,7 @@ button.p-button.p-component.p-button-icon-only.p-button-rounded.p-button-seconda
   border: 0 none;
   background: transparent;
   border-radius: 50%;
-  transition:
-    background-color 0.2s,
+  transition: background-color 0.2s,
     color 0.2s,
     box-shadow 0.2s;
   outline-color: transparent;
@@ -1078,8 +1080,7 @@ button.p-button.p-component.p-button-icon-only.p-button-rounded.p-button-seconda
   width: 2rem;
   height: 2rem;
   border-radius: 50%;
-  transition:
-    background 0.2s,
+  transition: background 0.2s,
     color 0.2s,
     border-color 0.2s,
     box-shadow 0.2s,
@@ -1101,8 +1102,7 @@ button.p-button.p-component.p-button-icon-only.p-button-rounded.p-button-seconda
   background: var(--color-blanco);
   border: 1px solid var(--color-gris-claro);
   border-radius: 6px;
-  box-shadow:
-    0px 4px 6px -1px rgba(0, 0, 0, 0.1),
+  box-shadow: 0px 4px 6px -1px rgba(0, 0, 0, 0.1),
     0px 2px 4px -2px rgba(0, 0, 0, 0.1);
 }
 
@@ -1118,8 +1118,7 @@ button.p-button.p-component.p-button-icon-only.p-button-rounded.p-button-seconda
   background: var(--color-azul-principal);
   border-left: 0 none;
   color: var(--color-blanco);
-  transition:
-    background 0.2s,
+  transition: background 0.2s,
     color 0.2s,
     border-color 0.2s,
     outline-color 0.2s;
