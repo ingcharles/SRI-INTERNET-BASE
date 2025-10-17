@@ -46,6 +46,11 @@ const routes: Array<RouteRecordRaw> = [
     name: 'tipoParametro',
     component: () => import('@/components/base/paginas/TipoParametro.vue'),
   },
+  {
+    path: '/consultarTipoParametro',
+    name: 'consultarTipoParametro',
+    component: () => import('@/components/base/paginas/ConsultarTipoParametro.vue'),
+  }
 ]
 
 const router = createRouter({
