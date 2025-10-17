@@ -79,13 +79,16 @@ const manejarClickMenu = () => emitir('alternar-menu');
     <!-- Buscador -->
     <div v-if="!propiedades.mostrarMenuSoloIconos" class="seccion-buscar">
       <div class="fila alinear-centro">
-        <div class="columna-10">
+        <div class="columna-2 relleno-0">
+          <Button id="btnBuscar" icon="pi pi-search" class="p-button-text btn-buscar" @click="manejarClickMenu"
+            size="small" />
+        </div>
+        <div class="columna-8">
           <InputText id="txtBusquedaServicios" type="search" v-model="textoBusqueda" placeholder="Buscar servicios" />
         </div>
-        <div class="columna-2">
-          <Button id="btnLimpiarBusqueda" v-if="textoBusqueda" icon="pi pi-times" class="p-button-text btn-buscar"
+        <div class="columna-2 relleno-0">
+          <Button id="btnLimpiarBusqueda" icon="pi pi-times" class="p-button-text btn-buscar" size="small"
             @click="limpiarBusqueda" aria-label="Limpiar búsqueda" />
-          <Button v-else icon="pi pi-search" class="p-button-text btn-buscar" aria-label="Buscar" />
         </div>
       </div>
     </div>
