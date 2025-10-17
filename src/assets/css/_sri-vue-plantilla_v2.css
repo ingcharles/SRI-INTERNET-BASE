@@ -551,8 +551,197 @@ span.p-fieldset-toggler.pi.pi-minus:before {
   border-color: var(--color-amarillo-claro);
 }
 
+/********************************************************************************/
+/**************************** RADIO BUTTONS *************************************/
+/********************************************************************************/
+
+/************************* radio button normal ******************************/
+.p-radiobutton .p-radiobutton-box {
+  border: 2px solid var(--rbn-color-normal);
+  background-color: var(--rbn-color-normal-background);
+  width: 20px;
+  height: 20px;
+}
+
+/************************* radio button selecionado ******************************/
+.p-radiobutton-checked .p-radiobutton-box {
+  border: 2px solid var(--btn-color-seleccionado) !important;
+  background-color: transparent !important;
+}
+.p-radiobutton-checked .p-radiobutton-box .p-radiobutton-icon,
+.p-radiobutton-checked .p-radiobutton-box .p-radiobutton-icon:hover {
+  background-color: var(--btn-color-seleccionado) !important;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+/************************* radio button desabilitado ******************************/
+.p-radiobutton.p-disabled .p-radiobutton-box {
+  border: 2px solid var(--btn-color-desabilitado) !important;
+  background-color: var(--btn-color-desabilitado-background) !important;
+}
+
+.p-radiobutton.p-disabled .p-radiobutton-box .p-radiobutton-icon,
+.p-radiobutton.p-disabled .p-radiobutton-box .p-radiobutton-icon:hover {
+  background-color: var(btn-color-desabilitado) !important;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+/************************* label del radio button ******************************/
+.p-radiobutton + label {
+  margin-left: 8px;
+  font-size: var(--fuente-size-campo);
+  color: var(--color-gris-fuerte);
+  cursor: pointer;
+
+  &.p-disabled {
+    color: var(--color-gris-neutro);
+    cursor: not-allowed;
+  }
+}
+
 /* *************  TABLAS **************************/
 .p-datatable table {
+  border-collapse: collapse;
+}
+
+.p-datatable .p-datatable-thead > tr > th,
+.p-datatable .p-datatable-thead > tr > th .p-column-header-content {
+  background-color: var(--color-azul-principal);
+  color: var(--color-blanco);
+  font-size: var(--tamani-fuente-tabla);
+  text-align: center;
+  border-right: 2px solid var(--color-blanco);
+}
+
+.p-datatable .p-datatable-thead > tr > th:last-child {
+  border-right: none;
+}
+
+.p-datatable .p-datatable-thead > tr > th .p-datatable-column-header-content {
+  justify-content: center;
+  align-items: center;
+}
+
+.p-datatable .p-datatable-tbody > tr > td {
+  border: solid 2px var(--color-gris-neutro);
+  padding: 0px 10px;
+  font-size: 14px;
+}
+.p-datatable .p-datatable-tbody > tr:nth-child(even) {
+  background: var(--color-gris-claro);
+}
+.p-datatable .p-datatable-tbody > tr:hover {
+  background: var(--color-turqueza-claro);
+  cursor: pointer;
+}
+
+.p-datatable .p-datatable-tbody > tr > td:last-child {
+  text-align: center;
+}
+
+.p-datatable-paginator-bottom .p-paginator {
+  background: var(--color-azul-principal);
+  color: var(--color-blanco);
+  border-radius: 0px;
+  font-size: var(--fuente-size-paginador);
+}
+
+.p-datatable-paginator-bottom .p-paginator .p-paginator-pages .p-paginator-page {
+  border-radius: 50%;
+  min-width: 1.7rem;
+  height: 1.7rem;
+  padding: 5px;
+  color: var(--color-blanco);
+  font-size: var(--fuente-size-paginador);
+  font-weight: 600;
+}
+
+.p-datatable-paginator-bottom
+  .p-paginator
+  .p-paginator-pages
+  .p-paginator-page.p-paginator-page-selected {
+  background: var(--color-turqueza-claro);
+  border-color: var(--color-turqueza-claro);
+  color: var(--color-gris-fuerte);
+}
+
+.p-datatable-paginator-bottom .p-select,
+.p-datatable-paginator-bottom .p-select:not(.p-disabled).p-focus,
+.p-datatable-paginator-bottom .p-select:not(.p-disabled):hover,
+.p-datatable-paginator-bottom .p-select:hover {
+  background-color: transparent;
+  border-radius: 0px;
+  border: 2px solid var(--color-blanco);
+}
+
+.p-datatable-paginator-bottom .p-select .p-select-label {
+  color: var(--color-blanco);
+  font-size: var(--tamanio-fuente-paginador);
+  font-weight: 600;
+}
+
+.p-datatable-paginator-bottom .p-select .p-select-dropdown {
+  color: var(--color-blanco);
+  margin: -10px -5px 0 -15px;
+}
+
+.p-datatable-paginator-bottom .p-paginator .p-paginator-first,
+.p-datatable-paginator-bottom .p-paginator .p-paginator-prev,
+.p-datatable-paginator-bottom .p-paginator .p-paginator-next,
+.p-datatable-paginator-bottom .p-paginator .p-paginator-last {
+  border-radius: var(--btn-datable-paginator-border-radius);
+  min-width: 1.5rem;
+  height: 1.5rem;
+  color: var(--color-blanco);
+}
+
+.p-datatable-paginator-bottom .p-paginator svg.p-icon {
+  width: var(--icono-size-datable-paginator-bottom);
+  height: var(--icono-size-datable-paginator-bottom);
+}
+
+.p-datatable-paginator-bottom .p-select .p-select-dropdown svg.p-icon {
+  width: var(--icono-size-datable-paginator-dropdown);
+  height: var(--icono-size-datable-paginator-dropdown);
+}
+
+.p-select-overlay {
+  border-radius: 0px !important;
+}
+
+.p-datatable
+  button.p-button.p-component.p-button-icon-only.p-button-rounded.p-button-secondary.p-button-text.color-rojo {
+  color: var(--color-coral-fuerte);
+  background-color: transparent;
+  border-color: transparent;
+}
+.p-datatable
+  button.p-button.p-component.p-button-icon-only.p-button-rounded.p-button-secondary.p-button-text.color-amarillo {
+  color: var(--color-naranja-claro);
+  background-color: transparent;
+  border-color: transparent;
+}
+.p-datatable
+  button.p-button.p-component.p-button-icon-only.p-button-rounded.p-button-secondary.p-button-text.color-verde {
+  color: var(--color-verde-fuerte);
+  background-color: transparent;
+  border-color: transparent;
+}
+.p-datatable button.p-button.p-component.p-button-icon-only.p-button-rounded.p-button-text {
+  color: var(--color-azul-informacion);
+  background-color: transparent;
+  border-color: transparent;
+  font-size: 20px;
+  margin: 0;
+  padding: 5px 5px 5px 5px;
+}
+
+/* *************  TABLAS **************************/
+/* .p-datatable table {
   border: solid 1px var(--color-gris-neutro);
 }
 
@@ -651,7 +840,7 @@ button.p-button.p-component.p-button-icon-only.p-button-rounded.p-button-seconda
   background: var(--color-turqueza-claro);
   border: none;
   box-shadow: 0 0 0 0;
-}
+} */
 
 /************** combos select*************/
 .p-select {
