@@ -74,18 +74,15 @@ import useValidate from '@vuelidate/core'
 import { required, helpers, maxLength, minLength } from '@vuelidate/validators'
 import { permitirSoloLetrasYEspacios, permitirSoloLetrasYNumeros, alphaWithSpaces, alphaNumWithSpaces } from '@/utilitarios/ValidacionesBase'
 import { crearTipoParametro as crearTipoParametroServicio } from '../servicios/TipoParametroServicio'
-import usuarioStore from '@/stores/UsuarioStore'
+import usuarioStore from '@/stores/usuario/UsuarioStore'
 import InputText from 'primevue/inputtext'
 import Textarea from 'primevue/textarea'
 import Button from 'primevue/button'
 import Message from 'primevue/message'
 import InlineMessage from 'primevue/inlinemessage'
+import type { ErrorValidacion, EventoInput } from '@/interfaces/principalBase'
+import type { SeveridadMensaje } from '@/types/base/principalBase'
 
-// Interfaces
-interface ErrorValidacion {
-  $validator: string
-  $message: string
-}
 
 // Composable de internacionalización
 const { t } = useI18n()
@@ -95,7 +92,7 @@ const nombre = ref<string>('')
 const descripcion = ref<string>('')
 const tipoParametroJson = ref<string>('')
 const mensajes = ref<string[]>([])
-const severidadMensaje = ref<'success' | 'info' | 'warn' | 'error'>('info')
+const severidadMensaje = ref<SeveridadMensaje>('info')
 const campoObligatorio = ref<boolean>(false)
 const fechaVigencia = ref<Date | null>(null)
 
@@ -215,10 +212,7 @@ const setearMensajesErrorValidaciones = (errores: Record<string, ErrorValidacion
     }
   })
 }
-// Interface para el evento de input
-interface EventoInput {
-  target: HTMLInputElement | HTMLTextAreaElement
-}
+
 
 /**
  * Maneja la validación del campo nombre (solo letras y espacios)

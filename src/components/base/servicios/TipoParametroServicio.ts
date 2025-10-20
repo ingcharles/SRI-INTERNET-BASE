@@ -5,30 +5,12 @@
  * Copyright 2024 Servicio de Rentas Internas.
  */
 
+import type {
+  RespuestaServicio,
+  TipoParametro,
+  TituloActualizacion,
+} from '@/interfaces/principalBase'
 import axios, { type AxiosResponse } from 'axios'
-
-// Interfaces
-interface TipoParametro {
-  codigo: string
-  nombre: string
-  descripcion: string
-  estado?: string
-  fechaCreacion?: string
-  fechaModificacion?: string
-}
-
-interface RespuestaServicio {
-  data: any
-  status: number
-  statusText: string
-  headers: any
-  config: any
-  request?: any
-}
-
-interface TituloActualizacion {
-  title: string
-}
 
 // Configuración de la API
 const obtenerTipoParametroApi = axios.create({
@@ -78,7 +60,7 @@ export const obtenerListaTipoParametroPorEstado = async (
         Authorization: `Bearer ${token}`,
       },
     })
-    console.log('Respuesta exitosa:', response.data)
+    console.log('Respuesta al eliminar Tipo Parametro:', response)
     listaTipoParametro = response.data
   } catch (error) {
     console.error('Error al realizar la consulta:', error)
@@ -139,7 +121,8 @@ export const eliminarTipoParametro = async (
         Authorization: `Bearer ${token}`,
       },
     })
-    respuestaServicio = response
+    console.log('Respuesta al eliminar Tipo Parametro:', response)
+    respuestaServicio = response.data
   } catch (error) {
     console.error('Error al eliminar Tipo Parametro:', error)
     throw new Error('Error al eliminar Tipo Parametro.')
@@ -172,7 +155,7 @@ export const actualizarTipoParametro = async (
         Authorization: `Bearer ${token}`,
       },
     })
-    respuestaServicio = response
+    respuestaServicio = response.data
   } catch (error) {
     console.error('Error al actualizar el tipo parametro:', error)
     throw new Error('Error al actualizar el tipo parametro.')

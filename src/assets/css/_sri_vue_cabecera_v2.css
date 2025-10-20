@@ -171,6 +171,17 @@ body {
   justify-content: flex-end;
   align-items: center;
   height: var(--alto-100);
+  button.p-button:hover,
+  button.p-button:enabled:hover {
+    color: var(--color-blanco) !important;
+  }
+  & button.p-button {
+    padding: 0 6px !important;
+  }
+}
+
+.contenedor-menu-movil .p-button-icon {
+  font-size: var(--tamanio-fuente-32);
 }
 
 .menu-movil {
@@ -226,10 +237,6 @@ body {
 .menu-item-movil .menu-icono {
   font-size: 10px !important;
   margin-top: 2px !important;
-}
-
-.contenedor-menu-movil .p-button-icon {
-  font-size: var(--tamanio-fuente-32);
 }
 
 /* ========== BADGE DE NOTIFICACIONES ========== */

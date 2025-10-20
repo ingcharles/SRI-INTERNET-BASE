@@ -20,16 +20,10 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Login',
     component: () => import('@/components/base/paginas/LoginVista.vue'),
   },
-  // Ruta catch-all para 404
   {
-    path: '/:pathMatch(.*)*',
-    name: 'NotFound',
-    redirect: '/',
-  },
-  {
-    path: '/ejemploGrid',
-    name: 'ejemploGrid',
-    component: () => import('@/components/ejemplos/EjemploGrid.vue'),
+    path: '/catalogoGrid',
+    name: 'catalogoGrid',
+    component: () => import('@/components/base/paginas/CatalogoGrid.vue'),
   },
   {
     path: '/catalogoB',
@@ -50,7 +44,7 @@ const routes: Array<RouteRecordRaw> = [
     path: '/consultarTipoParametro',
     name: 'consultarTipoParametro',
     component: () => import('@/components/base/paginas/ConsultarTipoParametro.vue'),
-  }
+  },
 ]
 
 const router = createRouter({

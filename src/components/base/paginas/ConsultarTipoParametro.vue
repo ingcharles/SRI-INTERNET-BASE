@@ -105,8 +105,8 @@
       </div>
     </template>
   </Dialog>
-  <Dialog id="dlgActualizarTipoParametro" v-model:visible="actualizarTipoParametroDialog" :x="500" header="Confirm"
-    :modal="true" :closable="false">
+  <Dialog id="dlgActualizarTipoParametro" class="dialog-700" v-model:visible="actualizarTipoParametroDialog"
+    header="Confirm" :modal="true" :closable="false">
     <template #header>
       <div class="formulario">
         <h3>Actualizar Tipo Parámetro</h3>
@@ -118,35 +118,37 @@
         {{ mensaje }}<br v-if="indice < mensajes.length - 1">
       </span>
     </Message>
-    <div class="fila">
-      <div class="columna-12 columna-md-12 columna-lg-3">
-        <label id="lblNombre" for="txtNombre">*{{ t('tipoParametro.crear.nombre') }}</label>
+    <div class="contenedor">
+      <div class="fila">
+        <div class="columna-12 columna-md-12 columna-lg-2">
+          <label id="lblNombre" for="txtNombre">*{{ t('tipoParametro.crear.nombre') }}</label>
+        </div>
+        <div class="columna-12 columna-md-12 columna-lg-6">
+          <InputText id="txtNombre" v-model="datosFormularioActualizacion.nombre" type="text" maxlength="65"
+            :placeholder="t('tipoParametro.crear.placeholder_nombre')" @input="manejarValidacionNombre" />
+        </div>
+        <div class="columna-12 columna-md-12 columna-lg-4">
+          <InlineMessage class="espacio-1" v-if="v$?.nombre?.$error && v$.nombre.$errors[0].$validator === 'required'"
+            id="imsCampoObligatorio">
+            {{ v$.nombre.$errors[0].$message }}
+          </InlineMessage>
+        </div>
       </div>
-      <div class="columna-12 columna-md-12 columna-lg-6">
-        <InputText id="txtNombre" v-model="datosFormularioActualizacion.nombre" type="text" with="500" maxlength="65"
-          :placeholder="t('tipoParametro.crear.placeholder_nombre')" @input="manejarValidacionNombre" />
-      </div>
-      <div class="columna-12 columna-md-12 columna-lg-3">
-        <InlineMessage class="espacio-1" v-if="v$?.nombre?.$error && v$.nombre.$errors[0].$validator === 'required'"
-          id="imsCampoObligatorio">
-          {{ v$.nombre.$errors[0].$message }}
-        </InlineMessage>
-      </div>
-    </div>
-    <div class="fila">
-      <div class="columna-12 columna-md-12 columna-lg-3">
-        <label id="lblDescripcion" for="txtDescripcion">*{{ t('tipoParametro.crear.descripcion') }}</label>
-      </div>
-      <div class="columna-12 columna-md-12 columna-lg-6">
-        <Textarea id="txtDescripcion" v-model="datosFormularioActualizacion.descripcion" maxlength="200"
-          :placeholder="t('tipoParametro.crear.placeholder_descripcion')" @input="manejarValidacionDescripcion" />
-      </div>
-      <div class="columna-12 columna-md-12 columna-lg-3">
-        <InlineMessage class="espacio-1"
-          v-if="v$?.descripcion?.$error && v$.descripcion.$errors[0].$validator === 'required'"
-          id="imsDescripcionObligatorio">
-          {{ v$.descripcion.$errors[0].$message }}
-        </InlineMessage>
+      <div class="fila">
+        <div class="columna-12 columna-md-12 columna-lg-2">
+          <label id="lblDescripcion" for="txtDescripcion">*{{ t('tipoParametro.crear.descripcion') }}</label>
+        </div>
+        <div class="columna-12 columna-md-12 columna-lg-6">
+          <Textarea id="txtDescripcion" v-model="datosFormularioActualizacion.descripcion" maxlength="200"
+            :placeholder="t('tipoParametro.crear.placeholder_descripcion')" @input="manejarValidacionDescripcion" />
+        </div>
+        <div class="columna-12 columna-md-12 columna-lg-4">
+          <InlineMessage class="espacio-1"
+            v-if="v$?.descripcion?.$error && v$.descripcion.$errors[0].$validator === 'required'"
+            id="imsDescripcionObligatorio">
+            {{ v$.descripcion.$errors[0].$message }}
+          </InlineMessage>
+        </div>
       </div>
     </div>
     <template #footer>
@@ -171,7 +173,7 @@ import {
   actualizarTipoParametro as actualizarTipoParametroServicio
 } from '../servicios/TipoParametroServicio'
 import { permitirSoloLetrasYEspacios, permitirSoloLetrasYNumeros, alphaWithSpaces, alphaNumWithSpaces } from '@/utilitarios/ValidacionesBase'
-import usuarioStore from '@/stores/UsuarioStore'
+import usuarioStore from '@/stores/usuario/UsuarioStore'
 import Button from 'primevue/button'
 import Message from 'primevue/message'
 import InlineMessage from 'primevue/inlinemessage'
@@ -181,29 +183,9 @@ import Column from 'primevue/column'
 import Dialog from 'primevue/dialog'
 import InputText from 'primevue/inputtext'
 import Textarea from 'primevue/textarea'
+import type { ErrorValidacion, EstadoTipoParametro, EventoInput, TipoParametro } from '@/interfaces/principalBase'
+import type { SeveridadMensaje } from '@/types/base/principalBase'
 
-// Interfaces
-interface Estado {
-  nombre: string
-  id: string
-}
-
-interface TipoParametro {
-  codigo?: string
-  nombre: string
-  descripcion: string
-  fechaVigencia?: string
-  estado?: string
-}
-
-interface ErrorValidacion {
-  $validator: string
-  $message: string
-}
-
-interface EventoInput {
-  target: HTMLInputElement | HTMLTextAreaElement
-}
 
 // Composable de internacionalización
 const { t } = useI18n()
@@ -213,7 +195,7 @@ const mensajes = ref<string[]>([])
 const tiposParametros = ref<TipoParametro[]>([])
 const mensajePantalla = ref<string>('')
 const campoObligatorio = ref<boolean>(false)
-const estados = ref<Estado[]>([
+const estados = ref<EstadoTipoParametro[]>([
   { nombre: 'Activo', id: 'ACT' },
   { nombre: 'Inactivo', id: 'INA' }
 ])
@@ -222,7 +204,7 @@ const tipoParametroSeleccionado = ref<TipoParametro>({} as TipoParametro)
 const eliminarTipoParametroDialog = ref<boolean>(false)
 const actualizarTipoParametroDialog = ref<boolean>(false)
 const campoObligatorioAct = ref<boolean>(false)
-const severidadMensaje = ref<'success' | 'info' | 'warn' | 'error'>('info')
+const severidadMensaje = ref<SeveridadMensaje>('info')
 
 // Objeto reactivo para manejar los datos del formulario de actualización
 const datosFormularioActualizacion = ref({
@@ -317,11 +299,17 @@ const eliminarTipoParametroHandler = async (): Promise<void> => {
   try {
     const respuesta = await eliminarTipoParametroServicio(codigoTipoParametro!, token)
     const respuestaExitosa = 200
-    if (respuesta.status === respuestaExitosa) {
+    if (respuesta?.status === respuestaExitosa) {
       eliminarTipoParametroDialog.value = false
       await obtenerTiposParametrosPorEstado()
       severidadMensaje.value = 'success'
       mensajePantalla.value = `El tipo parámetro con código: ${codigoTipoParametro} se ha eliminado exitósamente.`
+    } else if (respuesta == null) {
+      severidadMensaje.value = 'error'
+      mensajePantalla.value = 'No se obtuvo respuesta del servidor al intentar eliminar el tipo parámetro.'
+    } else {
+      severidadMensaje.value = 'error'
+      mensajePantalla.value = `Error al eliminar el tipo parámetro (status: ${respuesta.status}).`
     }
   } catch (error) {
     severidadMensaje.value = 'error'

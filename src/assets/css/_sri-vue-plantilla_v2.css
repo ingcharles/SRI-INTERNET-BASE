@@ -1,15 +1,17 @@
-/**
- * Estilos para los componentes del sistema SRI
- * Usa el sistema de componentes.css en español
- */
-
+/*!
+	* Nombre: _sri-vue-estilos.scss
+	* Descripcion: Hoja de estilos globales de la plantilla de sistemas Vue
+	* Dependencias: _sri-vue-variables.scss, primevue, bootstrap
+	* Autor: Planificacion TI  - LRodriguez
+	* Copyright SRI-2023
+    */
 .contenido-form {
-  font-size: (--tamanio-fuente-campo);
+  font-size: var(--tamanio-fuente-campo);
   padding: 15px;
   display: flex;
   align-items: center;
   flex-direction: column;
-  color: #434a54;
+  color: var(--color-gris-fuerte);
 }
 
 .titulo h1,
@@ -122,7 +124,7 @@ label {
     .p-message-wrapper,
     .p-message-icon {
       color: var(--color-blanco);
-      padding: 1rem 1rem;
+      margin: 1rem 1rem;
       font-size: 22px;
     }
   }
@@ -223,8 +225,17 @@ input.p-inputtext.p-component .p-disabled:hover {
 }
 
 /********************* paneles de dialo, modales*/
+
 .p-dialog {
   border-radius: 0;
+  max-height: 90%;
+  transform: scale(1);
+  background: var(--color-blanco);
+  box-shadow:
+    0px 11px 15px -7px rgba(0, 0, 0, 0.2),
+    0px 24px 38px 3px rgba(0, 0, 0, 0.14),
+    0px 9px 46px 8px rgba(0, 0, 0, 0.12);
+  border: 0 none;
 }
 
 .p-dialog-footer .centrar-botones {
@@ -232,50 +243,32 @@ input.p-inputtext.p-component .p-disabled:hover {
 }
 
 .p-dialog .p-dialog-header {
-  padding: 20px 20px 20px 20px;
+  padding: 20px 20px 0 20px;
   border-top-right-radius: 0;
   border-top-left-radius: 0;
+  color: var(--color-gris-fuerte);
 }
 
 .p-dialog .p-dialog-content {
   padding: 0 20px 20px 20px;
   overflow-y: inherit;
+  color: var(--color-gris-fuerte);
 }
 
-.p-dialog .p-dialog-content [x='400'] {
-  display: grid;
-  width: 360px;
-  grid-template-columns: 100px 160px 100px;
-}
-
-.p-dialog .p-dialog-content [x='450'] {
-  display: grid;
-  width: 410px;
-  grid-template-columns: 100px 160px 150px;
-}
-
-.p-dialog .p-dialog-content [x='500'] {
-  display: grid;
+.dialog-500 {
   width: 460px;
-  grid-template-columns: 140px 160px 160px;
 }
 
-.p-dialog .p-dialog-content [x='600'] {
-  display: grid;
+.dialog-600 {
   width: 560px;
-  grid-template-columns: 160px 220px 160px;
 }
 
-.p-dialog .p-dialog-content [x='700'] {
-  display: grid;
+.dialog-700 {
   width: 660px;
-  grid-template-columns: 220px 240px 180px;
 }
 
-.p-dialog .p-dialog-content [x='800'] {
-  display: grid;
-  width: 760px;
-  grid-template-columns: 220px 340px 200px;
+.p-dialog-footer {
+  padding: 1.25rem;
 }
 
 .icono-info {
@@ -697,10 +690,26 @@ span.p-fieldset-toggler.pi.pi-minus:before {
   padding: 5px;
 }
 
+.p-datatable-paginator-bottom .p-paginator-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.p-datatable-paginator-bottom .p-paginator-content svg.p-icon {
+  width: var(--tamano-icono-datable-paginator-bottom);
+  height: var(--tamano-icono-datable-paginator-bottom);
+}
+
 .p-datatable-paginator-bottom .p-select .p-select-dropdown {
   color: var(--color-blanco);
 }
 
+.p-disabled {
+  opacity: 0.7;
+}
 .p-datatable-paginator-bottom .p-paginator .p-paginator-first,
 .p-datatable-paginator-bottom .p-paginator .p-paginator-prev,
 .p-datatable-paginator-bottom .p-paginator .p-paginator-next,
@@ -841,7 +850,7 @@ span.p-fieldset-toggler.pi.pi-minus:before {
 .p-datepicker-panel .p-datepicker-header .p-datepicker-next-button:enabled:hover {
   border-color: transparent;
   background-color: #6598d1;
-  color: #434a54;
+  color: var(--color-gris-fuerte);
 }
 
 .ancho-100 {
@@ -913,7 +922,7 @@ span.p-fieldset-toggler.pi.pi-minus:before {
   font-size: 16px;
   display: block;
   margin: 0;
-  color: #434a54;
+  color: var(--color-gris-fuerte);
   font-weight: bold;
 }
 
@@ -937,7 +946,7 @@ span.p-fieldset-toggler.pi.pi-minus:before {
 }
 
 .p-step-number {
-  color: #434a54;
+  color: var(--color-gris-fuerte);
   display: flex;
   align-items: center;
   justify-content: center;

@@ -7,7 +7,6 @@
 
 <template>
   <div class="contenido-form">
-    <!-- <div class="formulario"> -->
     <div class="contenedor">
       <div class="fila">
         <div class="columna-12 columna-md-8 columna-lg-6 desplazar-md-2 desplazar-lg-3">
@@ -151,7 +150,6 @@
       </div>
     </div>
   </div>
-  <!-- </div> -->
 </template>
 
 <script setup lang="ts">
@@ -159,18 +157,14 @@ import { ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 import Fieldset from 'primevue/fieldset';
 import InputText from 'primevue/inputtext';
-// import DatePicker from 'primevue/calendar';
 import Button from 'primevue/button';
 import Message from 'primevue/message';
 import InlineMessage from 'primevue/inlinemessage';
 import Select from 'primevue/select';
 import DatePicker from 'primevue/datepicker';
+import type { Ciudad } from '@/interfaces/principalBase';
+import type { SeveridadMensaje } from '@/types/base/principalBase';
 
-// Interfaz para las ciudades
-interface Ciudad {
-  nombre: string;
-  codigo: string;
-}
 
 // Composable de internacionalización
 const { t } = useI18n();
@@ -180,7 +174,7 @@ const fechaVigencia = ref<string>('');
 const nombre = ref<string>('');
 const mensaje = ref<string>('');
 const descripcion = ref<string>('');
-const severidadMensaje = ref<'success' | 'info' | 'warn' | 'error'>('info');
+const severidadMensaje = ref<SeveridadMensaje>('info');
 const campoObligatorio = ref<boolean>(false);
 const ciudadSeleccionada = ref<string | null>(null);
 const ciudadSeleccionada2 = ref<string | null>(null);

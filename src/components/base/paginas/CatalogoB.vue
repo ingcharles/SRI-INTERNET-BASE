@@ -8,9 +8,9 @@
 <template>
   <div class="contenedor color-gris-fuerte">
     <div class="mostrar-flex flex-columna">
-      <h1 class="titulo">{{ $t('catalogoB.titulo') }}</h1>
-      <div class="subtitulo">{{ $t('catalogoB.subtitulo') }}</div>
-      <div class="instrucciones">{{ $t('catalogoB.instrucciones') }}</div>
+      <h1 class="titulo">{{ t('catalogoB.titulo') }}</h1>
+      <div class="subtitulo">{{ t('catalogoB.subtitulo') }}</div>
+      <div class="instrucciones">{{ t('catalogoB.instrucciones') }}</div>
 
       <Stepper value="1">
         <StepList>
@@ -28,9 +28,9 @@
             </div>
             <!-- <div class="mostrar-flex pt-6"
               :class="item.valor === '1' ? 'justify-end' : item.valor === items.length.toString() ? 'justify-start' : 'justify-between'">
-              <Button v-if="item.valor !== '1'" :label="$t('catalogoB.botones.anterior')" severity="secondary"
+              <Button v-if="item.valor !== '1'" :label="t('catalogoB.botones.anterior')" severity="secondary"
                 icon="pi pi-arrow-left" @click="activateCallback((parseInt(item.valor) - 1).toString())" />
-              <Button v-if="item.valor !== items.length.toString()" :label="$t('catalogoB.botones.siguiente')"
+              <Button v-if="item.valor !== items.length.toString()" :label="t('catalogoB.botones.siguiente')"
                 icon="pi pi-arrow-right" iconPos="right"
                 @click="activateCallback((parseInt(item.valor) + 1).toString())" />
             </div> -->
@@ -41,22 +41,22 @@
       <Tabs value="0">
         <TabList class="mostrar-flex">
           <Tab v-for="tab in tabs" :key="tab.titulo" :value="tab.valor" class="flex-llenar texto-izquierda">{{
-            $t(tab.titulo) }}</Tab>
+            t(tab.titulo) }}</Tab>
         </TabList>
         <TabPanels>
           <TabPanel v-for="tab in tabs" :key="tab.contenido" :value="tab.valor">
-            <h2>{{ $t(tab.contenido) }}</h2>
+            <h2>{{ t(tab.contenido) }}</h2>
             <div v-if="tab.valor === '0'" class="centrar-botones">
-              <Button id="btnSucess" :label="$t('catalogoB.botones.exito')" class="p-button-success" />
-              <Button id="btnInfo" :label="$t('catalogoB.botones.info')" class="p-button-info" />
-              <Button id="btnWarning" :label="$t('catalogoB.botones.advertencia')" class="p-button-warning" />
-              <Button id="btnHelp" :label="$t('catalogoB.botones.ayuda')" class="p-button-help" />
-              <Button id="btnDanger" :label="$t('catalogoB.botones.peligro')" class="p-button-danger" />
-              <Button id="btnAnterior" :label="$t('catalogoB.botones.anterior')" icon="fa fa-fw fa-caret-left"
+              <Button id="btnSucess" :label="t('catalogoB.botones.exito')" class="p-button-success" />
+              <Button id="btnInfo" :label="t('catalogoB.botones.info')" class="p-button-info" />
+              <Button id="btnWarning" :label="t('catalogoB.botones.advertencia')" class="p-button-warning" />
+              <Button id="btnHelp" :label="t('catalogoB.botones.ayuda')" class="p-button-help" />
+              <Button id="btnDanger" :label="t('catalogoB.botones.peligro')" class="p-button-danger" />
+              <Button id="btnAnterior" :label="t('catalogoB.botones.anterior')" icon="fa fa-fw fa-caret-left"
                 icon-pos="left" />
-              <Button id="btnSiguiente" :label="$t('catalogoB.botones.siguiente')" icon="fa fa-fw fa-caret-right"
+              <Button id="btnSiguiente" :label="t('catalogoB.botones.siguiente')" icon="fa fa-fw fa-caret-right"
                 icon-pos="right" />
-              <Button id="btnAgregarElemento" v-tooltip.top="$t('catalogoB.botones.tooltipBotonAgregar')" type="button"
+              <Button id="btnAgregarElemento" v-tooltip.top="t('catalogoB.botones.tooltipBotonAgregar')" type="button"
                 icon="pi pi-plus" class="p-button-secondary p-button-plus">
               </Button>
             </div>
@@ -79,18 +79,11 @@ import Step from 'primevue/step'
 import StepPanels from 'primevue/steppanels'
 import StepPanel from 'primevue/steppanel'
 import Button from 'primevue/button'
+import type { StepItem, TabItem } from '@/interfaces/principalBase'
+import { useI18n } from 'vue-i18n'
 
-// Definir tipos para mejor TypeScript
-interface StepItem {
-  etiqueta: string
-  valor: string
-}
-
-interface TabItem {
-  titulo: string
-  contenido: string
-  valor: string
-}
+// Composable de internacionalización
+const { t } = useI18n()
 
 // Variable para los items del Stepper
 const items: StepItem[] = [

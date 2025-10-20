@@ -6,31 +6,8 @@
  * Copyright 2024 Servicio de Rentas Internas.
  */
 
+import type { AutorizacionUsuario, EstadoUsuario, SesionKeycloak } from '@/interfaces/usuario'
 import { defineStore } from 'pinia'
-
-// Interfaces
-interface AutorizacionUsuario {
-  permisos: string[]
-  roles: string[]
-  recursos: string[]
-  [key: string]: any
-}
-
-interface SesionKeycloak {
-  token: string
-  refreshToken: string
-  idToken?: string
-  tokenParsed?: any
-  authenticated: boolean
-  [key: string]: any
-}
-
-interface EstadoUsuario {
-  nombreUsuario: string
-  token: string
-  autorizacionUsuario: AutorizacionUsuario | null
-  sesionKeycloak: SesionKeycloak | null
-}
 
 /**
  * Store de Pinia para gestionar la información del usuario logueado
@@ -164,4 +141,4 @@ const usuarioStore = defineStore('usuarioLogueado', {
 export default usuarioStore
 
 // Exportar también las interfaces para uso en otros archivos
-export type { AutorizacionUsuario, SesionKeycloak, EstadoUsuario }
+// export type { AutorizacionUsuario, SesionKeycloak }
