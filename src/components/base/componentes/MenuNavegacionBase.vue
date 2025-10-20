@@ -73,8 +73,9 @@ const convertirAMenuPrime = (items: ItemMenuNavegacion[], nivel = 0): MenuItem[]
           <Button id="btnBuscar" icon="pi pi-search" class="p-button-text btn-buscar" size="small"
             @click="manejarClickMenu" />
         </div>
-        <div class="columna-8">
-          <InputText id="txtBusquedaServicios" type="search" v-model="textoBusqueda" placeholder="Buscar servicios" />
+        <div class="columna-8 relleno-0">
+          <InputText class="txtBusquedaServicios" id="txtBusquedaServicios" type="search" v-model="textoBusqueda"
+            placeholder="Buscar servicios" />
         </div>
         <div class="columna-2 relleno-0">
           <Button id="btnLimpiarBusqueda" icon="pi pi-times" class="p-button-text btn-buscar" size="small"
@@ -87,12 +88,12 @@ const convertirAMenuPrime = (items: ItemMenuNavegacion[], nivel = 0): MenuItem[]
     <PanelMenu v-if="!propiedades.mostrarMenuSoloIconos" :model="itemsMenuCabecera">
       <template #item="{ item, active }">
         <router-link v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>
-          <a v-ripple class="p-panelmenu-header-link" :href="href" @click="navigate">
+          <a class="p-panelmenu-header-link" :href="href" @click="navigate">
             <span class="p-panelmenu-header-icon" :class="item.icon" />
             <span class="p-panelmenu-header-label texto-subrayado tamanio-fuente-11">{{ item.label }}</span>
           </a>
         </router-link>
-        <a v-else v-ripple class="p-panelmenu-header-link" :href="item.route">
+        <a v-else class="p-panelmenu-header-link" :href="item.route">
           <span v-if="item.items" :class="[
             'ui-panelmenu-icon fa fa-fw',
             active ? 'fa-caret-down' : 'fa-caret-right',
@@ -107,7 +108,6 @@ const convertirAMenuPrime = (items: ItemMenuNavegacion[], nivel = 0): MenuItem[]
 
       </template>
     </PanelMenu>
-    <!-- </PanelMenu> -->
 
     <!-- Solo iconos cuando está colapsado -->
     <div v-else class="lista-menu" @click="manejarClickMenu">

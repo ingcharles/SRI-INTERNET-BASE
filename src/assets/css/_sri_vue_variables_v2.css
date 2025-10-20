@@ -8,11 +8,10 @@
 
 :root {
   /* Colores principales */
-  --color-azul-principal: #0000A4;
+  --color-azul-principal: #0000a4;
   --color-rojo-logo: #e2231a;
   --color-azul-claro: #6688cc;
   --color-azul-informacion: #4077ba;
-
 
   /* Colores grises */
   --color-gris-medio: #656d78;
@@ -67,6 +66,7 @@
   --tamanio-fuente-24: 24px;
   --tamanio-fuente-25: 25px;
   --tamanio-fuente-32: 32px;
+  --tamanio-fuente-tab: 16px;
 
   /* Tamaños de iconos */
   --tamanio-icono-informacion: 39px;
@@ -160,5 +160,6 @@
   --btn-color-desabilitado: var(--color-gris-neutro);
   --btn-color-desabilitado-background: var(--color-gris-claro);
 
-
+  /*** duración transición ******/
+  --duracion-transicion: 0.2s;
 }

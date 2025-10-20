@@ -77,9 +77,9 @@ const manejarClickMenu = () => emitir('alternar-menu');
         <!-- Sección Izquierda: Menú hamburguesa + Logo -->
         <div class="columna-6 columna-md-3 columna-lg-3 encabezado-izquierda">
           <div class="mostrar-flex alinear-centro">
-            <Button icon="sri-menu-icon-menu-hamburguesa " class="tamano-icono-hamburguesa" @click="manejarClickMenu"
+            <Button icon="sri-menu-icon-menu-hamburguesa " class="boton-icono-hamburguesa" @click="manejarClickMenu"
               aria-label="Abrir o cerrar menu desplegado" />
-            <div v-if="!propiedades.esPantallaExtraPequenia" class="logo-contenedor">
+            <div v-if="!propiedades.esPantallaExtraPequenia">
               <img alt="Logo SRI" class="logo-aplicacion" src="/src/assets/iconos/sri-en-linea.svg">
             </div>
           </div>
@@ -99,17 +99,16 @@ const manejarClickMenu = () => emitir('alternar-menu');
             <Menubar :model="itemsMenuCabecera">
               <template #item="{ item, hasSubmenu }">
                 <router-link v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>
-                  <a v-ripple :href="href" @click="navigate" class="menu-item-escritorio"
+                  <a :href="href" @click="navigate" class="menu-item-escritorio"
                     :class="{ 'badge-notificacion': item.label === 'Alertas y avisos' }"
                     :aria-label="String(item.label)" v-tooltip.left="item.label">
                     <span :class="item.icon" />
                     <span v-if="hasSubmenu" class="pi pi-fw pi-angle-down menu-icono" />
                   </a>
                 </router-link>
-                <a v-else v-ripple :href="item.url" :target="item.target"
-                  @click="() => (item.command as (() => void))?.()" class="menu-item-escritorio"
-                  :class="{ 'badge-notificacion': item.label === 'Alertas y avisos' }" :aria-label="String(item.label)"
-                  v-tooltip.left="item.label">
+                <a v-else :href="item.url" :target="item.target" @click="() => (item.command as (() => void))?.()"
+                  class="menu-item-escritorio" :class="{ 'badge-notificacion': item.label === 'Alertas y avisos' }"
+                  :aria-label="String(item.label)" v-tooltip.left="item.label">
                   <span :class="item.icon" />
                   <span v-if="hasSubmenu" class="pi pi-fw pi-angle-down menu-icono" />
                 </a>
@@ -124,7 +123,7 @@ const manejarClickMenu = () => emitir('alternar-menu');
             <TieredMenu ref="menuCabecera" id="btnMostrarTieredMenu" :model="itemsMenuCabecera" popup>
               <template #item="{ item, hasSubmenu }">
                 <router-link v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>
-                  <a v-ripple :href="href" @click="navigate" class="menu-item-movil"
+                  <a :href="href" @click="navigate" class="menu-item-movil"
                     :class="{ 'badge-notificacion': item.label === 'Alertas y avisos' }"
                     :aria-label="String(item.label)">
                     <span :class="item.icon" />
@@ -132,9 +131,9 @@ const manejarClickMenu = () => emitir('alternar-menu');
                     <span v-if="hasSubmenu" class="pi pi-fw pi-angle-down menu-icono" />
                   </a>
                 </router-link>
-                <a v-else v-ripple :href="item.url" :target="item.target"
-                  @click="() => (item.command as (() => void))?.()" class="menu-item-movil"
-                  :class="{ 'badge-notificacion': item.label === 'Alertas y avisos' }" :aria-label="String(item.label)">
+                <a v-else :href="item.url" :target="item.target" @click="() => (item.command as (() => void))?.()"
+                  class="menu-item-movil" :class="{ 'badge-notificacion': item.label === 'Alertas y avisos' }"
+                  :aria-label="String(item.label)">
                   <span :class="item.icon" />
                   <span class="menu-etiqueta">{{ item.label }}</span>
                   <span v-if="hasSubmenu" class="pi pi-fw pi-angle-down menu-icono" />
